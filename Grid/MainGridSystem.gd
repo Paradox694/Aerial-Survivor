@@ -40,7 +40,10 @@ func MainGridWrite(data: String, col: int, row: int):
 #function to imulate reading a value in a 2D array
 func MainGridRead(col: int, row: int):
 	return MainGrid[(row*MGColSize) + col]
-
+func MainGridRowFill(fillType: String, row: int):
+	if row > 0 and row < MGRowSize:
+		for c in range(MGColSize):
+			MainGrid[(row * MGColSize) + c] = fillType
 
 
 
