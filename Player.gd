@@ -1,42 +1,24 @@
 extends CharacterBody2D
 
-# Exported variables for customization
-@export var MAX_SPEED = 200
-@export var ACCELERATION = 1000
-@export var FRICTION = 1200
+const SPEED = 300.0
+const JUMP_VELOCITY = -400
 
-# Onready variable to store input axis
-@onready var axis = Vector2.ZERO
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-# Main physics process function
 func _physics_process(delta):
-	move(delta)
-
-# Function to get input axis (left/right movement)
-func get_input_axis():
-	axis.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
-	return axis.normalized()
-
-# Function to handle movement based on input
-func move(delta):
-
-	axis = get_input_axis()
-	if axis == Vector2.ZERO:
-		apply_friction(FRICTION * delta)
-
+	#add gravity
+	if not is_on_floor():
+		velocity.y += gravity * delta
+	
+	#Handle jump
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+	
+	#Handle input for left and right movement 
+	var direction = Input.get_axis("move_left", "move_right")
+	if direction:
+		velocity.x = direction * SPEED
 	else:
-		apply_movement(axis * ACCELERATION * delta)
-
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
 	move_and_slide()
-
-# Function to apply friction to slow down movement
-func apply_friction(amount):
-	if velocity.length() > amount:
-		velocity -= velocity.normalized() * amount
-	else:
-		velocity = Vector2.ZERO
-
-# Function to apply movement acceleration
-func apply_movement(accel):
-	velocity += accel
-	velocity = velocity.limit_length(MAX_SPEED)
