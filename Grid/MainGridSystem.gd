@@ -1,5 +1,7 @@
 extends Node2D
 
+
+
 #array of all the textures
 @export var cloudTextures : Texture2DArray
 #varibles for rendering
@@ -16,12 +18,25 @@ var MGColSize = 10
 var MGRowSize = 20
 
 
-
+#array to hold the Falling block grid
+var FallingBlockGrid : Array[String]
+#varibles that control the size of the falling block grid
+var FBGColSize = 4
+var FBGRowSize = 4
+#extra varibles for the fallingBlockGrid
+@export var FBGReferenceLocation : Vector2i 
 
 
 func _init():
+	#setting the main grid to correct size and filling it
 	MainGrid.resize(MGColSize*MGRowSize)
-	MainGrid.fill(0)
+	MainGrid.fill("empty")
+	
+	#setting the falling grid to correct size and filling it
+	FallingBlockGrid.resize(FBGColSize*FBGRowSize)
+	FallingBlockGrid.fill("empty")
+	
+
 	
 #draws all the clouds in the grid
 func _draw():
@@ -40,10 +55,32 @@ func MainGridWrite(data: String, col: int, row: int):
 #function to imulate reading a value in a 2D array
 func MainGridRead(col: int, row: int):
 	return MainGrid[(row*MGColSize) + col]
+#function that fill in a whole row with specified data
 func MainGridRowFill(fillType: String, row: int):
 	if row > 0 and row < MGRowSize:
 		for c in range(MGColSize):
 			MainGrid[(row * MGColSize) + c] = fillType
+
+
+#function to imulate setting a value in a 2D array
+func FBGWrite(data: String, col: int, row: int):
+	MainGrid[(row*MGColSize)+col] = data
+#function to imulate reading a value in a 2D array
+func FBGRead(col: int, row: int):
+	return MainGrid[(row*MGColSize) + col]
+#function to rotate falling block grid clockwise
+func FBGRotateRight():
+	#creating and filling store new data location inbetween transition
+	var temp : Array[String]
+	temp.resize(FBGColSize*FBGRowSize)
+	temp.fill("empty")
+	
+	#coping varibles over to new grid
+	for r in range(FBGRowSize):
+		for c in range(FBGColSize):
+			temp[(FBGColSize * (FBGRowSize - c - 1) ) + r] = FBGRead(c, r)
+	
+	FallingBlockGrid = temp
 
 
 
