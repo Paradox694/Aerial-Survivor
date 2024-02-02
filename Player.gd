@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 @export var MAX_SPEED = 200
 @export var ACCELERATION = 1000
 @export var FRICTION = 1200
