@@ -1,1 +1,6 @@
 res://WaterTimer.gd
+res://Scene.tscn
+res://Water_Timer.tscn
+res://Water.gd
+res://Water.tscn
+res://Main.tscn

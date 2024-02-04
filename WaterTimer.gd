@@ -1,5 +1,7 @@
 extends Node
 
+signal rise
+
 @onready var label = $Label
 @onready var timer = $Timer
 
@@ -14,3 +16,6 @@ func time_left_to_live():
 
 func _process(delta):
 	label.text = "%02d:%02d" % time_left_to_live()
+	if(label.text == "00:00"):
+		emit_signal("rise")
+		
