@@ -8,6 +8,6 @@
 [node name="WaterTimer" parent="." instance=ExtResource("1_t1tng")]
 
 [node name="Water" parent="." instance=ExtResource("2_blj3i")]
-position = Vector2(0, 656)
+position = Vector2(0, 650)
 
 [connection signal="rise" from="WaterTimer" to="Water" method="_on_water_timer_rise"]
