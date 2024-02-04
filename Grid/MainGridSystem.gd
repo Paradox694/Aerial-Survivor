@@ -86,6 +86,26 @@ func FBGRotateRight():
 	
 	#check for blocks out of bounds and move the FBGrid to solve
 	checkFBGridOutOfBounds()
+	
+
+func FBGRotateLeft():
+	#creating and filling store new data location inbetween transition
+	@warning_ignore("unassigned_variable")
+	var temp : Array[String]
+	temp.resize(FBGColSize*FBGRowSize)
+	temp.fill("empty")
+	
+	#coping varibles over to new grid
+	for r in range(FBGRowSize):
+		for c in range(FBGColSize):
+			temp[(FBGColSize * c ) + (FBGRowSize - r - 1)] = FBGRead(c, r)
+	
+	#setting the grid to the new locations
+	FallingBlockGrid = temp
+	
+	#check for blocks out of bounds and move the FBGrid to solve
+	checkFBGridOutOfBounds()
+
 
 #cheacks to see if any FBGrid blocks are out of bounds. if there are it moves the FBGrid to solve the issue
 func checkFBGridOutOfBounds():
