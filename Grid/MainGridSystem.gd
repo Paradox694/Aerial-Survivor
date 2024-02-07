@@ -169,6 +169,13 @@ func checkForRotationCollison(NewRoation : Array[int]):
 			if(MainGridRead(c + FBGReferenceLocation.x, r + FBGReferenceLocation.y) != 0 and NewRoation[(r * FBGColSize) + c] != 0):
 				return false
 	return true
+	
+func checkForMoveCollison(MoveDelta : int):
+	for r in range(FBGRowSize):
+		for c in range(FBGColSize):
+			if(MainGridRead(c + FBGReferenceLocation.x + MoveDelta, r + FBGReferenceLocation.y) != 0 and FallingBlockGrid[(r * FBGColSize) + c] != 0):
+				return false
+	return true
 
 #cheacks to see if any FBGrid blocks are out of bounds. if there are it moves the FBGrid to solve the issue
 func checkFBGridOutOfBounds():
