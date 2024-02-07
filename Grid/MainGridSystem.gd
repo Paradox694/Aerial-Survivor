@@ -67,12 +67,14 @@ func _input(event):
 		FBGRotateLeft()
 	
 	if event.is_action_pressed("MoveBlockRight"):
-		FBGReferenceLocation.x += 1
-		checkFBGridOutOfBounds()
+		if checkForMoveCollison(1):
+			FBGReferenceLocation.x += 1
+			checkFBGridOutOfBounds()
 		
 	if event.is_action_pressed("MoveBlockLeft"):
-		FBGReferenceLocation.x -= 1
-		checkFBGridOutOfBounds()
+		if checkForMoveCollison(-1):
+			FBGReferenceLocation.x -= 1
+			checkFBGridOutOfBounds()
 	
 
 
