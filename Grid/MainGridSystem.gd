@@ -3,7 +3,7 @@ extends Node2D
 
 
 #array of all the textures
-@export var cloudTextures : Texture2DArray
+@export var cloudTextures : Array[Texture2D]
 #varibles for rendering
 @export var rowRenderOffset : float
 @export var colRenderOffset : float
@@ -12,14 +12,14 @@ extends Node2D
 
 
 #arrya to be used as the main grid 
-var MainGrid : Array[String]
+var MainGrid : Array[int]
 #varibles that control the size of the main grid
 var MGColSize = 10
 var MGRowSize = 20
 
 
 #array to hold the Falling block grid
-var FallingBlockGrid : Array[String]
+var FallingBlockGrid : Array[int]
 #varibles that control the size of the falling block grid
 var FBGColSize = 4
 var FBGRowSize = 4
@@ -30,11 +30,14 @@ var FBGRowSize = 4
 func _init():
 	#setting the main grid to correct size and filling it
 	MainGrid.resize(MGColSize*MGRowSize)
-	MainGrid.fill("empty")
+	MainGrid.fill(0)
 	
 	#setting the falling grid to correct size and filling it
 	FallingBlockGrid.resize(FBGColSize*FBGRowSize)
-	FallingBlockGrid.fill("empty")
+	FallingBlockGrid.fill(0)
+	
+	MainGridWrite(5,1,1)
+	MainGridWrite(1,2,1)
 	
 
 	
@@ -50,20 +53,20 @@ func updateTextures():
 
 
 #function to imulate setting a value in a 2D array
-func MainGridWrite(data: String, col: int, row: int):
+func MainGridWrite(data: int, col: int, row: int):
 	MainGrid[(row*MGColSize)+col] = data
 #function to imulate reading a value in a 2D array
 func MainGridRead(col: int, row: int):
 	return MainGrid[(row*MGColSize) + col]
 #function that fill in a whole row with specified data
-func MainGridRowFill(fillType: String, row: int):
+func MainGridRowFill(fillType: int, row: int):
 	if row > 0 and row < MGRowSize:
 		for c in range(MGColSize):
 			MainGrid[(row * MGColSize) + c] = fillType
 
 
 #function to imulate setting a value in a 2D array
-func FBGWrite(data: String, col: int, row: int):
+func FBGWrite(data: int, col: int, row: int):
 	MainGrid[(row*MGColSize)+col] = data
 #function to imulate reading a value in a 2D array
 func FBGRead(col: int, row: int):
@@ -72,9 +75,9 @@ func FBGRead(col: int, row: int):
 func FBGRotateRight():
 	#creating and filling store new data location inbetween transition
 	@warning_ignore("unassigned_variable")
-	var temp : Array[String]
+	var temp : Array[int]
 	temp.resize(FBGColSize*FBGRowSize)
-	temp.fill("empty")
+	temp.fill(0)
 	
 	#coping varibles over to new grid
 	for r in range(FBGRowSize):
@@ -91,7 +94,7 @@ func FBGRotateRight():
 func FBGRotateLeft():
 	#creating and filling store new data location inbetween transition
 	@warning_ignore("unassigned_variable")
-	var temp : Array[String]
+	var temp : Array[int]
 	temp.resize(FBGColSize*FBGRowSize)
 	temp.fill("empty")
 	
