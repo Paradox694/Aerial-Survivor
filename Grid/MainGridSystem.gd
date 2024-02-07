@@ -9,7 +9,10 @@ extends Node2D
 @export var colRenderOffset : float
 
 
-
+#varibles for block falling automaticly
+@export var blockFallingRate : float
+var blockFallingTimer
+@export var FBGResetPosition : Vector2i
 
 #arrya to be used as the main grid 
 var MainGrid : Array[int]
@@ -24,7 +27,7 @@ var FallingBlockGrid : Array[int]
 var FBGColSize = 4
 var FBGRowSize = 4
 #extra varibles for the fallingBlockGrid
-@export var FBGReferenceLocation : Vector2i 
+var FBGReferenceLocation : Vector2i 
 
 
 func _init():
@@ -35,8 +38,7 @@ func _init():
 	#setting the falling grid to correct size and filling it
 	FallingBlockGrid.resize(FBGColSize*FBGRowSize)
 	FallingBlockGrid.fill(0)
-	FBGReferenceLocation = Vector2i(3,2)
-	
+	FBGReferenceLocation = Vector2i(3,15)
 	#use in testing
 	MainGridWrite(1,0,0)	
 	MainGridWrite(5,1,0)
@@ -74,7 +76,7 @@ func _input(event):
 	
 
 
-func _process(delta):
+#func _process(delta):
 	
 
 
@@ -131,7 +133,8 @@ func FBGRotateRight():
 			temp[(FBGColSize * (FBGRowSize - c - 1) ) + r] = FBGRead(c, r)
 	
 	#setting the grid to the new locations
-	FallingBlockGrid = temp
+	if checkForRotationCollison(temp):
+		FallingBlockGrid = temp
 	
 	#check for blocks out of bounds and move the FBGrid to solve
 	checkFBGridOutOfBounds()
@@ -152,13 +155,20 @@ func FBGRotateLeft():
 			temp[(FBGColSize * c ) + (FBGRowSize - r - 1)] = FBGRead(c, r)
 	
 	#setting the grid to the new locations
-	FallingBlockGrid = temp
+	if checkForRotationCollison(temp):
+		FallingBlockGrid = temp
 	
 	#check for blocks out of bounds and move the FBGrid to solve
 	checkFBGridOutOfBounds()
 	
 	
 
+func checkForRotationCollison(NewRoation : Array[int]):
+	for r in range(FBGRowSize):
+		for c in range(FBGColSize):
+			if(MainGridRead(c + FBGReferenceLocation.x, r + FBGReferenceLocation.y) != 0 and NewRoation[(r * FBGColSize) + c] != 0):
+				return false
+	return true
 
 #cheacks to see if any FBGrid blocks are out of bounds. if there are it moves the FBGrid to solve the issue
 func checkFBGridOutOfBounds():
@@ -170,20 +180,44 @@ func checkFBGridOutOfBounds():
 		for c in range(colOutOfBounds):
 			for r in range(FBGRowSize):
 				#if a block is found to be outside move the referance point over to garenty its not
-				if(FBGRead(c,r) != "empty"):
-					FBGReferenceLocation.x += colOutOfBounds
+				if(FBGRead(c,r) != 0):
+					FBGReferenceLocation.x += 1
+					break
 	
 	#checks if any coms are out of bounds on the right side
 	if(FBGReferenceLocation.x + FBGColSize - 1 >= MGColSize):
 		#finds how many cols are out of bounds and cheacks to see if any blocks are out side
-		var colOutOfBounds = FBGReferenceLocation.x + FBGColSize - MGColSize + 1
-		for c in range(FBGColSize -1, colOutOfBounds -1, -1):
+		var colOutOfBounds = FBGReferenceLocation.x + FBGColSize - MGColSize 
+		for c in range(-1, -colOutOfBounds -1, -1):
 			for r in range(FBGRowSize):
 				#if a block is found to be outside move the referance point over to garenty its not
-				if(FBGRead(c,r) != "empty"):
-					FBGReferenceLocation.x -= colOutOfBounds
+				if(FBGRead(c,r) != 0):
+					FBGReferenceLocation.x -= 1
+					break
+					
 		
 	queue_redraw()
 
 
+func FBGBlockFall():
+	for r in range(FBGRowSize):
+		for c in range(FBGColSize):
+			if(MainGridRead(c + FBGReferenceLocation.x, r + FBGReferenceLocation.y - 1) != 0 and FBGRead(c,r) != 0):
+				FBGReset()
+				return
+			
+			
+			
+			
+	FBGReferenceLocation.y -= 1
+	queue_redraw()
 
+func FBGReset():
+	for r in range(FBGRowSize):
+		for c in range(FBGColSize):
+			if(FBGRead(c,r) != 0):
+				MainGridWrite(FBGRead(c,r), c + FBGReferenceLocation.x, r + FBGReferenceLocation.y)
+	FBGReferenceLocation = FBGResetPosition
+
+func _on_grid_block_fall_timer_timeout():
+	FBGBlockFall()
