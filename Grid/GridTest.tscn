@@ -12,5 +12,9 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="MainGrid" type="Node2D" parent="."]
+position = Vector2(240, 958)
 script = ExtResource("1_xiyqx")
 cloudTextures = Array[Texture2D]([null, ExtResource("2_tx7uk"), ExtResource("3_7fy3b"), ExtResource("4_4nusr"), ExtResource("5_hm2xt"), ExtResource("6_82coh"), ExtResource("7_0c3uf"), ExtResource("8_gqxl8")])
+rowRenderOffset = 32.0
+colRenderOffset = 32.0
+FBGReferenceLocation = null

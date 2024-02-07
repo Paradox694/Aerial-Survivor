@@ -35,17 +35,63 @@ func _init():
 	#setting the falling grid to correct size and filling it
 	FallingBlockGrid.resize(FBGColSize*FBGRowSize)
 	FallingBlockGrid.fill(0)
+	FBGReferenceLocation = Vector2i(3,2)
 	
-	MainGridWrite(5,1,1)
-	MainGridWrite(1,2,1)
+	#use in testing
+	MainGridWrite(1,0,0)	
+	MainGridWrite(5,1,0)
+	MainGridWrite(1,2,0)
+	MainGridWrite(1,3,0)
+	MainGridWrite(1,4,0)
+	MainGridWrite(1,5,0)
+	MainGridWrite(1,6,0)
+	MainGridWrite(1,7,0)
+	MainGridWrite(1,8,0)
+	MainGridWrite(1,9,0)
 	
+	
+	FBGWrite(6,1,0)
+	FBGWrite(6,2,0)
+	FBGWrite(6,1,1)
+	FBGWrite(6,1,2)
+	FBGWrite(7,0,0)
+	
+
+func _input(event):
+	if event.is_action_pressed("RotateBlockRight"):
+		FBGRotateRight()
+	
+	if event.is_action_pressed("RotateBlockLeft"):
+		FBGRotateLeft()
+	
+	if event.is_action_pressed("MoveBlockRight"):
+		FBGReferenceLocation.x += 1
+		checkFBGridOutOfBounds()
+		
+	if event.is_action_pressed("MoveBlockLeft"):
+		FBGReferenceLocation.x -= 1
+		checkFBGridOutOfBounds()
+	
+
+
+func _process(delta):
+	
+
 
 	
 #draws all the clouds in the grid
 func _draw():
+	#draws the main grid
 	for r in range(MGRowSize):
 		for c in range(MGColSize):
-			draw_texture(cloudTextures[MainGridRead(c,r)],Vector2(c * colRenderOffset, r * rowRenderOffset))
+			if(MainGridRead(c,r) != 0):
+				draw_texture(cloudTextures[MainGridRead(c,r)],Vector2(c * colRenderOffset, r * -rowRenderOffset))
+		
+	#draw falling block grid
+	for r in range(FBGRowSize):
+		for c in range(FBGColSize):
+			if(FBGRead(c,r) != 0):
+				draw_texture(cloudTextures[FBGRead(c,r)],Vector2((c+ FBGReferenceLocation.x) * colRenderOffset , (r + FBGReferenceLocation.y) * -rowRenderOffset))
 		
 
 func updateTextures():
@@ -67,10 +113,10 @@ func MainGridRowFill(fillType: int, row: int):
 
 #function to imulate setting a value in a 2D array
 func FBGWrite(data: int, col: int, row: int):
-	MainGrid[(row*MGColSize)+col] = data
+	FallingBlockGrid[(row*FBGColSize)+col] = data
 #function to imulate reading a value in a 2D array
 func FBGRead(col: int, row: int):
-	return MainGrid[(row*MGColSize) + col]
+	return FallingBlockGrid[(row*FBGColSize) + col]
 #function to rotate falling block grid clockwise
 func FBGRotateRight():
 	#creating and filling store new data location inbetween transition
@@ -90,13 +136,15 @@ func FBGRotateRight():
 	#check for blocks out of bounds and move the FBGrid to solve
 	checkFBGridOutOfBounds()
 	
+	
+	
 
 func FBGRotateLeft():
 	#creating and filling store new data location inbetween transition
 	@warning_ignore("unassigned_variable")
 	var temp : Array[int]
 	temp.resize(FBGColSize*FBGRowSize)
-	temp.fill("empty")
+	temp.fill(0)
 	
 	#coping varibles over to new grid
 	for r in range(FBGRowSize):
@@ -108,6 +156,8 @@ func FBGRotateLeft():
 	
 	#check for blocks out of bounds and move the FBGrid to solve
 	checkFBGridOutOfBounds()
+	
+	
 
 
 #cheacks to see if any FBGrid blocks are out of bounds. if there are it moves the FBGrid to solve the issue
@@ -133,7 +183,7 @@ func checkFBGridOutOfBounds():
 				if(FBGRead(c,r) != "empty"):
 					FBGReferenceLocation.x -= colOutOfBounds
 		
-		
+	queue_redraw()
 
 
 
