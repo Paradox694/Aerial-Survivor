@@ -39,19 +39,7 @@ func _init():
 	FallingBlockGrid.resize(FBGColSize*FBGRowSize)
 	FallingBlockGrid.fill(0)
 	FBGReferenceLocation = Vector2i(3,15)
-	#use in testing
-	MainGridWrite(1,0,0)	
-	MainGridWrite(5,1,0)
-	MainGridWrite(1,2,0)
-	MainGridWrite(1,3,0)
-	MainGridWrite(1,4,0)
-	MainGridWrite(1,5,0)
-	MainGridWrite(1,6,0)
-	MainGridWrite(1,7,0)
-	MainGridWrite(1,8,0)
-	MainGridWrite(1,9,0)
-	
-	
+	#code for testing
 	FBGWrite(6,1,0)
 	FBGWrite(6,2,0)
 	FBGWrite(6,1,1)
@@ -75,10 +63,6 @@ func _input(event):
 		if checkForMoveCollison(-1):
 			FBGReferenceLocation.x -= 1
 			checkFBGridOutOfBounds()
-	
-
-
-#func _process(delta):
 	
 
 
@@ -209,14 +193,15 @@ func checkFBGridOutOfBounds():
 
 
 func FBGBlockFall():
+	if(FBGReferenceLocation.y == 0):
+		FBGReset()
+		return
+	
 	for r in range(FBGRowSize):
 		for c in range(FBGColSize):
 			if(MainGridRead(c + FBGReferenceLocation.x, r + FBGReferenceLocation.y - 1) != 0 and FBGRead(c,r) != 0):
 				FBGReset()
 				return
-			
-			
-			
 			
 	FBGReferenceLocation.y -= 1
 	queue_redraw()
