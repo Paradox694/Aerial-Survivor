@@ -1,8 +1,0 @@
-ea4bc82a6ad023ab7ee23ee620429895
-::res://::1707325715
-icon.svg::CompressedTexture2D::5600343347203500687::1705703018::1705703023::1::::<><>::
-Main.tscn::PackedScene::8926653735955031205::1707236423::0::1::::<><>::uid://dxgs7a0ibnxlq::::res://Water_Timer.tscn<>uid://csja2p1corfmn::::res://Water.tscn
-Water.gd::GDScript::-1::1707076256::0::1::::<>AnimatableBody2D<>::
-Water.tscn::PackedScene::6054868997218176097::1707236423::0::1::::<><>::res://Water.gd
-WaterTimer.gd::GDScript::-1::1707025394::0::1::::<>Node<>::
-Water_Timer.tscn::PackedScene::8787141811538627738::1707236472::0::1::::<><>::res://WaterTimer.gd

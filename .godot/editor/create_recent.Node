@@ -1,9 +1,0 @@
-AnimatableBody2D
-CollisionPolygon2D
-Polygon2D
-StaticBody2D
-Sprite2D
-Timer
-Label
-Node
-Node2D
