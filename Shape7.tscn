@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://buucas828hrev"]
+
+[ext_resource type="PackedScene" uid="uid://culyt5qs414wf" path="res://Block.tscn" id="1_p336w"]
+[ext_resource type="Script" path="res://scripts/Shape7.gd" id="1_tlojh"]
+
+[node name="Shape7" type="Node2D"]
+script = ExtResource("1_tlojh")
+
+[node name="Block" parent="." instance=ExtResource("1_p336w")]
+position = Vector2(-80, 0)
+
+[node name="Block2" parent="." instance=ExtResource("1_p336w")]
+
+[node name="Block3" parent="." instance=ExtResource("1_p336w")]
+position = Vector2(0, -80)
+
+[node name="Block4" parent="." instance=ExtResource("1_p336w")]
+position = Vector2(80, -80)
