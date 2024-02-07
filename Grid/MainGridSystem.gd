@@ -43,8 +43,9 @@ func _init():
 	FBGWrite(6,1,0)
 	FBGWrite(6,2,0)
 	FBGWrite(6,1,1)
-	FBGWrite(6,1,2)
-	FBGWrite(7,0,0)
+	FBGWrite(5,1,2)
+	
+	#MainGridRowFill(1,0)
 	
 
 func _input(event):
@@ -94,7 +95,7 @@ func MainGridRead(col: int, row: int):
 	return MainGrid[(row*MGColSize) + col]
 #function that fill in a whole row with specified data
 func MainGridRowFill(fillType: int, row: int):
-	if row > 0 and row < MGRowSize:
+	if row >= 0 and row < MGRowSize:
 		for c in range(MGColSize):
 			MainGrid[(row * MGColSize) + c] = fillType
 
@@ -193,15 +194,17 @@ func checkFBGridOutOfBounds():
 
 
 func FBGBlockFall():
-	if(FBGReferenceLocation.y == 0):
-		FBGReset()
-		return
+	
 	
 	for r in range(FBGRowSize):
 		for c in range(FBGColSize):
+			if((r + FBGReferenceLocation.y) == 0 and FBGRead(c,r) != 0):
+				FBGReset()
+				return
 			if(MainGridRead(c + FBGReferenceLocation.x, r + FBGReferenceLocation.y - 1) != 0 and FBGRead(c,r) != 0):
 				FBGReset()
 				return
+			
 			
 	FBGReferenceLocation.y -= 1
 	queue_redraw()
@@ -211,7 +214,28 @@ func FBGReset():
 		for c in range(FBGColSize):
 			if(FBGRead(c,r) != 0):
 				MainGridWrite(FBGRead(c,r), c + FBGReferenceLocation.x, r + FBGReferenceLocation.y)
+	CheckForLineClear()
 	FBGReferenceLocation = FBGResetPosition
+	
 
 func _on_grid_block_fall_timer_timeout():
 	FBGBlockFall()
+
+
+func CheckForLineClear():
+	var colmsFilled = 0
+	var rowsFilled = 0
+	
+	for r in range(FBGRowSize):
+		for c in range(MGColSize):
+			if(MainGridRead(c + FBGReferenceLocation.x, r + FBGReferenceLocation.y)):
+				colmsFilled += 1
+		if(colmsFilled == MGColSize):
+			rowsFilled += 1
+		colmsFilled = 0
+	
+	if(rowsFilled > 0):
+		#pass # add signal funtion here for water rise
+		#code for testing
+		MainGridRowFill(2,0)
+	
