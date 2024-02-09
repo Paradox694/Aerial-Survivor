@@ -28,7 +28,7 @@ var FBGColSize = 4
 var FBGRowSize = 4
 #extra varibles for the fallingBlockGrid
 var FBGReferenceLocation : Vector2i 
-
+var FBGDropReset : bool = false
 
 func _init():
 	#setting the main grid to correct size and filling it
@@ -66,6 +66,14 @@ func _input(event):
 			checkFBGridOutOfBounds()
 	
 
+func _physics_process(delta):
+	
+	if(Input.is_action_just_pressed("DropBlock")):
+		FBGDropReset = false
+	
+	if(!FBGDropReset):
+		if(Input.is_action_pressed("DropBlock")):
+			FBGBlockFall()
 
 	
 #draws all the clouds in the grid
@@ -216,6 +224,7 @@ func FBGReset():
 				MainGridWrite(FBGRead(c,r), c + FBGReferenceLocation.x, r + FBGReferenceLocation.y)
 	CheckForLineClear()
 	FBGReferenceLocation = FBGResetPosition
+	FBGDropReset = true
 	#add code to change block
 
 func _on_grid_block_fall_timer_timeout():
