@@ -10,7 +10,7 @@ extends Node2D
 
 
 #varibles for block falling automaticly
-@export var blockFallingRate : float
+
 var blockFallingTimer
 @export var FBGResetPosition : Vector2i
 
@@ -216,7 +216,7 @@ func FBGReset():
 				MainGridWrite(FBGRead(c,r), c + FBGReferenceLocation.x, r + FBGReferenceLocation.y)
 	CheckForLineClear()
 	FBGReferenceLocation = FBGResetPosition
-	
+	#add code to change block
 
 func _on_grid_block_fall_timer_timeout():
 	FBGBlockFall()
@@ -228,7 +228,7 @@ func CheckForLineClear():
 	
 	for r in range(FBGRowSize):
 		for c in range(MGColSize):
-			if(MainGridRead(c + FBGReferenceLocation.x, r + FBGReferenceLocation.y)):
+			if(MainGridRead(c, r + FBGReferenceLocation.y)):
 				colmsFilled += 1
 		if(colmsFilled == MGColSize):
 			rowsFilled += 1
