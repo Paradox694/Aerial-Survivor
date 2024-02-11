@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dxgs7a0ibnxlq"]
 
-[ext_resource type="Script" path="res://WaterTimer.gd" id="1_emmx3"]
+[ext_resource type="Script" path="res://Timer/WaterTimer.gd" id="1_emmx3"]
 
 [node name="WaterTimer" type="Node"]
 script = ExtResource("1_emmx3")

@@ -18,4 +18,9 @@ func _process(delta):
 	label.text = "%02d:%02d" % time_left_to_live()
 	if(label.text == "00:00"):
 		emit_signal("rise")
-		
+	if(label.text == "Done"):
+		$Timer.stop()
+
+func _on_water_stop():
+	label.text = "Done"
+	print("The timer has stopped")
