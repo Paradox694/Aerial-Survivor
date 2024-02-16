@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxgs7a0ibnxlq"]
+
+[ext_resource type="Script" path="res://Timer/WaterTimer.gd" id="1_emmx3"]
+
+[node name="WaterTimer" type="Node"]
+script = ExtResource("1_emmx3")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 141.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 50
+text = "00:00"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
