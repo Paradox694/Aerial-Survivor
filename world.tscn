@@ -147,7 +147,6 @@ size = Vector2(20, 339)
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(121, 584)
-scale = Vector2(3, 3)
 script = ExtResource("1_yo3gj")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
@@ -157,7 +156,6 @@ scale = Vector2(0.394043, 0.394043)
 texture = ExtResource("2_lot1b")
 hframes = 14
 vframes = 2
-frame = 13
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="Player/Sprite2D"]
 libraries = {
