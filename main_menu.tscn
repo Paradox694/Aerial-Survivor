@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://nhdd0ejmxc1g"]
+
+[ext_resource type="Script" path="res://Main Menu.gd" id="1_5v7l1"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5v7l1")
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 2
+offset_left = 755.0
+offset_top = 328.0
+offset_right = 1019.0
+offset_bottom = 445.0
+text = "Play"
+
+[node name="Options" type="Button" parent="."]
+layout_mode = 2
+offset_left = 756.0
+offset_top = 456.0
+offset_right = 1020.0
+offset_bottom = 573.0
+text = "Options"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 2
+offset_left = 758.0
+offset_top = 585.0
+offset_right = 1020.0
+offset_bottom = 701.0
+text = "Exit"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
