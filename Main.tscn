@@ -1,14 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0gexhl8kqr0p"]
+[gd_scene load_steps=3 format=3 uid="uid://dawmri5ybvyac"]
 
-[ext_resource type="PackedScene" uid="uid://dxgs7a0ibnxlq" path="res://Timer/Water_timer.tscn" id="1_t1tng"]
-[ext_resource type="PackedScene" uid="uid://csja2p1corfmn" path="res://Water/Water.tscn" id="2_blj3i"]
+[ext_resource type="PackedScene" uid="uid://csja2p1corfmn" path="res://Water/Water.tscn" id="1_dtgib"]
+[ext_resource type="PackedScene" uid="uid://dxgs7a0ibnxlq" path="res://Timer/Water_timer.tscn" id="2_fw2ar"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="WaterTimer" parent="." instance=ExtResource("1_t1tng")]
+[node name="Water" parent="." instance=ExtResource("1_dtgib")]
+position = Vector2(0, 650)
 
-[node name="Water" parent="." instance=ExtResource("2_blj3i")]
-position = Vector2(0, 648)
+[node name="WaterTimer" parent="." instance=ExtResource("2_fw2ar")]
 
-[connection signal="rise" from="WaterTimer" to="Water" method="_on_water_timer_rise"]
 [connection signal="stop" from="Water" to="WaterTimer" method="_on_water_stop"]
+[connection signal="rise" from="WaterTimer" to="Water" method="_on_water_timer_rise"]

@@ -22,5 +22,5 @@ func _process(delta):
 func _on_water_stop():
 	label.text = "Done"
 	if(label.text == "Done"):
-		timer.wait_time = 3600.0
+		timer.wait_time = 86400.0
 		
