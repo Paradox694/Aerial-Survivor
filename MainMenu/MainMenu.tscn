@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://nhdd0ejmxc1g"]
+[gd_scene load_steps=5 format=3 uid="uid://nhdd0ejmxc1g"]
 
 [ext_resource type="Script" path="res://MainMenu/Main Menu.gd" id="1_q83xd"]
+[ext_resource type="Texture2D" uid="uid://xdedf2amumna" path="res://UISprites/PlayButton.png" id="2_6cbqm"]
+[ext_resource type="Texture2D" uid="uid://koj1ywblod5h" path="res://UISprites/OptionButton.png" id="3_qqy31"]
+[ext_resource type="Texture2D" uid="uid://d3smc6en85jkv" path="res://UISprites/QuitButton.png" id="4_5aqdi"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -11,30 +14,32 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q83xd")
 
-[node name="Play" type="Button" parent="."]
-layout_mode = 2
-offset_left = 755.0
-offset_top = 328.0
-offset_right = 1019.0
-offset_bottom = 445.0
-text = "Play"
+[node name="Play" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 821.0
+offset_top = 380.0
+offset_right = 948.0
+offset_bottom = 456.0
+texture_normal = ExtResource("2_6cbqm")
 
-[node name="Options" type="Button" parent="."]
-layout_mode = 2
-offset_left = 756.0
-offset_top = 456.0
-offset_right = 1020.0
-offset_bottom = 573.0
-text = "Options"
+[node name="Options" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 788.0
+offset_top = 457.0
+offset_right = 988.0
+offset_bottom = 532.0
+texture_normal = ExtResource("3_qqy31")
 
-[node name="Quit" type="Button" parent="."]
-layout_mode = 2
-offset_left = 758.0
-offset_top = 585.0
-offset_right = 1020.0
-offset_bottom = 701.0
-text = "Quit"
+[node name="Quit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 824.0
+offset_top = 533.0
+offset_right = 949.0
+offset_bottom = 608.0
+texture_normal = ExtResource("4_5aqdi")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_2_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
