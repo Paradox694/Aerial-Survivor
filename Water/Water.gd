@@ -14,6 +14,6 @@ func _process(delta):
 		emit_signal("stop")
 
 func _on_water_timer_rise():
-	polygon_2d.position.y = polygon_2d.position.y - 1
+	polygon_2d.position.y = polygon_2d.position.y - 0.5
 	print("The water is rising")
 	print(polygon_2d.position.y)
