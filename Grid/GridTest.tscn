@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://32n226i3g03l"]
+[gd_scene load_steps=11 format=3 uid="uid://32n226i3g03l"]
 
+[ext_resource type="PackedScene" uid="uid://dxgs7a0ibnxlq" path="res://Timer/Water_timer.tscn" id="1_aq0g0"]
 [ext_resource type="Script" path="res://Grid/MainGridSystem.gd" id="1_xiyqx"]
 [ext_resource type="Texture2D" uid="uid://baf1jpmcc5bu3" path="res://Sprites/BlueBlock.png" id="2_tx7uk"]
 [ext_resource type="Texture2D" uid="uid://cauf2jssrnf2x" path="res://Sprites/DarkBlueBlock.png" id="3_7fy3b"]
@@ -8,8 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://6vvb02ahvu3e" path="res://Sprites/PinkBlock.png" id="6_82coh"]
 [ext_resource type="Texture2D" uid="uid://c1fp1lawjpjat" path="res://Sprites/RedBlock.png" id="7_0c3uf"]
 [ext_resource type="Texture2D" uid="uid://bhloxmnkbognx" path="res://Sprites/YellowBlock.png" id="8_gqxl8"]
+[ext_resource type="PackedScene" uid="uid://csja2p1corfmn" path="res://Water/Water.tscn" id="10_m42gs"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="WaterTimer" parent="." instance=ExtResource("1_aq0g0")]
 
 [node name="MainGrid" type="Node2D" parent="."]
 position = Vector2(240, 955)
@@ -24,4 +28,9 @@ process_callback = 0
 wait_time = 0.5
 autostart = true
 
+[node name="Water" parent="." instance=ExtResource("10_m42gs")]
+position = Vector2(-1, 649)
+
 [connection signal="timeout" from="MainGrid/GridBlockFallTimer" to="MainGrid" method="_on_grid_block_fall_timer_timeout"]
+[connection signal="fillRow" from="Water" to="MainGrid" method="MainGridRowFill"]
+[connection signal="stop" from="Water" to="WaterTimer" method="_on_water_stop"]
