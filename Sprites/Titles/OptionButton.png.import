@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://demwwahqcclkh"
-path="res://.godot/imported/GreenBlock.png-ecb761e098273c4e6c91bef143c91369.ctex"
+uid="uid://b1ryisg2lnf7t"
+path="res://.godot/imported/OptionButton.png-99e241446ff82e4370f09e8554a56b08.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/GreenBlock.png"
-dest_files=["res://.godot/imported/GreenBlock.png-ecb761e098273c4e6c91bef143c91369.ctex"]
+source_file="res://Sprites/Titles/OptionButton.png"
+dest_files=["res://.godot/imported/OptionButton.png-99e241446ff82e4370f09e8554a56b08.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bc3hxsyh0kpq6"]
 
-[ext_resource type="Texture2D" uid="uid://44n8gjc4e6bt" path="res://Sprites/OrangeBlock.png" id="1_vpupx"]
+[ext_resource type="Texture2D" uid="uid://44n8gjc4e6bt" path="res://Sprites/Blocks/OrangeBlock.png" id="1_vpupx"]
 
 [node name="LBlock" type="Node2D"]
 

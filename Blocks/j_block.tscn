@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://clnsaxp0gkidc"]
 
-[ext_resource type="Texture2D" uid="uid://cauf2jssrnf2x" path="res://Sprites/DarkBlueBlock.png" id="1_qjh6i"]
+[ext_resource type="Texture2D" uid="uid://cauf2jssrnf2x" path="res://Sprites/Blocks/DarkBlueBlock.png" id="1_qjh6i"]
 
 [node name="JBlock" type="Node2D"]
 
