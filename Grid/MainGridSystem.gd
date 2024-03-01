@@ -13,6 +13,7 @@ extends Node2D
 
 var blockFallingTimer
 @export var FBGResetPosition : Vector2i
+signal FBGResetArray()
 
 #arrya to be used as the main grid 
 var MainGrid : Array[int]
@@ -226,6 +227,7 @@ func FBGReset():
 	FBGReferenceLocation = FBGResetPosition
 	FBGDropReset = true
 	#add code to change block
+	FBGResetArray.emit()
 
 func _on_grid_block_fall_timer_timeout():
 	FBGBlockFall()
@@ -248,3 +250,6 @@ func CheckForLineClear():
 		#code for testing
 		MainGridRowFill(2,0)
 	
+func ChangeFBGArray(FBGArray: Array [int]):
+	FallingBlockGrid = FBGArray
+	queue_redraw()
