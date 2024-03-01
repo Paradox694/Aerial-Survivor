@@ -64,7 +64,7 @@ func NextShape():
 		2:
 			changeFBGArray.emit(shape2)
 			shapeToDraw = 1
-
+	queue_redraw()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
