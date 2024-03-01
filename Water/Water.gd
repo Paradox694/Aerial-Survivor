@@ -2,7 +2,7 @@ extends AnimatableBody2D
 
 signal stop
 
-signal fillRow(fillType: int, row: int)
+signal fillRow(fillType, row)
 
 @onready var polygon_2d = $Polygon2D
 
@@ -17,9 +17,12 @@ func _process(delta):
 
 func _on_water_timer_rise():
 	# original way of moving the water
-	# polygon_2d.position.y = polygon_2d.position.y - 0.5
+	#polygon_2d.position.y = polygon_2d.position.y - 0.5
 	
-	fillRow.emit(0,1)
+	var fillType = 1
+	var row = 1
+	
+	fillRow.emit(fillType, row)
 	
 	print("The water is rising")
 	print(polygon_2d.position.y)

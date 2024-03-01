@@ -15,6 +15,9 @@
 
 [node name="WaterTimer" parent="." instance=ExtResource("1_aq0g0")]
 
+[node name="Water" parent="." instance=ExtResource("10_m42gs")]
+position = Vector2(3, 1161)
+
 [node name="MainGrid" type="Node2D" parent="."]
 position = Vector2(240, 955)
 script = ExtResource("1_xiyqx")
@@ -28,9 +31,7 @@ process_callback = 0
 wait_time = 0.5
 autostart = true
 
-[node name="Water" parent="." instance=ExtResource("10_m42gs")]
-position = Vector2(-1, 649)
-
-[connection signal="timeout" from="MainGrid/GridBlockFallTimer" to="MainGrid" method="_on_grid_block_fall_timer_timeout"]
+[connection signal="rise" from="WaterTimer" to="Water" method="_on_water_timer_rise"]
 [connection signal="fillRow" from="Water" to="MainGrid" method="MainGridRowFill"]
 [connection signal="stop" from="Water" to="WaterTimer" method="_on_water_stop"]
+[connection signal="timeout" from="MainGrid/GridBlockFallTimer" to="MainGrid" method="_on_grid_block_fall_timer_timeout"]

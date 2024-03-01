@@ -1,7 +1,5 @@
 extends Node2D
 
-signal fill
-
 #array of all the textures
 @export var cloudTextures : Array[Texture2D]
 #varibles for rendering
@@ -29,10 +27,6 @@ var FBGRowSize = 4
 #extra varibles for the fallingBlockGrid
 var FBGReferenceLocation : Vector2i 
 var FBGDropReset : bool = false
-
-func _ready():
-	
-	pass
 
 func _init():
 	#setting the main grid to correct size and filling it
@@ -110,7 +104,6 @@ func MainGridRowFill(fillType: int, row: int):
 	if row >= 0 and row < MGRowSize:
 		for c in range(MGColSize):
 			MainGrid[(row * MGColSize) + c] = fillType
-
 
 #function to imulate setting a value in a 2D array
 func FBGWrite(data: int, col: int, row: int):
