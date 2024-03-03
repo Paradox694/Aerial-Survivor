@@ -24,4 +24,4 @@ process_callback = 0
 wait_time = 0.5
 autostart = true
 
-[connection signal="timeout" from="MainGrid/GridBlockFallTimer" to="MainGrid" method="_on_grid_block_fall_timer_timeout"]
+[connection signal="timeout" from="MainGrid/GridBlockFallTimer" to="MainGrid" method="FBGBlockFall"]

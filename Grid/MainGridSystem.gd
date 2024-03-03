@@ -66,7 +66,7 @@ func _input(event):
 			checkFBGridOutOfBounds()
 	
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	if(Input.is_action_just_pressed("DropBlock")):
 		FBGDropReset = false
@@ -226,9 +226,6 @@ func FBGReset():
 	FBGReferenceLocation = FBGResetPosition
 	FBGDropReset = true
 	#add code to change block
-
-func _on_grid_block_fall_timer_timeout():
-	FBGBlockFall()
 
 
 func CheckForLineClear():
