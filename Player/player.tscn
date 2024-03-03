@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://biqo6m34folbv"]
+[gd_scene load_steps=12 format=3 uid="uid://b1g2bkbuln40b"]
 
-[ext_resource type="Script" path="res://Player/Player.gd" id="1_yo3gj"]
-[ext_resource type="Texture2D" uid="uid://5kw853slwjt6" path="res://SpriteSheets/Yuki_Sheet.png" id="2_lot1b"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_5u3h7"]
+[ext_resource type="Texture2D" uid="uid://5kw853slwjt6" path="res://SpriteSheets/Yuki_Sheet.png" id="2_xquag"]
 
 [sub_resource type="Animation" id="Animation_tl8fv"]
 resource_name = "idle_left"
@@ -133,50 +133,26 @@ _data = {
 "walk_right": SubResource("Animation_pqgq3")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q66i"]
-radius = 12.0
-height = 48.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7r7e0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_40ap4"]
-size = Vector2(409, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_enxlb"]
-size = Vector2(20, 339)
-
-[node name="World" type="Node2D"]
-
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D"]
 position = Vector2(121, 584)
-script = ExtResource("1_yo3gj")
+script = ExtResource("1_5u3h7")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(2.38419e-06, 5.24521e-06)
 scale = Vector2(0.394043, 0.394043)
-texture = ExtResource("2_lot1b")
+texture = ExtResource("2_xquag")
 hframes = 14
 vframes = 2
 
-[node name="PlayerAnimation" type="AnimationPlayer" parent="Player/Sprite2D"]
+[node name="PlayerAnimation" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
 "": SubResource("AnimationLibrary_42uay")
 }
 speed_scale = 0.75
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CapsuleShape2D_4q66i")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(21, 630)
-
-[node name="TempFloor" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(194.5, 0)
-shape = SubResource("RectangleShape2D_40ap4")
-
-[node name="TempSidePanel1" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, -159.5)
-shape = SubResource("RectangleShape2D_enxlb")
-
-[node name="TempSidePanel2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(389, -159)
-shape = SubResource("RectangleShape2D_enxlb")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_7r7e0")
