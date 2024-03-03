@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://32n226i3g03l"]
+[gd_scene load_steps=10 format=3 uid="uid://32n226i3g03l"]
 
 [ext_resource type="Script" path="res://Grid/MainGridSystem.gd" id="1_xiyqx"]
 [ext_resource type="Texture2D" uid="uid://baf1jpmcc5bu3" path="res://Sprites/BlueBlock.png" id="2_tx7uk"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://6vvb02ahvu3e" path="res://Sprites/PinkBlock.png" id="6_82coh"]
 [ext_resource type="Texture2D" uid="uid://c1fp1lawjpjat" path="res://Sprites/RedBlock.png" id="7_0c3uf"]
 [ext_resource type="Texture2D" uid="uid://bhloxmnkbognx" path="res://Sprites/YellowBlock.png" id="8_gqxl8"]
+[ext_resource type="Script" path="res://scripts/DrawShape.gd" id="9_e3c2c"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -24,4 +25,15 @@ process_callback = 0
 wait_time = 0.5
 autostart = true
 
+<<<<<<< HEAD
 [connection signal="timeout" from="MainGrid/GridBlockFallTimer" to="MainGrid" method="FBGBlockFall"]
+=======
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-9, 0)
+script = ExtResource("9_e3c2c")
+textureArray = Array[Texture2D]([ExtResource("2_tx7uk"), ExtResource("3_7fy3b"), ExtResource("4_4nusr"), ExtResource("5_hm2xt"), ExtResource("6_82coh"), ExtResource("7_0c3uf"), ExtResource("8_gqxl8")])
+
+[connection signal="FBGResetArray" from="MainGrid" to="Node2D" method="NextShape"]
+[connection signal="timeout" from="MainGrid/GridBlockFallTimer" to="MainGrid" method="_on_grid_block_fall_timer_timeout"]
+[connection signal="changeFBGArray" from="Node2D" to="MainGrid" method="ChangeFBGArray"]
+>>>>>>> origin/ShapeSelection
