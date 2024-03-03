@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dkw3p2eyetstj"]
 
-[ext_resource type="Texture2D" uid="uid://demwwahqcclkh" path="res://Sprites/GreenBlock.png" id="1_vnb7e"]
+[ext_resource type="Texture2D" uid="uid://demwwahqcclkh" path="res://Sprites/Blocks/GreenBlock.png" id="1_vnb7e"]
 
 [node name="SBlock" type="Node2D"]
 

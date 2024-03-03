@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhloxmnkbognx"
-path="res://.godot/imported/YellowBlock.png-9d28d2da3882c3b45b73ab0bb07fea7d.ctex"
+uid="uid://6vvb02ahvu3e"
+path="res://.godot/imported/PinkBlock.png-1e3816077c24683e33d22df0d35b3f7d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/YellowBlock.png"
-dest_files=["res://.godot/imported/YellowBlock.png-9d28d2da3882c3b45b73ab0bb07fea7d.ctex"]
+source_file="res://Sprites/Blocks/PinkBlock.png"
+dest_files=["res://.godot/imported/PinkBlock.png-1e3816077c24683e33d22df0d35b3f7d.ctex"]
 
 [params]
 

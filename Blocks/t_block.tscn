@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b2tcs20el5duq"]
 
-[ext_resource type="Texture2D" uid="uid://6vvb02ahvu3e" path="res://Sprites/PinkBlock.png" id="1_jy8hy"]
+[ext_resource type="Texture2D" uid="uid://6vvb02ahvu3e" path="res://Sprites/Blocks/PinkBlock.png" id="1_jy8hy"]
 
 [node name="TBlock" type="Node2D"]
 

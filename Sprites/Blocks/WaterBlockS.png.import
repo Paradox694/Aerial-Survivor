@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cauf2jssrnf2x"
-path="res://.godot/imported/DarkBlueBlock.png-ac335d472cfdfddd82fcdf8645be4138.ctex"
+uid="uid://dqae66sixp8so"
+path="res://.godot/imported/WaterBlockS.png-3ebaccc192a57ba4281fdd0ec2d765d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/DarkBlueBlock.png"
-dest_files=["res://.godot/imported/DarkBlueBlock.png-ac335d472cfdfddd82fcdf8645be4138.ctex"]
+source_file="res://Sprites/Blocks/WaterBlockS.png"
+dest_files=["res://.godot/imported/WaterBlockS.png-3ebaccc192a57ba4281fdd0ec2d765d0.ctex"]
 
 [params]
 

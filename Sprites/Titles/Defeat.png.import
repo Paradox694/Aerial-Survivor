@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://44n8gjc4e6bt"
-path="res://.godot/imported/OrangeBlock.png-4f0c7be7120b4d32604cda326f07e6b8.ctex"
+uid="uid://chnaica16hqgj"
+path="res://.godot/imported/Defeat.png-2703bcd0f970059f074411d84627f8df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/OrangeBlock.png"
-dest_files=["res://.godot/imported/OrangeBlock.png-4f0c7be7120b4d32604cda326f07e6b8.ctex"]
+source_file="res://Sprites/Titles/Defeat.png"
+dest_files=["res://.godot/imported/Defeat.png-2703bcd0f970059f074411d84627f8df.ctex"]
 
 [params]
 
