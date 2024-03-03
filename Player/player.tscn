@@ -134,6 +134,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7r7e0"]
+size = Vector2(14, 17.3333)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(121, 584)
@@ -154,5 +155,6 @@ libraries = {
 speed_scale = 0.75
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 scale = Vector2(1, 1.5)
 shape = SubResource("RectangleShape2D_7r7e0")

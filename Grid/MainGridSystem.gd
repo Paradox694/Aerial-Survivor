@@ -31,8 +31,11 @@ var FBGRowSize = 4
 var FBGReferenceLocation : Vector2i 
 var FBGDropReset : bool = false
 
-#caribles for creating coliision
-var CollisionGrid : Array[CollisionShape2D]
+#collider
+var collider = preload("res://Grid/block_collider.tscn")
+var collisionGrid : Array
+
+
 
 func _init():
 	#setting the main grid to correct size and filling it
@@ -43,19 +46,14 @@ func _init():
 	FallingBlockGrid.resize(FBGColSize*FBGRowSize)
 	FallingBlockGrid.fill(-1)
 	FBGReferenceLocation = Vector2i(3,20)
-	#code for testing
-	#FBGWrite(6,1,0)
-	#FBGWrite(6,2,0)
-	#FBGWrite(6,1,1)
-	#FBGWrite(6,1,2)
-	
-	#MainGridRowFill(1,0)
-	
-	
+
+	collisionGrid.resize(MainGrid.size())
 
 func _ready():
 	#gets first block
 	FBGResetArray.emit()
+	
+
 
 func _input(event):
 	if event.is_action_pressed("RotateBlockRight"):
@@ -231,6 +229,11 @@ func FBGReset():
 		for c in range(FBGColSize):
 			if(FBGRead(c,r) > -1):
 				MainGridWrite(FBGRead(c,r), c + FBGReferenceLocation.x, r + FBGReferenceLocation.y)
+				var collid = collider.instantiate()
+				add_child(collid)
+				collid.position = Vector2((c + FBGReferenceLocation.x) * colRenderOffset, (r + FBGReferenceLocation.y) * -rowRenderOffset)
+				collisionGridWrite(collid,c + FBGReferenceLocation.x,r + FBGReferenceLocation.y)
+				
 	CheckForLineClear()
 	FBGReferenceLocation = FBGResetPosition
 	FBGDropReset = true
@@ -257,3 +260,13 @@ func CheckForLineClear():
 func ChangeFBGArray(FBGArray: Array [int]):
 	FallingBlockGrid = FBGArray
 	queue_redraw()
+
+
+#function to imulate setting a value in a 2D array
+func collisionGridWrite(data, col: int, row: int):
+	collisionGrid[(row*MGColSize)+col] = data
+#function to imulate reading a value in a 2D array
+func collisionGridRead(col: int, row: int):
+	return collisionGrid[(row*MGColSize) + col]
+
+
