@@ -20,9 +20,9 @@ func _on_water_timer_rise():
 	#polygon_2d.position.y = polygon_2d.position.y - 0.5
 	
 	var fillType = 1
-	var row = 1
+	
+	var row = 0
 	
 	fillRow.emit(fillType, row)
 	
 	print("The water is rising")
-	print(polygon_2d.position.y)
