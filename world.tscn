@@ -61,26 +61,3 @@ position = Vector2(340, -328)
 shape = SubResource("RectangleShape2D_enxlb")
 
 [node name="SidePanelSprite2D 2" type="Sprite2D" parent="PlayAreaPanels/SidePanel2"]
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(4, 0)
-polygon = PackedVector2Array(390, -10, 502, -10, 502, 82, 390, 82)
-
-[node name="NextBlock" type="TextEdit" parent="Polygon2D"]
-offset_left = 399.0
-offset_top = -9.0
-offset_right = 492.0
-offset_bottom = 29.0
-text = "Next block"
-
-[node name="TempTimerArea" type="Polygon2D" parent="."]
-position = Vector2(4, -44)
-scale = Vector2(1, 0.380435)
-polygon = PackedVector2Array(390, -10, 502, -10, 502, 84.1143, 446, 84.1143, 390, 84.1143)
-
-[node name="Timer" type="TextEdit" parent="TempTimerArea"]
-offset_left = 397.0
-offset_top = -2.62856
-offset_right = 490.0
-offset_bottom = 35.3714
-text = "Timer"
