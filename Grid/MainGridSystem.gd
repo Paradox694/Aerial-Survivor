@@ -8,7 +8,7 @@ extends Node2D
 @export var rowRenderOffset : float
 @export var colRenderOffset : float
 
-
+signal SendWater(WaterSent :int)
 #varibles for block falling automaticly
 
 var blockFallingTimer
@@ -253,8 +253,17 @@ func CheckForLineClear():
 			rowsFilled += 1
 		colmsFilled = 0
 	
-	if(rowsFilled > 0):
-		pass # add signal funtion here for water rise
+	match rowsFilled:
+		
+		1:
+			SendWater.emit(1)
+		2:
+			SendWater.emit(2)
+		3:
+			SendWater.emit(3)
+		4:
+			SendWater.emit(4)
+		
 		
 	
 func ChangeFBGArray(FBGArray: Array [int]):
