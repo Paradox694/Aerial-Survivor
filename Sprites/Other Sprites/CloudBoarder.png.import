@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8otttjlbc2kf"
-path="res://.godot/imported/PlayButton.png-674584e35fec598d45d62ed16db780d0.ctex"
+uid="uid://bhwigjm6u8rbt"
+path="res://.godot/imported/CloudBoarder.png-fe791c467c3ebd8c71954f84e26a4355.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Titles/PlayButton.png"
-dest_files=["res://.godot/imported/PlayButton.png-674584e35fec598d45d62ed16db780d0.ctex"]
+source_file="res://Sprites/Other Sprites/CloudBoarder.png"
+dest_files=["res://.godot/imported/CloudBoarder.png-fe791c467c3ebd8c71954f84e26a4355.ctex"]
 
 [params]
 
