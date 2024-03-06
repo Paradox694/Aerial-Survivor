@@ -31,7 +31,7 @@ process_callback = 0
 wait_time = 0.5
 autostart = true
 
-[connection signal="rise" from="WaterTimer" to="Water" method="_on_water_timer_rise"]
+[connection signal="rise" from="WaterTimer" to="Water" method="WaterRise"]
 [connection signal="fillRow" from="Water" to="MainGrid" method="MainGridRowFill"]
 [connection signal="stop" from="Water" to="WaterTimer" method="_on_water_stop"]
 [connection signal="timeout" from="MainGrid/GridBlockFallTimer" to="MainGrid" method="_on_grid_block_fall_timer_timeout"]
