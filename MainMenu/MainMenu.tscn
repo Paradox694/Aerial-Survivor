@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://nhdd0ejmxc1g"]
 
 [ext_resource type="Script" path="res://MainMenu/Main Menu.gd" id="1_q83xd"]
-[ext_resource type="Texture2D" uid="uid://xdedf2amumna" path="res://UISprites/PlayButton.png" id="2_6cbqm"]
-[ext_resource type="Texture2D" uid="uid://koj1ywblod5h" path="res://UISprites/OptionButton.png" id="3_qqy31"]
-[ext_resource type="Texture2D" uid="uid://d3smc6en85jkv" path="res://UISprites/QuitButton.png" id="4_5aqdi"]
+[ext_resource type="Texture2D" uid="uid://c8otttjlbc2kf" path="res://Sprites/Titles/PlayButton.png" id="2_oqji2"]
+[ext_resource type="Texture2D" uid="uid://dqhexoxvjx6eo" path="res://Sprites/Titles/OptionButton.png" id="3_knsfs"]
+[ext_resource type="Texture2D" uid="uid://b1vhcs28avrqb" path="res://Sprites/Titles/QuitButton.png" id="4_v8uuq"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -16,27 +16,30 @@ script = ExtResource("1_q83xd")
 
 [node name="Play" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 821.0
-offset_top = 380.0
-offset_right = 948.0
-offset_bottom = 456.0
-texture_normal = ExtResource("2_6cbqm")
+offset_left = 771.0
+offset_top = 281.0
+offset_right = 1271.0
+offset_bottom = 581.0
+scale = Vector2(0.65, 0.65)
+texture_normal = ExtResource("2_oqji2")
 
 [node name="Options" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 788.0
-offset_top = 457.0
-offset_right = 988.0
-offset_bottom = 532.0
-texture_normal = ExtResource("3_qqy31")
+offset_left = 666.0
+offset_top = 503.0
+offset_right = 1466.0
+offset_bottom = 803.0
+scale = Vector2(0.65, 0.65)
+texture_normal = ExtResource("3_knsfs")
 
 [node name="Quit" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 824.0
-offset_top = 533.0
-offset_right = 949.0
-offset_bottom = 608.0
-texture_normal = ExtResource("4_5aqdi")
+offset_left = 764.0
+offset_top = 727.0
+offset_right = 1264.0
+offset_bottom = 1027.0
+scale = Vector2(0.65, 0.65)
+texture_normal = ExtResource("4_v8uuq")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Play" to="." method="_on_texture_button_pressed"]
