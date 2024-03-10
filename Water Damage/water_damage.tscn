@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://niru1fo8yq7v"]
+
+[ext_resource type="Script" path="res://Water Damage/Water_Damage.gd" id="1_iwu05"]
+[ext_resource type="Texture2D" uid="uid://baf1jpmcc5bu3" path="res://Sprites/BlueBlock.png" id="2_syy4f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdpx3"]
+size = Vector2(432, 36)
+
+[node name="Water_Damage" type="Node2D"]
+script = ExtResource("1_iwu05")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(216, 18)
+shape = SubResource("RectangleShape2D_jdpx3")
+
+[node name="BlueBlock" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(200, 2)
+texture = ExtResource("2_syy4f")

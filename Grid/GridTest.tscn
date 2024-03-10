@@ -1,6 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://d3hg7gd0gyx28"]
+[gd_scene load_steps=16 format=3 uid="uid://d3hg7gd0gyx28"]
 
+[ext_resource type="PackedScene" uid="uid://dxgs7a0ibnxlq" path="res://Timer/Water_timer.tscn" id="1_ci0ik"]
 [ext_resource type="Script" path="res://Grid/MainGridSystem.gd" id="1_xiyqx"]
+[ext_resource type="PackedScene" uid="uid://niru1fo8yq7v" path="res://Water Damage/water_damage.tscn" id="2_pfob7"]
 [ext_resource type="Texture2D" uid="uid://baf1jpmcc5bu3" path="res://Sprites/BlueBlock.png" id="2_tx7uk"]
 [ext_resource type="Texture2D" uid="uid://5epn23y2qr0w" path="res://Sprites/Blocks/WaterBlockD.png" id="2_xuib7"]
 [ext_resource type="Texture2D" uid="uid://cauf2jssrnf2x" path="res://Sprites/DarkBlueBlock.png" id="3_7fy3b"]
@@ -16,6 +18,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfgmb"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="WaterTimer" parent="." instance=ExtResource("1_ci0ik")]
+
+[node name="Water_Damage" parent="." instance=ExtResource("2_pfob7")]
+position = Vector2(185, 988)
 
 [node name="MainGrid" type="Node2D" parent="."]
 position = Vector2(240, 955)
@@ -79,6 +86,8 @@ autostart = true
 position = Vector2(396, 931)
 scale = Vector2(2, 2)
 
+[connection signal="rise" from="WaterTimer" to="Water_Damage" method="_on_water_timer_rise"]
+[connection signal="stop" from="Water_Damage" to="WaterTimer" method="_on_water_stop"]
 [connection signal="FBGResetArray" from="MainGrid" to="MainGrid/block selection" method="NextShape"]
 [connection signal="SendWater" from="MainGrid" to="MainGrid/waterSystem" method="WaterRise"]
 [connection signal="timeout" from="MainGrid/GridBlockFallTimer" to="MainGrid" method="FBGBlockFall"]
