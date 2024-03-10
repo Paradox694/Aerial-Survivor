@@ -65,3 +65,10 @@ func _physics_process(delta):
 	
 func _on_animated_sprite_2d_animation_finished():
 	animated_sprite.play("idle_right")
+
+
+func _on_area_2d_area_entered(area):
+	if(area.name == "Damage_Area"):
+		area.get_parent().queue_free()
+		queue_free()
+	pass # Replace with function body.

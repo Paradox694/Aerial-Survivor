@@ -22,7 +22,7 @@
 [node name="WaterTimer" parent="." instance=ExtResource("1_ci0ik")]
 
 [node name="Water_Damage" parent="." instance=ExtResource("2_pfob7")]
-position = Vector2(185, 988)
+position = Vector2(179, 987)
 
 [node name="MainGrid" type="Node2D" parent="."]
 position = Vector2(240, 955)
@@ -47,6 +47,7 @@ position = Vector2(160, 48)
 scale = Vector2(12, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainGrid/floor"]
+position = Vector2(0, -6)
 scale = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_rfgmb")
 

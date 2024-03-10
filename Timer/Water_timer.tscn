@@ -12,4 +12,4 @@ theme_override_font_sizes/font_size = 50
 text = "00:00"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 6.0
