@@ -15,31 +15,52 @@ grow_vertical = 2
 script = ExtResource("1_q83xd")
 
 [node name="Play" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 821.0
-offset_top = 380.0
-offset_right = 948.0
-offset_bottom = 456.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -140.0
+offset_right = 62.5
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("2_6cbqm")
 
 [node name="Options" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 788.0
-offset_top = 457.0
-offset_right = 988.0
-offset_bottom = 532.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -37.5
+offset_right = 100.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("3_qqy31")
 
 [node name="Quit" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 824.0
-offset_top = 533.0
-offset_right = 949.0
-offset_bottom = 608.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = 60.0
+offset_right = 62.5
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("4_5aqdi")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Play" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="Options" to="." method="_on_options_2_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_2_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
