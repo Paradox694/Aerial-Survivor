@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene load_steps=14 format=3 uid="uid://biqo6m34folbv"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_yo3gj"]
@@ -132,18 +133,38 @@ _data = {
 "walk_left": SubResource("Animation_6ssbf"),
 "walk_right": SubResource("Animation_pqgq3")
 }
+=======
+[gd_scene load_steps=9 format=3 uid="uid://d162hbjjes5bq"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_c7pox"]
+[ext_resource type="Script" path="res://Player.gd" id="1_yo3gj"]
+[ext_resource type="Texture2D" uid="uid://cl133ph8cq6tn" path="res://icon.svg" id="2_xh6lj"]
+[ext_resource type="PackedScene" uid="uid://dtpuae4q8vxt" path="res://PauseMenu/PauseMenu.tscn" id="3_l0r8x"]
+>>>>>>> origin/UI
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q66i"]
 radius = 12.0
 height = 48.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40ap4"]
-size = Vector2(409, 20)
+size = Vector2(360, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yydcu"]
+size = Vector2(20, 636)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enxlb"]
-size = Vector2(20, 339)
+size = Vector2(20, 636)
 
 [node name="World" type="Node2D"]
+position = Vector2(68, 422)
+script = ExtResource("1_c7pox")
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_l0r8x")]
+visible = false
+offset_left = -67.0
+offset_top = -422.0
+offset_right = -67.0
+offset_bottom = -422.0
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(121, 584)
@@ -166,17 +187,23 @@ speed_scale = 0.75
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CapsuleShape2D_4q66i")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="PlayAreaPanels" type="StaticBody2D" parent="."]
 position = Vector2(21, 630)
 
-[node name="TempFloor" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(194.5, 0)
+[node name="FloorPanel" type="CollisionShape2D" parent="PlayAreaPanels"]
+position = Vector2(170, 0)
 shape = SubResource("RectangleShape2D_40ap4")
 
-[node name="TempSidePanel1" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, -159.5)
+[node name="FloorSprite2D" type="Sprite2D" parent="PlayAreaPanels/FloorPanel"]
+
+[node name="SidePanel1" type="CollisionShape2D" parent="PlayAreaPanels"]
+position = Vector2(0, -328)
+shape = SubResource("RectangleShape2D_yydcu")
+
+[node name="SidePanelSprite2D 1" type="Sprite2D" parent="PlayAreaPanels/SidePanel1"]
+
+[node name="SidePanel2" type="CollisionShape2D" parent="PlayAreaPanels"]
+position = Vector2(340, -328)
 shape = SubResource("RectangleShape2D_enxlb")
 
-[node name="TempSidePanel2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(389, -159)
-shape = SubResource("RectangleShape2D_enxlb")
+[node name="SidePanelSprite2D 2" type="Sprite2D" parent="PlayAreaPanels/SidePanel2"]
