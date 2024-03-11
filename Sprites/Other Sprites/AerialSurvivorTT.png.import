@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpl7x1eo30jms"
-path="res://.godot/imported/QuitButton.png-fe4802c432d7ea5d5f09eecc6d4853a8.ctex"
+uid="uid://db81kmot5ins1"
+path="res://.godot/imported/AerialSurvivorTT.png-e05ee32bc2b17beca7face37b1a332b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Titles/QuitButton.png"
-dest_files=["res://.godot/imported/QuitButton.png-fe4802c432d7ea5d5f09eecc6d4853a8.ctex"]
+source_file="res://Sprites/Other Sprites/AerialSurvivorTT.png"
+dest_files=["res://.godot/imported/AerialSurvivorTT.png-e05ee32bc2b17beca7face37b1a332b7.ctex"]
 
 [params]
 
