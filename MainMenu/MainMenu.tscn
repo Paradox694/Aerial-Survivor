@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://nhdd0ejmxc1g"]
+[gd_scene load_steps=6 format=3 uid="uid://nhdd0ejmxc1g"]
 
 [ext_resource type="Script" path="res://MainMenu/Main Menu.gd" id="1_q83xd"]
 [ext_resource type="Texture2D" uid="uid://c8otttjlbc2kf" path="res://Sprites/Titles/PlayButton.png" id="2_oqji2"]
 [ext_resource type="Texture2D" uid="uid://dqhexoxvjx6eo" path="res://Sprites/Titles/OptionButton.png" id="3_knsfs"]
 [ext_resource type="Texture2D" uid="uid://b1vhcs28avrqb" path="res://Sprites/Titles/QuitButton.png" id="4_v8uuq"]
+[ext_resource type="AudioStream" uid="uid://esqtucrn7j65" path="res://TestBackgroundsound.mp3" id="5_l44xe"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -41,8 +42,12 @@ offset_bottom = 1027.0
 scale = Vector2(0.65, 0.65)
 texture_normal = ExtResource("4_v8uuq")
 
+[node name="TempBGAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_l44xe")
+autoplay = true
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Play" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="Options" to="." method="_on_options_2_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_2_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

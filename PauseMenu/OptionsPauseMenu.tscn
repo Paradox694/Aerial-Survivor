@@ -30,6 +30,7 @@ script = ExtResource("2_l4vq2")
 bus_name = "Master"
 
 [node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
 offset_left = 892.0
 offset_top = 451.0
 offset_right = 962.0
