@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d3hg7gd0gyx28"]
+[gd_scene load_steps=15 format=3 uid="uid://d3hg7gd0gyx28"]
 
 [ext_resource type="Script" path="res://Grid/MainGridSystem.gd" id="1_xiyqx"]
 [ext_resource type="Texture2D" uid="uid://baf1jpmcc5bu3" path="res://Sprites/BlueBlock.png" id="2_tx7uk"]
@@ -11,11 +11,16 @@
 [ext_resource type="Texture2D" uid="uid://bhloxmnkbognx" path="res://Sprites/YellowBlock.png" id="8_gqxl8"]
 [ext_resource type="Script" path="res://scripts/DrawShape.gd" id="9_e3c2c"]
 [ext_resource type="Script" path="res://Water/Water.gd" id="11_jj45e"]
+[ext_resource type="Texture2D" uid="uid://bhwigjm6u8rbt" path="res://Sprites/Other Sprites/CloudBoarder.png" id="11_ujmhn"]
 [ext_resource type="PackedScene" uid="uid://b1g2bkbuln40b" path="res://Player/player.tscn" id="11_vwovf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfgmb"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("11_vwovf")]
+position = Vector2(396, 931)
+scale = Vector2(2, 2)
 
 [node name="MainGrid" type="Node2D" parent="."]
 position = Vector2(240, 955)
@@ -37,14 +42,14 @@ textureArray = Array[Texture2D]([ExtResource("2_tx7uk"), ExtResource("3_7fy3b"),
 
 [node name="floor" type="StaticBody2D" parent="MainGrid"]
 position = Vector2(160, 48)
-scale = Vector2(12, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainGrid/floor"]
-scale = Vector2(2, 1)
+scale = Vector2(20, 1)
 shape = SubResource("RectangleShape2D_rfgmb")
 
 [node name="Sprite2D" type="Sprite2D" parent="MainGrid/floor"]
-texture = ExtResource("2_xuib7")
+position = Vector2(0, -330)
+texture = ExtResource("11_ujmhn")
 
 [node name="wall_Left" type="StaticBody2D" parent="MainGrid"]
 position = Vector2(-16, -320)
@@ -54,9 +59,6 @@ scale = Vector2(1, 22.5)
 scale = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_rfgmb")
 
-[node name="Sprite2D" type="Sprite2D" parent="MainGrid/wall_Left"]
-texture = ExtResource("2_xuib7")
-
 [node name="wall_right" type="StaticBody2D" parent="MainGrid"]
 position = Vector2(336, -320)
 scale = Vector2(1, 22.5)
@@ -65,19 +67,12 @@ scale = Vector2(1, 22.5)
 scale = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_rfgmb")
 
-[node name="Sprite2D" type="Sprite2D" parent="MainGrid/wall_right"]
-texture = ExtResource("2_xuib7")
-
 [node name="waterSystem" type="Node2D" parent="MainGrid"]
 script = ExtResource("11_jj45e")
 
 [node name="Timer" type="Timer" parent="MainGrid/waterSystem"]
 wait_time = 10.0
 autostart = true
-
-[node name="Player" parent="." instance=ExtResource("11_vwovf")]
-position = Vector2(396, 931)
-scale = Vector2(2, 2)
 
 [connection signal="FBGResetArray" from="MainGrid" to="MainGrid/block selection" method="NextShape"]
 [connection signal="SendWater" from="MainGrid" to="MainGrid/waterSystem" method="WaterRise"]
