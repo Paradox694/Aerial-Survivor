@@ -20,7 +20,7 @@ func _ready():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 	# original way of moving the water
 	#if(polygon_2d.position.y < -540):

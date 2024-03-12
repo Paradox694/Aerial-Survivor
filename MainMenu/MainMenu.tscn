@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://nhdd0ejmxc1g"]
+[gd_scene load_steps=6 format=3 uid="uid://nhdd0ejmxc1g"]
 
 [ext_resource type="Script" path="res://MainMenu/Main Menu.gd" id="1_q83xd"]
 [ext_resource type="Texture2D" uid="uid://xdedf2amumna" path="res://UISprites/PlayButton.png" id="2_6cbqm"]
+[ext_resource type="Texture2D" uid="uid://db81kmot5ins1" path="res://Sprites/Other Sprites/AerialSurvivorTT.png" id="2_ixo20"]
 [ext_resource type="Texture2D" uid="uid://koj1ywblod5h" path="res://UISprites/OptionButton.png" id="3_qqy31"]
 [ext_resource type="Texture2D" uid="uid://d3smc6en85jkv" path="res://UISprites/QuitButton.png" id="4_5aqdi"]
 
@@ -14,6 +15,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q83xd")
 
+[node name="AerialSurvivorTt" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_ixo20")
+
 [node name="Play" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -22,9 +27,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -62.5
-offset_top = -140.0
+offset_top = -40.0
 offset_right = 62.5
-offset_bottom = -65.0
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("2_6cbqm")
@@ -37,9 +42,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = -37.5
+offset_top = 60.0
 offset_right = 100.0
-offset_bottom = 37.5
+offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("3_qqy31")
@@ -52,9 +57,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -62.5
-offset_top = 60.0
+offset_top = 160.0
 offset_right = 62.5
-offset_bottom = 135.0
+offset_bottom = 235.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("4_5aqdi")
