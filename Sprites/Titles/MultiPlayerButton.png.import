@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3yadqa4f8vv5"
-path="res://.godot/imported/SkyBackground.png-91c6f05bb2f23ef489554a4852ad0726.ctex"
+uid="uid://cu7xceiq7hq1"
+path="res://.godot/imported/MultiPlayerButton.png-e8c08c49a351470d2573971b57760191.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Other Sprites/SkyBackground.png"
-dest_files=["res://.godot/imported/SkyBackground.png-91c6f05bb2f23ef489554a4852ad0726.ctex"]
+source_file="res://Sprites/Titles/MultiPlayerButton.png"
+dest_files=["res://.godot/imported/MultiPlayerButton.png-e8c08c49a351470d2573971b57760191.ctex"]
 
 [params]
 
