@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://b1g2bkbuln40b"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_5u3h7"]
-[ext_resource type="Texture2D" uid="uid://5kw853slwjt6" path="res://SpriteSheets/Yuki_Sheet.png" id="2_xquag"]
+[ext_resource type="Texture2D" uid="uid://5kw853slwjt6" path="res://Sprites/SpriteSheets/Yuki_Sheet.png" id="2_xquag"]
 
 [sub_resource type="Animation" id="Animation_tl8fv"]
 resource_name = "idle_left"

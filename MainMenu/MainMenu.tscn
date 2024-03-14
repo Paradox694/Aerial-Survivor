@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://nhdd0ejmxc1g"]
 
 [ext_resource type="Script" path="res://MainMenu/Main Menu.gd" id="1_q83xd"]
-[ext_resource type="Texture2D" uid="uid://xdedf2amumna" path="res://UISprites/PlayButton.png" id="2_6cbqm"]
-[ext_resource type="Texture2D" uid="uid://db81kmot5ins1" path="res://Sprites/Other Sprites/AerialSurvivorTT.png" id="2_ixo20"]
-[ext_resource type="Texture2D" uid="uid://koj1ywblod5h" path="res://UISprites/OptionButton.png" id="3_qqy31"]
-[ext_resource type="Texture2D" uid="uid://d3smc6en85jkv" path="res://UISprites/QuitButton.png" id="4_5aqdi"]
+[ext_resource type="Texture2D" uid="uid://csoif7jobwsn0" path="res://Sprites/Other Sprites/AerialSurvivorTT.png" id="2_ixo20"]
+[ext_resource type="Texture2D" uid="uid://wkq148tsmxfl" path="res://Sprites/Titles/PlayButton.png" id="3_qh42f"]
+[ext_resource type="Texture2D" uid="uid://d2qomt3n6j3po" path="res://Sprites/Titles/OptionButton.png" id="4_x26w0"]
+[ext_resource type="Texture2D" uid="uid://cpl7x1eo30jms" path="res://Sprites/Titles/QuitButton.png" id="5_27gpk"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -26,13 +26,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -62.5
-offset_top = -40.0
-offset_right = 62.5
-offset_bottom = 35.0
+offset_left = -160.0
+offset_top = -65.0
+offset_right = 147.0
+offset_bottom = 115.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("2_6cbqm")
+texture_normal = ExtResource("3_qh42f")
 
 [node name="Options" type="TextureButton" parent="."]
 layout_mode = 1
@@ -41,13 +41,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = 60.0
-offset_right = 100.0
-offset_bottom = 135.0
+offset_left = -245.0
+offset_top = 90.0
+offset_right = 242.0
+offset_bottom = 292.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("3_qqy31")
+texture_normal = ExtResource("4_x26w0")
 
 [node name="Quit" type="TextureButton" parent="."]
 layout_mode = 1
@@ -56,16 +56,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -62.5
-offset_top = 160.0
-offset_right = 62.5
-offset_bottom = 235.0
+offset_left = -160.0
+offset_top = 290.0
+offset_right = 155.0
+offset_bottom = 455.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("4_5aqdi")
+texture_normal = ExtResource("5_27gpk")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Play" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_2_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
