@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3yadqa4f8vv5"
-path="res://.godot/imported/SkyBackground.png-91c6f05bb2f23ef489554a4852ad0726.ctex"
+uid="uid://b6p2lvwsyuc4k"
+path="res://.godot/imported/TutorialButton.png-01a283b452d754dc0444a54780ecc6cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Other Sprites/SkyBackground.png"
-dest_files=["res://.godot/imported/SkyBackground.png-91c6f05bb2f23ef489554a4852ad0726.ctex"]
+source_file="res://Sprites/Titles/TutorialButton.png"
+dest_files=["res://.godot/imported/TutorialButton.png-01a283b452d754dc0444a54780ecc6cb.ctex"]
 
 [params]
 
