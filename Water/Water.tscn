@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://csja2p1corfmn"]
+
+[ext_resource type="Script" path="res://Water/Water.gd" id="1_o4bpe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_th2if"]
+size = Vector2(292, 648)
+
+[node name="Water" type="AnimatableBody2D"]
+script = ExtResource("1_o4bpe")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(1.00617, -2.00155)
+scale = Vector2(0.999661, 1.00155)
+color = Color(0, 1, 1, 1)
+polygon = PackedVector2Array(-1.00651, 1.99845, 291.093, 1.99845, 290.096, 324, 291.093, 648.995, -1.00651, 648.995)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(146, 324)
+shape = SubResource("RectangleShape2D_th2if")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
