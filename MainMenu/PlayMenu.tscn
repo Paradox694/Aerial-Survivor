@@ -22,43 +22,72 @@ position = Vector2(960, 540)
 texture = ExtResource("1_gnagm")
 
 [node name="SinglePButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 565.0
-offset_top = 150.0
-offset_right = 1365.0
-offset_bottom = 310.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -340.0
+offset_right = 400.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("2_de3le")
 
 [node name="MultiPButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 610.0
-offset_top = 330.0
-offset_right = 1330.0
-offset_bottom = 490.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -160.0
+offset_right = 360.0
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("3_3pom7")
 
 [node name="PracticeButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 765.0
-offset_top = 500.0
-offset_right = 1165.0
-offset_bottom = 632.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 20.0
+offset_right = 200.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("4_s555c")
 
 [node name="TutorialButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 755.0
-offset_top = 660.0
-offset_right = 1155.0
-offset_bottom = 792.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 200.0
+offset_right = 200.0
+offset_bottom = 332.0
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("5_nkjy6")
 
 [node name="BackButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 1800.0
-offset_top = 35.0
-offset_right = 1880.0
-offset_bottom = 115.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_bottom = 80.0
+grow_horizontal = 0
 texture_normal = ExtResource("7_5k2hx")
 
 [connection signal="pressed" from="PracticeButton" to="." method="_on_practice_button_pressed"]
