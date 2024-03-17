@@ -88,10 +88,14 @@ func _physics_process(_delta):
 #draws all the clouds in the grid
 func _draw():
 	#draws the main grid
-	for r in range(MGRowSize):
+	for r in range(MGRowSize, -1, -1):
 		for c in range(MGColSize):
 			if(MainGridRead(c,r) > -1):
-				draw_texture(cloudTextures[MainGridRead(c,r)],Vector2(c * colRenderOffset, r * -rowRenderOffset))
+				if(MainGridRead(c,r) != 1):
+					draw_texture(cloudTextures[MainGridRead(c,r)],Vector2(c * colRenderOffset, r * -rowRenderOffset))
+				if(MainGridRead(c,r) == 1):
+					draw_texture(cloudTextures[MainGridRead(c,r)],Vector2(c * colRenderOffset, r * -rowRenderOffset - 4))
+					
 		
 	#draw falling block grid
 	for r in range(FBGRowSize):
@@ -115,7 +119,7 @@ func MainGridRowFill(fillType: int, row: int):
 	if row >= 0 and row < MGRowSize:
 		for c in range(MGColSize):
 			MainGrid[(row * MGColSize) + c] = fillType
-		queue_redraw()
+		
 
 
 #function to imulate setting a value in a 2D array
@@ -254,7 +258,7 @@ func CheckForLineClear():
 	
 	for r in range(FBGRowSize):
 		for c in range(MGColSize):
-			if(MainGridRead(c, r + FBGReferenceLocation.y) > 0):
+			if(MainGridRead(c, r + FBGReferenceLocation.y) > 1):
 				colmsFilled += 1
 		if(colmsFilled == MGColSize):
 			rowsFilled += 1
