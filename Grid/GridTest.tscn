@@ -41,7 +41,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="block selection" type="Node2D" parent="MainGrid"]
-position = Vector2(400, -905)
+position = Vector2(400, -600)
 script = ExtResource("9_e3c2c")
 textureArray = Array[Texture2D]([ExtResource("2_tx7uk"), ExtResource("3_7fy3b"), ExtResource("4_4nusr"), ExtResource("5_hm2xt"), ExtResource("6_82coh"), ExtResource("7_0c3uf"), ExtResource("8_gqxl8")])
 
