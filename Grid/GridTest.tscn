@@ -81,6 +81,7 @@ autostart = true
 
 [connection signal="FBGResetArray" from="MainGrid" to="MainGrid/block selection" method="NextShape"]
 [connection signal="SendWater" from="MainGrid" to="MainGrid/waterSystem" method="WaterRise"]
+[connection signal="StopBlockFallTimer" from="MainGrid" to="MainGrid/GridBlockFallTimer" method="stop"]
 [connection signal="timeout" from="MainGrid/GridBlockFallTimer" to="MainGrid" method="FBGBlockFall"]
 [connection signal="changeFBGArray" from="MainGrid/block selection" to="MainGrid" method="ChangeFBGArray"]
 [connection signal="fillRow" from="MainGrid/waterSystem" to="MainGrid" method="MainGridRowFill"]

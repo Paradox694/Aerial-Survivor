@@ -35,7 +35,9 @@ var FBGDropReset : bool = false
 var collider = preload("res://Grid/block_collider.tscn")
 var collisionGrid : Array
 
-
+#varibles to stop blocks afterhitting limit
+var RoofHit : bool = false;
+signal StopBlockFallTimer()
 
 func _init():
 	#setting the main grid to correct size and filling it
@@ -79,7 +81,7 @@ func _physics_process(_delta):
 		FBGDropReset = false
 	
 	if(!FBGDropReset):
-		if(Input.is_action_pressed("DropBlock")):
+		if(Input.is_action_pressed("DropBlock") && !RoofHit):
 			FBGBlockFall()
 
 	
@@ -113,6 +115,7 @@ func MainGridRowFill(fillType: int, row: int):
 	if row >= 0 and row < MGRowSize:
 		for c in range(MGColSize):
 			MainGrid[(row * MGColSize) + c] = fillType
+		queue_redraw()
 
 
 #function to imulate setting a value in a 2D array
@@ -228,6 +231,10 @@ func FBGReset():
 	for r in range(FBGRowSize):
 		for c in range(FBGColSize):
 			if(FBGRead(c,r) > -1):
+				if (MainGridRead(c + FBGReferenceLocation.x, r + FBGReferenceLocation.y) > -1):
+					RoofHit = true
+					StopBlockFallTimer.emit()
+				
 				MainGridWrite(FBGRead(c,r), c + FBGReferenceLocation.x, r + FBGReferenceLocation.y)
 				var collid = collider.instantiate()
 				add_child(collid)
