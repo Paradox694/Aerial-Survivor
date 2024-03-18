@@ -23,7 +23,7 @@
 [node name="WaterTimer" parent="." instance=ExtResource("1_ci0ik")]
 
 [node name="Water_Damage" parent="." instance=ExtResource("2_pfob7")]
-position = Vector2(179, 987)
+position = Vector2(209, 983)
 
 [node name="MainGrid" type="Node2D" parent="."]
 position = Vector2(240, 955)
@@ -99,4 +99,4 @@ scale = Vector2(2, 2)
 [connection signal="fillRow" from="MainGrid/waterSystem" to="MainGrid" method="MainGridRowFill"]
 [connection signal="stop" from="MainGrid/waterSystem" to="MainGrid/waterSystem/Timer" method="stop"]
 [connection signal="timeout" from="MainGrid/waterSystem/Timer" to="MainGrid/waterSystem" method="WaterRise" binds= [1]]
-[connection signal="death" from="Death" to="Player" method="_on_area_2d_area_entered"]
+[connection signal="death" from="Player" to="Death" method="die"]

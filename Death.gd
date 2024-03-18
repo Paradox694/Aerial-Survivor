@@ -9,8 +9,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	death.emit()
+	#death.emit()
 	pass
 
-func die():
-	queue_free()
+func die(area):
+	area.get_parent().queue_free()
