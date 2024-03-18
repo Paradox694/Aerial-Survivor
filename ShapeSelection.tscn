@@ -1,0 +1,49 @@
+[gd_scene load_steps=12 format=3 uid="uid://bjedgyp7mmjkv"]
+
+[ext_resource type="Script" path="res://Grid/MainGridSystem.gd" id="1_2v1pp"]
+[ext_resource type="Texture2D" uid="uid://baf1jpmcc5bu3" path="res://Sprites/BlueBlock.png" id="2_t6tpr"]
+[ext_resource type="Texture2D" uid="uid://cauf2jssrnf2x" path="res://Sprites/DarkBlueBlock.png" id="3_0js14"]
+[ext_resource type="Texture2D" uid="uid://demwwahqcclkh" path="res://Sprites/GreenBlock.png" id="4_vsdrf"]
+[ext_resource type="Texture2D" uid="uid://44n8gjc4e6bt" path="res://Sprites/OrangeBlock.png" id="5_taypw"]
+[ext_resource type="Texture2D" uid="uid://6vvb02ahvu3e" path="res://Sprites/PinkBlock.png" id="6_qan8i"]
+[ext_resource type="Texture2D" uid="uid://c1fp1lawjpjat" path="res://Sprites/RedBlock.png" id="7_5ue4q"]
+[ext_resource type="Texture2D" uid="uid://bhloxmnkbognx" path="res://Sprites/YellowBlock.png" id="8_3ojg5"]
+[ext_resource type="Script" path="res://scripts/DrawShape.gd" id="9_dqdny"]
+[ext_resource type="Texture2D" uid="uid://bo3qa3t012de3" path="res://assets/back_of_bkg.png" id="10_yqpge"]
+[ext_resource type="Texture2D" uid="uid://dtcgcy53p44od" path="res://assets/next.png" id="11_o132b"]
+
+[node name="ShapeSelection" type="Node2D"]
+
+[node name="MainGrid" type="Node2D" parent="."]
+position = Vector2(240, 955)
+script = ExtResource("1_2v1pp")
+cloudTextures = Array[Texture2D]([null, ExtResource("2_t6tpr"), ExtResource("3_0js14"), ExtResource("4_vsdrf"), ExtResource("5_taypw"), ExtResource("6_qan8i"), ExtResource("7_5ue4q"), ExtResource("8_3ojg5")])
+rowRenderOffset = 32.0
+colRenderOffset = 32.0
+FBGResetPosition = Vector2i(3, 16)
+
+[node name="GridBlockFallTimer" type="Timer" parent="MainGrid"]
+process_callback = 0
+wait_time = 0.5
+autostart = true
+
+[node name="BackOfBkg" type="Sprite2D" parent="."]
+position = Vector2(82, 99)
+scale = Vector2(0.891026, 1)
+texture = ExtResource("10_yqpge")
+
+[node name="Next" type="Sprite2D" parent="BackOfBkg"]
+position = Vector2(-48.259, -60)
+scale = Vector2(1.1223, 1)
+texture = ExtResource("11_o132b")
+centered = false
+
+[node name="Shapes" type="Node2D" parent="."]
+position = Vector2(-9, 0)
+script = ExtResource("9_dqdny")
+shapeArray = Array[int]([1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7])
+textureArray = Array[Texture2D]([ExtResource("2_t6tpr"), ExtResource("3_0js14"), ExtResource("4_vsdrf"), ExtResource("5_taypw"), ExtResource("6_qan8i"), ExtResource("7_5ue4q"), ExtResource("8_3ojg5")])
+
+[connection signal="FBGResetArray" from="MainGrid" to="Shapes" method="NextShape"]
+[connection signal="timeout" from="MainGrid/GridBlockFallTimer" to="MainGrid" method="_on_grid_block_fall_timer_timeout"]
+[connection signal="changeFBGArray" from="Shapes" to="MainGrid" method="ChangeFBGArray"]
