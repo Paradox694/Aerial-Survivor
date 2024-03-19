@@ -240,6 +240,8 @@ func FBGReset():
 	var block_drop_sound = preload("res://Sounds/BlockDrop.wav") 
 	# Create an AudioStreamPlayer node
 	var audio_player = AudioStreamPlayer.new()
+	# Set the bus to 'SFX'
+	audio_player.bus = "SFX"  
 	# Assign the sound to the player
 	audio_player.stream = block_drop_sound
 	# Add the player as a child node
