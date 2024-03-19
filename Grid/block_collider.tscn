@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://movuo726o0qb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ht4bb"]
+
+[node name="blockColider" type="StaticBody2D"]
+
+[node name="collisionBox" type="CollisionShape2D" parent="."]
+position = Vector2(16, 16)
+scale = Vector2(1.6, 1.6)
+shape = SubResource("RectangleShape2D_ht4bb")
+debug_color = Color(0.752941, 0.454902, 0.0784314, 0.419608)
+
+[node name="KillBox" type="CollisionShape2D" parent="."]
+position = Vector2(16, 16)
+scale = Vector2(1.2, 1.2)
+shape = SubResource("RectangleShape2D_ht4bb")
+debug_color = Color(0.992157, 0, 0.219608, 0.419608)

@@ -3,6 +3,7 @@ extends Node
 signal rise
 
 @onready var label = $Label
+
 @onready var timer = $Timer
 
 func _ready():
@@ -21,6 +22,7 @@ func _process(delta):
 
 func _on_water_stop():
 	label.text = "Done"
-	if(label.text == "Done"):
-		timer.wait_time = 3600.0
+	timer.stop()
+	#if(label.text == "Done"):
+		#timer.wait_time = 86400.0
 		
