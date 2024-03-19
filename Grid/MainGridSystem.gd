@@ -234,6 +234,20 @@ func FBGReset():
 				collid.position = Vector2((c + FBGReferenceLocation.x) * colRenderOffset, (r + FBGReferenceLocation.y) * -rowRenderOffset)
 				collisionGridWrite(collid,c + FBGReferenceLocation.x,r + FBGReferenceLocation.y)
 				
+	
+	 # Play the sound when blocks hit the ground
+	 # Load the sound
+	var block_drop_sound = preload("res://Sounds/BlockDrop.wav") 
+	# Create an AudioStreamPlayer node
+	var audio_player = AudioStreamPlayer.new()
+	# Assign the sound to the player
+	audio_player.stream = block_drop_sound
+	# Add the player as a child node
+	add_child(audio_player)
+	# Play the sound
+	audio_player.play()  
+	
+	
 	CheckForLineClear()
 	FBGReferenceLocation = FBGResetPosition
 	FBGDropReset = true
