@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dxgs7a0ibnxlq" path="res://Timer/Water_timer.tscn" id="1_ci0ik"]
 [ext_resource type="Script" path="res://Grid/MainGridSystem.gd" id="1_xiyqx"]
-[ext_resource type="PackedScene" uid="uid://niru1fo8yq7v" path="res://Water Damage/water_damage.tscn" id="2_pfob7"]
+[ext_resource type="PackedScene" uid="uid://niru1fo8yq7v" path="res://Water Damage/Water_damage.tscn" id="2_pfob7"]
 [ext_resource type="Texture2D" uid="uid://baf1jpmcc5bu3" path="res://Sprites/BlueBlock.png" id="2_tx7uk"]
 [ext_resource type="Texture2D" uid="uid://5epn23y2qr0w" path="res://Sprites/Blocks/WaterBlockD.png" id="2_xuib7"]
 [ext_resource type="Texture2D" uid="uid://cauf2jssrnf2x" path="res://Sprites/DarkBlueBlock.png" id="3_7fy3b"]
@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://scripts/DrawShape.gd" id="9_e3c2c"]
 [ext_resource type="Script" path="res://Water/Water.gd" id="11_jj45e"]
 [ext_resource type="PackedScene" uid="uid://b1g2bkbuln40b" path="res://Player/player.tscn" id="11_vwovf"]
-[ext_resource type="PackedScene" uid="uid://cgtmwfxq5uaop" path="res://Death.tscn" id="15_58dso"]
+[ext_resource type="PackedScene" uid="uid://cgtmwfxq5uaop" path="res://Death/Death.tscn" id="15_58dso"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfgmb"]
 
