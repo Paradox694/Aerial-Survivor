@@ -14,3 +14,4 @@ func _process(delta):
 
 func die(area):
 	area.get_parent().queue_free()
+	get_tree().change_scene_to_file("res://Defeat Screen/Defeat_screen.tscn")
