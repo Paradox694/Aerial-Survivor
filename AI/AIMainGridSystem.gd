@@ -333,26 +333,29 @@ func blockDropAICalCulation():
 							break
 						
 						# if block at location is not empty && col with the offset is not out of bounds
-						if TempFallingBlockGrid[(row*FBGColSize) + col] > -1 && (col + offset < 0 || col + offset > 19):
+						if TempFallingBlockGrid[(row*FBGColSize) + col] > -1 && (col + offset < 0 || col + offset >= 10):
 							fail = true
 						
 			if !fail:	
 				#finds what hight block will be placed
-				for hight in range(FBGReferenceLocation.y, 0, -1):
+				for hight in range(FBGReferenceLocation.y, -4, -1):
 					
 					var stop : bool = false
-					score += 1
+					score += 3
+					
+					
 					
 					for row in range(FBGRowSize):
 						for col in range(FBGColSize):
 							
-							if(row + hight) == 0 and TempFallingBlockGrid[(row*FBGColSize) + col]:
-								stop = true
-								break
-							
-							if MainGridRead(col + offset, row + hight - 1) > -1 and TempFallingBlockGrid[(row*FBGColSize) + col]:
-								stop = true
-								break
+							if TempFallingBlockGrid[(row*FBGColSize) + col] > -1:
+								if(row + hight) == 0:
+									stop = true
+									break
+								#MainGridRead(c + FBGReferenceLocation.x, r + FBGReferenceLocation.y - 1) > -1 and FBGRead(c,r) > -1)
+								if MainGridRead(col + offset, row + hight - 1) > -1:
+									stop = true
+									break
 						
 						if stop:
 							break
@@ -364,15 +367,22 @@ func blockDropAICalCulation():
 								
 								for below in range(-1, -3, -1):
 									if row + hight + below >= 0 && TempFallingBlockGrid[(row*FBGColSize) + col] > -1 && MainGridRead(col + offset, row + hight + below) < 0:
-										score -= 1
+										score -= 2
 										if(row + below >= 0) && TempFallingBlockGrid[( (row + below)*FBGColSize) + col] > -1:
-											score += 0
+											score += 1
 										
 						
 						if score > BestScore:
 							BestOffset = offset
 							BestRotaion = Rotation
 							BestScore = score
+							print("expected offset" )
+							print(offset)
+							print("expected hight")
+							print(hight)
+							print("expected rotaion")
+							print(Rotation)
+							print()
 							break
 	
 		@warning_ignore("unassigned_variable")
@@ -415,13 +425,13 @@ func AIControlls():
 		if checkForMoveCollison(1):
 			FBGReferenceLocation.x += 1
 			checkFBGridOutOfBounds()
-			targetOffset -= 1
+		targetOffset -= 1
 	
 	if targetOffset < 0:
 		if checkForMoveCollison(-1):
 			FBGReferenceLocation.x -= 1
 			checkFBGridOutOfBounds()
-			targetOffset += 1
+		targetOffset += 1
 
 	if targetRotaion > 0:
 		FBGRotateRight()
