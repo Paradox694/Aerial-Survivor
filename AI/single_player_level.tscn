@@ -1,0 +1,92 @@
+[gd_scene load_steps=16 format=3 uid="uid://cgh8ur4a7roul"]
+
+[ext_resource type="Texture2D" uid="uid://bottlo5883oum" path="res://Sprites/Other Sprites/SkyBackground.png" id="1_oa83y"]
+[ext_resource type="Script" path="res://AI/AIMainGridSystem.gd" id="2_8o6v6"]
+[ext_resource type="Script" path="res://scripts/DrawShape.gd" id="2_c4e3y"]
+[ext_resource type="Texture2D" uid="uid://5epn23y2qr0w" path="res://Sprites/Blocks/WaterBlockD.png" id="3_1oxm0"]
+[ext_resource type="Texture2D" uid="uid://baf1jpmcc5bu3" path="res://Sprites/Blocks/BlueBlock.png" id="3_oeuso"]
+[ext_resource type="Texture2D" uid="uid://dqae66sixp8so" path="res://Sprites/Blocks/WaterBlockS.png" id="4_5o543"]
+[ext_resource type="Texture2D" uid="uid://cauf2jssrnf2x" path="res://Sprites/Blocks/DarkBlueBlock.png" id="4_mjfpc"]
+[ext_resource type="Texture2D" uid="uid://demwwahqcclkh" path="res://Sprites/Blocks/GreenBlock.png" id="5_j51kb"]
+[ext_resource type="Texture2D" uid="uid://44n8gjc4e6bt" path="res://Sprites/Blocks/OrangeBlock.png" id="6_dvody"]
+[ext_resource type="Texture2D" uid="uid://6vvb02ahvu3e" path="res://Sprites/Blocks/PinkBlock.png" id="7_xs1ad"]
+[ext_resource type="Texture2D" uid="uid://c1fp1lawjpjat" path="res://Sprites/Blocks/RedBlock.png" id="8_ta6ma"]
+[ext_resource type="Texture2D" uid="uid://bhloxmnkbognx" path="res://Sprites/Blocks/YellowBlock.png" id="9_47864"]
+[ext_resource type="Texture2D" uid="uid://bhwigjm6u8rbt" path="res://Sprites/Other Sprites/CloudBoarder.png" id="10_jr1rv"]
+[ext_resource type="Script" path="res://Water/Water.gd" id="11_kvtad"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svx37"]
+
+[node name="SinglePlayerLevel" type="Node2D"]
+
+[node name="SkyBackground" type="Sprite2D" parent="."]
+position = Vector2(962, 524)
+texture = ExtResource("1_oa83y")
+
+[node name="AIGrid" type="Node2D" parent="."]
+position = Vector2(1300, 800)
+script = ExtResource("2_8o6v6")
+cloudTextures = Array[Texture2D]([ExtResource("3_1oxm0"), ExtResource("4_5o543"), ExtResource("3_oeuso"), ExtResource("4_mjfpc"), ExtResource("5_j51kb"), ExtResource("6_dvody"), ExtResource("7_xs1ad"), ExtResource("8_ta6ma"), ExtResource("9_47864")])
+rowRenderOffset = 32.0
+colRenderOffset = 32.0
+FBGResetPosition = Vector2i(3, 20)
+
+[node name="AIMoveTimer" type="Timer" parent="AIGrid"]
+process_callback = 0
+wait_time = 0.15
+autostart = true
+
+[node name="GridBlockFallTimer" type="Timer" parent="AIGrid"]
+process_callback = 0
+wait_time = 0.5
+autostart = true
+
+[node name="block selection" type="Node2D" parent="AIGrid"]
+position = Vector2(400, -600)
+script = ExtResource("2_c4e3y")
+textureArray = Array[Texture2D]([ExtResource("3_oeuso"), ExtResource("4_mjfpc"), ExtResource("5_j51kb"), ExtResource("6_dvody"), ExtResource("7_xs1ad"), ExtResource("8_ta6ma"), ExtResource("9_47864")])
+
+[node name="floor" type="StaticBody2D" parent="AIGrid"]
+position = Vector2(160, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AIGrid/floor"]
+scale = Vector2(20, 1)
+shape = SubResource("RectangleShape2D_svx37")
+
+[node name="Sprite2D" type="Sprite2D" parent="AIGrid/floor"]
+position = Vector2(0, -330)
+texture = ExtResource("10_jr1rv")
+
+[node name="wall_Left" type="StaticBody2D" parent="AIGrid"]
+position = Vector2(-16, -320)
+scale = Vector2(1, 22.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AIGrid/wall_Left"]
+scale = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_svx37")
+
+[node name="wall_right" type="StaticBody2D" parent="AIGrid"]
+position = Vector2(336, -320)
+scale = Vector2(1, 22.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AIGrid/wall_right"]
+scale = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_svx37")
+
+[node name="waterSystem" type="Node2D" parent="AIGrid"]
+script = ExtResource("11_kvtad")
+
+[node name="Timer" type="Timer" parent="AIGrid/waterSystem"]
+wait_time = 30.0
+autostart = true
+
+[connection signal="FBGResetArray" from="AIGrid" to="AIGrid/block selection" method="NextShape"]
+[connection signal="SendWater" from="AIGrid" to="AIGrid/waterSystem" method="WaterRise"]
+[connection signal="StopBlockFallTimer" from="AIGrid" to="AIGrid/GridBlockFallTimer" method="stop"]
+[connection signal="timeout" from="AIGrid/AIMoveTimer" to="AIGrid" method="AIControlls"]
+[connection signal="timeout" from="AIGrid/GridBlockFallTimer" to="AIGrid" method="FBGBlockFall"]
+[connection signal="changeFBGArray" from="AIGrid/block selection" to="AIGrid" method="ChangeFBGArray"]
+[connection signal="fillRow" from="AIGrid/waterSystem" to="AIGrid" method="MainGridRowFill"]
+[connection signal="stop" from="AIGrid/waterSystem" to="AIGrid/waterSystem/Timer" method="stop"]
+[connection signal="updateTextures" from="AIGrid/waterSystem" to="AIGrid" method="updateTextures"]
+[connection signal="timeout" from="AIGrid/waterSystem/Timer" to="AIGrid/waterSystem" method="WaterRise" binds= [1]]
