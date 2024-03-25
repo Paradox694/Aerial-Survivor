@@ -125,7 +125,7 @@ func MainGridRowFill(fillType: int, row: int):
 	if row >= 0 and row < MGRowSize:
 		for c in range(MGColSize):
 			MainGrid[(row * MGColSize) + c] = fillType
-		blockDropAICalCulation()
+		#blockDropAICalCulation()
 
 
 #function to imulate setting a value in a 2D array
@@ -442,7 +442,7 @@ func blockDropAICalCulation():
 		"E":
 			targetRotaion = 1
 		"W":
-			targetRotaion = -1
+			targetRotaion = 3
 		"N":
 			targetRotaion = 2
 	
@@ -457,30 +457,32 @@ func AIControlls():
 	if targetOffset == 0 && targetRotaion == 0:
 		FBGBlockFall()
 		
-	else:
-		#does side movement
-		if targetOffset > 0:
-			if checkForMoveCollison(1):
-				FBGReferenceLocation.x += 1
-				checkFBGridOutOfBounds()
-			targetOffset -= 1
+	else: 
+		if targetRotaion > 0:
+			FBGRotateRight()
+			targetRotaion -= 1
 		
 		else:
-			if targetOffset < 0:
-				if checkForMoveCollison(-1):
-					FBGReferenceLocation.x -= 1
-					checkFBGridOutOfBounds()
-				targetOffset += 1
+			if targetRotaion < 0:
+				FBGRotateLeft()
+				targetRotaion += 1
 
-			else: 
-				if targetRotaion > 0:
-					FBGRotateRight()
-					targetRotaion -= 1
+			else:
+				#does side movement
+				if targetOffset > 0:
+					if checkForMoveCollison(1):
+						FBGReferenceLocation.x += 1
+						checkFBGridOutOfBounds()
+						targetOffset -= 1
 				
 				else:
-					if targetRotaion < 0:
-						FBGRotateLeft()
-						targetRotaion += 1
+					if targetOffset < 0:
+						if checkForMoveCollison(-1):
+							FBGReferenceLocation.x -= 1
+							checkFBGridOutOfBounds()
+							targetOffset += 1
+
+			
 
 
 
