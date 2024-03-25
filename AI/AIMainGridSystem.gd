@@ -125,7 +125,7 @@ func MainGridRowFill(fillType: int, row: int):
 	if row >= 0 and row < MGRowSize:
 		for c in range(MGColSize):
 			MainGrid[(row * MGColSize) + c] = fillType
-		
+		blockDropAICalCulation()
 
 
 #function to imulate setting a value in a 2D array
@@ -309,6 +309,9 @@ func blockDropAICalCulation():
 	#the highest points of best score
 	var BestScore : int = 0
 	
+	if RoofHit:
+		return
+	
 	#Loop through all posible Rotaions
 	for Rotation in ["S", "E", "N", "W"]:
 		#loop through all posible offsets
@@ -341,7 +344,8 @@ func blockDropAICalCulation():
 				for hight in range(FBGReferenceLocation.y, -4, -1):
 					
 					var stop : bool = false
-					score += 3
+					if hight >= 0:
+						score += 3
 					
 					
 					
@@ -369,8 +373,21 @@ func blockDropAICalCulation():
 									if row + hight + below >= 0 && TempFallingBlockGrid[(row*FBGColSize) + col] > -1 && MainGridRead(col + offset, row + hight + below) < 0:
 										score -= 2
 										if(row + below >= 0) && TempFallingBlockGrid[( (row + below)*FBGColSize) + col] > -1:
-											score += 1
+											score += 0
 										
+						
+						var colmsFilled = 0
+						var rowsFilled = 0
+						
+						for r in range(FBGRowSize):
+							for c in range(MGColSize):
+								if(MainGridRead(c, r + hight) > 1):
+									colmsFilled += 1
+							if(colmsFilled == MGColSize):
+								rowsFilled += 1
+							colmsFilled = 0
+						
+						score += rowsFilled * 10
 						
 						if score > BestScore:
 							BestOffset = offset
@@ -417,29 +434,37 @@ func blockDropAICalCulation():
 #processes ai movements
 func AIControlls():
 	
+	if RoofHit:
+		return
+	
+	
 	if targetOffset == 0 && targetRotaion == 0:
 		FBGBlockFall()
-	
-	#does side movement
-	if targetOffset > 0:
-		if checkForMoveCollison(1):
-			FBGReferenceLocation.x += 1
-			checkFBGridOutOfBounds()
-		targetOffset -= 1
-	
-	if targetOffset < 0:
-		if checkForMoveCollison(-1):
-			FBGReferenceLocation.x -= 1
-			checkFBGridOutOfBounds()
-		targetOffset += 1
-
-	if targetRotaion > 0:
-		FBGRotateRight()
-		targetRotaion -= 1
 		
-	if targetRotaion < 0:
-		FBGRotateLeft()
-		targetRotaion += 1
+	else:
+		#does side movement
+		if targetOffset > 0:
+			if checkForMoveCollison(1):
+				FBGReferenceLocation.x += 1
+				checkFBGridOutOfBounds()
+			targetOffset -= 1
+		
+		else:
+			if targetOffset < 0:
+				if checkForMoveCollison(-1):
+					FBGReferenceLocation.x -= 1
+					checkFBGridOutOfBounds()
+				targetOffset += 1
+
+			else: 
+				if targetRotaion > 0:
+					FBGRotateRight()
+					targetRotaion -= 1
+				
+				else:
+					if targetRotaion < 0:
+						FBGRotateLeft()
+						targetRotaion += 1
 
 
 
