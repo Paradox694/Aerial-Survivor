@@ -8,24 +8,15 @@ var shapeArrayIndex: int = 0
 @export var textureArray: Array [Texture2D]
 var shapeToDraw: int = 1
 
-<<<<<<< HEAD
 
-var shape1: Array [int] = [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
-var shape2: Array [int] = [0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0]
-var shape3: Array [int] = [0, 0, 0, 0, 3, 3, 3, 0, 0, 3, 0, 0, 0, 0, 0, 0]
-var shape4: Array [int] = [0, 0, 0, 0, 0, 4, 4, 4, 0, 4, 0, 0, 0, 0, 0, 0]
-var shape5: Array [int] = [0, 0, 0, 0, 0, 5, 5, 0, 0, 5, 5, 0, 0, 0, 0, 0]
-var shape6: Array [int] = [0, 0, 0, 0, 0, 6, 6, 0, 6, 6, 0, 0, 0, 0, 0, 0]
-var shape7: Array [int] = [0, 0, 0, 0, 0, 7, 7, 0, 0, 0, 7, 7, 0, 0, 0, 0]
-=======
 var shape1 : Array [int] = [-1, -1, -1, -1, 2, 2, 2, 2, -1, -1, -1, -1, -1, -1, -1, -1]
 var shape2 : Array [int] = [-1, -1, -1, -1, 3, 3, 3, -1, -1, -1, 3, -1, -1, -1, -1, -1]
+var shape3 : Array [int] = [-1, -1, -1, -1, 4, 4, 4, -1, -1, 4, -1, -1, -1, -1, -1, -1]
 var shape4 : Array [int] = [-1, -1, -1, -1, -1, 5, 5, 5, -1, 5, -1, -1, -1, -1, -1, -1]
 var shape5 : Array [int] = [-1, -1, -1, -1, -1, 6, 6, -1, -1, 6, 6, -1, -1, -1, -1, -1]
-var shape3 : Array [int] = [-1, -1, -1, -1, 4, 4, 4, -1, -1, 4, -1, -1, -1, -1, -1, -1]
 var shape6 : Array [int] = [-1, -1, -1, -1, -1, 7, 7, -1, 7, 7, -1, -1, -1, -1, -1, -1]
 var shape7 : Array [int] = [-1, -1, -1, -1, -1, 8, 8, -1, -1, -1, 8, 8, -1, -1, -1, -1]
->>>>>>> origin/main
+
 
 func _draw():
 	

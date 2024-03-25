@@ -8,13 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://cauf2jssrnf2x" path="res://Sprites/Blocks/DarkBlueBlock.png" id="7_3wiwk"]
 [ext_resource type="Texture2D" uid="uid://demwwahqcclkh" path="res://Sprites/Blocks/GreenBlock.png" id="8_5h5c2"]
 [ext_resource type="Texture2D" uid="uid://44n8gjc4e6bt" path="res://Sprites/Blocks/OrangeBlock.png" id="9_2ks5g"]
-[ext_resource type="Script" path="res://scripts/DrawShape.gd" id="9_e3c2c"]
 [ext_resource type="Texture2D" uid="uid://6vvb02ahvu3e" path="res://Sprites/Blocks/PinkBlock.png" id="10_1023s"]
 [ext_resource type="Texture2D" uid="uid://c1fp1lawjpjat" path="res://Sprites/Blocks/RedBlock.png" id="11_2iqq0"]
 [ext_resource type="Script" path="res://Water/Water.gd" id="11_jj45e"]
 [ext_resource type="Texture2D" uid="uid://bhwigjm6u8rbt" path="res://Sprites/Other Sprites/CloudBoarder.png" id="11_ujmhn"]
 [ext_resource type="PackedScene" uid="uid://b1g2bkbuln40b" path="res://Player/player.tscn" id="11_vwovf"]
 [ext_resource type="Texture2D" uid="uid://bhloxmnkbognx" path="res://Sprites/Blocks/YellowBlock.png" id="12_d8gl4"]
+[ext_resource type="PackedScene" uid="uid://cj3qgtbe47h0h" path="res://block_selection.tscn" id="13_dsfp6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfgmb"]
 
@@ -41,10 +41,7 @@ process_callback = 0
 wait_time = 0.5
 autostart = true
 
-[node name="block selection" type="Node2D" parent="MainGrid"]
-position = Vector2(400, -600)
-script = ExtResource("9_e3c2c")
-textureArray = Array[Texture2D]([ExtResource("6_8vtbl"), ExtResource("7_3wiwk"), ExtResource("8_5h5c2"), ExtResource("9_2ks5g"), ExtResource("10_1023s"), ExtResource("11_2iqq0"), ExtResource("12_d8gl4")])
+[node name="block selection" parent="MainGrid" instance=ExtResource("13_dsfp6")]
 
 [node name="floor" type="StaticBody2D" parent="MainGrid"]
 position = Vector2(160, 48)
