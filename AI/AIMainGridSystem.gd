@@ -321,7 +321,7 @@ func blockDropAICalCulation():
 			var score : int = 0
 			
 			#check if blocks could be outside of grid
-			if offset < 0 || offset > 6:
+			if offset < 0 || offset > 5:
 				#loop through temp falling block grid
 				for row in range(FBGRowSize):
 					
@@ -373,21 +373,37 @@ func blockDropAICalCulation():
 									if row + hight + below >= 0 && TempFallingBlockGrid[(row*FBGColSize) + col] > -1 && MainGridRead(col + offset, row + hight + below) < 0:
 										score -= 2
 										if(row + below >= 0) && TempFallingBlockGrid[( (row + below)*FBGColSize) + col] > -1:
-											score += 0
+											score += 2
 										
-						
+						#checks for posible line clear
 						var colmsFilled = 0
-						var rowsFilled = 0
+						var rowsFilled = 0	
 						
 						for r in range(FBGRowSize):
 							for c in range(MGColSize):
 								if(MainGridRead(c, r + hight) > 1):
 									colmsFilled += 1
+								else:
+									if c >= offset && c < offset + FBGColSize - 1:
+										if TempFallingBlockGrid[( (r)*FBGColSize) + (c - offset)] >= 0:
+											colmsFilled += 1
 							if(colmsFilled == MGColSize):
 								rowsFilled += 1
 							colmsFilled = 0
 						
 						score += rowsFilled * 10
+						
+						#removes hight score for excess rows
+						
+						for row in range(FBGRowSize):
+							var emptyCol = 0
+							for col in range(FBGColSize):
+								if TempFallingBlockGrid[(row*FBGColSize) + col] >= 0:
+									emptyCol += 1
+							if emptyCol >= 4:
+								score -= 3
+							
+							
 						
 						if score > BestScore:
 							BestOffset = offset
