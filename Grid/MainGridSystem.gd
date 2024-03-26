@@ -36,7 +36,6 @@ var collider = preload("res://Grid/block_collider.tscn")
 var collisionGrid : Array
 
 
-
 func _init():
 	#setting the main grid to correct size and filling it
 	MainGrid.resize(MGColSize*MGRowSize+MGoverFlow)
@@ -82,7 +81,6 @@ func _physics_process(_delta):
 		if(Input.is_action_pressed("DropBlock")):
 			FBGBlockFall()
 
-	
 #draws all the clouds in the grid
 func _draw():
 	#draws the main grid
@@ -239,7 +237,7 @@ func FBGReset():
 	 # Load the sound
 	var block_drop_sound = preload("res://Sounds/BlockDrop.wav") 
 	# Create an AudioStreamPlayer node
-	var audio_player = AudioStreamPlayer.new()
+	var audio_player = AudioStreamPlayer2D.new()
 	# Set the bus to 'SFX'
 	audio_player.bus = "SFX"  
 	# Assign the sound to the player
