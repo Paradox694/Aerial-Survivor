@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmgjgp0r14s2e"]
-
-[ext_resource type="Texture2D" uid="uid://bhloxmnkbognx" path="res://Sprites/YellowBlock.png" id="1_2o05f"]
-
-[node name="OBlock" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_2o05f")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baf1jpmcc5bu3"
-path="res://.godot/imported/BlueBlock.png-95df01114397fe8055c237baf737ba4c.ctex"
+uid="uid://m2g3gohi2hvr"
+path="res://.godot/imported/BlueBlockTemp.png-b0246ddbf8cbdc3a0506ef2c9cf80da5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/BlueBlock.png"
-dest_files=["res://.godot/imported/BlueBlock.png-95df01114397fe8055c237baf737ba4c.ctex"]
+source_file="res://Tempblock/BlueBlockTemp.png"
+dest_files=["res://.godot/imported/BlueBlockTemp.png-b0246ddbf8cbdc3a0506ef2c9cf80da5.ctex"]
 
 [params]
 

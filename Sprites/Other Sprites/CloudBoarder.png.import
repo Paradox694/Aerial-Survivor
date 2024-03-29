@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://44n8gjc4e6bt"
-path="res://.godot/imported/OrangeBlock.png-4f0c7be7120b4d32604cda326f07e6b8.ctex"
+uid="uid://bhwigjm6u8rbt"
+path="res://.godot/imported/CloudBoarder.png-fe791c467c3ebd8c71954f84e26a4355.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/OrangeBlock.png"
-dest_files=["res://.godot/imported/OrangeBlock.png-4f0c7be7120b4d32604cda326f07e6b8.ctex"]
+source_file="res://Sprites/Other Sprites/CloudBoarder.png"
+dest_files=["res://.godot/imported/CloudBoarder.png-fe791c467c3ebd8c71954f84e26a4355.ctex"]
 
 [params]
 

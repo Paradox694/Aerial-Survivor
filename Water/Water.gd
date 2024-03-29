@@ -4,11 +4,14 @@ signal stop
 
 signal fillRow(fillType, row)
 
+signal updateTextures()
+
 #@onready var polygon_2d = $Polygon2D
 
 #@onready var timer = $Timer
 
-var fillType = 0
+var deepWaterFill : int = 0
+var surfaceWaterFill : int = 1
 
 var row = -1
 
@@ -20,7 +23,7 @@ func _ready():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 	# original way of moving the water
 	#if(polygon_2d.position.y < -540):
@@ -37,12 +40,17 @@ func WaterRise(Levels : int):
 	#polygon_2d.position.y = polygon_2d.position.y - 0.5
 	
 	for r in range(Levels):
+		
+		if(row >= 0):
+			fillRow.emit(deepWaterFill, row)
+		
 		row += 1
 		
 		if(row >=maxWaterHight):
 			stop.emit()
 			break
 		
-		fillRow.emit(fillType, row)
+		fillRow.emit(surfaceWaterFill, row)
+		updateTextures.emit()
 		print("The water is rising")
 	

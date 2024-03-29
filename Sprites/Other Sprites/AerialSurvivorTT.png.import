@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1fp1lawjpjat"
-path="res://.godot/imported/RedBlock.png-ac11a911968c1660ddc6541774c895d9.ctex"
+uid="uid://db81kmot5ins1"
+path="res://.godot/imported/AerialSurvivorTT.png-e05ee32bc2b17beca7face37b1a332b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/RedBlock.png"
-dest_files=["res://.godot/imported/RedBlock.png-ac11a911968c1660ddc6541774c895d9.ctex"]
+source_file="res://Sprites/Other Sprites/AerialSurvivorTT.png"
+dest_files=["res://.godot/imported/AerialSurvivorTT.png-e05ee32bc2b17beca7face37b1a332b7.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cauf2jssrnf2x"
-path="res://.godot/imported/DarkBlueBlock.png-ac335d472cfdfddd82fcdf8645be4138.ctex"
+uid="uid://xdedf2amumna"
+path="res://.godot/imported/PlayButton.png-a5698f9e3f671c611a4828d360e368d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/DarkBlueBlock.png"
-dest_files=["res://.godot/imported/DarkBlueBlock.png-ac335d472cfdfddd82fcdf8645be4138.ctex"]
+source_file="res://UISprites/PlayButton.png"
+dest_files=["res://.godot/imported/PlayButton.png-a5698f9e3f671c611a4828d360e368d8.ctex"]
 
 [params]
 
