@@ -373,7 +373,7 @@ func blockDropAICalCulation():
 									if row + hight + below >= 0 && TempFallingBlockGrid[(row*FBGColSize) + col] > -1 && MainGridRead(col + offset, row + hight + below) < 0:
 										score -= 2
 										if(row + below >= 0) && TempFallingBlockGrid[( (row + below)*FBGColSize) + col] > -1:
-											score += 2
+											score += 1
 										
 						#checks for posible line clear
 						var colmsFilled = 0
@@ -442,7 +442,7 @@ func blockDropAICalCulation():
 		"E":
 			targetRotaion = 1
 		"W":
-			targetRotaion = 3
+			targetRotaion = -1
 		"N":
 			targetRotaion = 2
 	
