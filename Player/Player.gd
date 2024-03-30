@@ -42,29 +42,29 @@ func _physics_process(delta):
 			animated_sprite.play("idle_left")
 	
 	#Handle Right animations
-		if Input.is_action_pressed("move_right"):
-			if is_on_floor():
-				animated_sprite.play("walk_right")
-			if not is_on_floor():
-				animated_sprite.play("jump_right")
-		else:
-			if animated_sprite.assigned_animation == "walk_right":
-				animated_sprite.stop()
-				animated_sprite.play("idle_right")
-			if animated_sprite.assigned_animation == "jump_right":
-				animated_sprite.stop()
-				animated_sprite.play("idle_right")
+	if Input.is_action_pressed("move_right"):
+		if is_on_floor():
+			animated_sprite.play("walk_right")
+		if not is_on_floor():
+			animated_sprite.play("jump_right")
+	else:
+		if animated_sprite.assigned_animation == "walk_right":
+			animated_sprite.stop()
+			animated_sprite.play("idle_right")
+		if animated_sprite.assigned_animation == "jump_right":
+			animated_sprite.stop()
+			animated_sprite.play("idle_right")
 	
 	#Handle input for left and right movement 
-		var direction = Input.get_axis("move_left", "move_right")
-		if direction:
-			# Move right if direction is positive, move left if negative
-			velocity.x = direction * SPEED
-		else:
-		 	# Slow down if no input for smoother movement
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+	var direction = Input.get_axis("move_left", "move_right")
+	if direction:
+		# Move right if direction is positive, move left if negative
+		velocity.x = direction * SPEED
+	else:
+		 # Slow down if no input for smoother movement
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	  # Move the character based on the calculated velocity
+	# Move the character based on the calculated velocity
 	move_and_slide()
 
 func _on_animated_sprite_2d_animation_finished():
