@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://d3hg7gd0gyx28"]
 
-[ext_resource type="Texture2D" uid="uid://bottlo5883oum" path="res://Sprites/Other Sprites/SkyBackground.png" id="1_4bfp6"]
+[ext_resource type="Texture2D" uid="uid://dghuav4fngmq8" path="res://Sprites/Other Sprites/SkyBackgroundClear.png" id="1_43ajm"]
 [ext_resource type="Script" path="res://Grid/MainGridSystem.gd" id="1_xiyqx"]
 [ext_resource type="Texture2D" uid="uid://5epn23y2qr0w" path="res://Sprites/Blocks/WaterBlockD.png" id="2_xuib7"]
 [ext_resource type="Texture2D" uid="uid://dqae66sixp8so" path="res://Sprites/Blocks/WaterBlockS.png" id="5_xm3p6"]
@@ -22,7 +22,7 @@
 
 [node name="SkyBackground" type="Sprite2D" parent="."]
 position = Vector2(962, 524)
-texture = ExtResource("1_4bfp6")
+texture = ExtResource("1_43ajm")
 
 [node name="Player" parent="." instance=ExtResource("11_vwovf")]
 position = Vector2(396, 800)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5kw853slwjt6"
-path="res://.godot/imported/Yuki_Sheet.png-d89afe89a2a99d8cb668efeee1bb687e.ctex"
+uid="uid://cu7xceiq7hq1"
+path="res://.godot/imported/MultiPlayerButton.png-e8c08c49a351470d2573971b57760191.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpriteSheets/Yuki_Sheet.png"
-dest_files=["res://.godot/imported/Yuki_Sheet.png-d89afe89a2a99d8cb668efeee1bb687e.ctex"]
+source_file="res://Sprites/Titles/MultiPlayerButton.png"
+dest_files=["res://.godot/imported/MultiPlayerButton.png-e8c08c49a351470d2573971b57760191.ctex"]
 
 [params]
 

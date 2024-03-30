@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3yadqa4f8vv5"
-path="res://.godot/imported/SkyBackground.png-91c6f05bb2f23ef489554a4852ad0726.ctex"
+uid="uid://0r21hwdub2ov"
+path="res://.godot/imported/CloudBoarderEvil.png-412e3f774e2c2a06211963e32f47fa8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Other Sprites/SkyBackground.png"
-dest_files=["res://.godot/imported/SkyBackground.png-91c6f05bb2f23ef489554a4852ad0726.ctex"]
+source_file="res://Sprites/Other Sprites/CloudBoarderEvil.png"
+dest_files=["res://.godot/imported/CloudBoarderEvil.png-412e3f774e2c2a06211963e32f47fa8a.ctex"]
 
 [params]
 

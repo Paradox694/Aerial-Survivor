@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xdedf2amumna"
-path="res://.godot/imported/PlayButton.png-a5698f9e3f671c611a4828d360e368d8.ctex"
+uid="uid://5kw853slwjt6"
+path="res://.godot/imported/Yuki_Sheet.png-791a13558627f1316922f4c51b0e6c14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UISprites/PlayButton.png"
-dest_files=["res://.godot/imported/PlayButton.png-a5698f9e3f671c611a4828d360e368d8.ctex"]
+source_file="res://Sprites/SpriteSheets/Yuki_Sheet.png"
+dest_files=["res://.godot/imported/Yuki_Sheet.png-791a13558627f1316922f4c51b0e6c14.ctex"]
 
 [params]
 

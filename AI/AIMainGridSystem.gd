@@ -257,6 +257,7 @@ func FBGReset():
 	#add code to change block
 	FBGResetArray.emit()
 	blockDropAICalCulation()
+	FindOffsetOfHighestPoint()
 
 
 func CheckForLineClear():
@@ -484,5 +485,15 @@ func AIControlls():
 
 			
 
-
-
+signal setAIPlayerTargetOffset(offset : int)
+func FindOffsetOfHighestPoint():
+	
+	var highestCol : int = 0
+	
+	for row in range(MGRowSize):
+		for col in range(MGColSize):
+			if MainGridRead(col, row) > 1:
+				highestCol = col
+	
+	setAIPlayerTargetOffset.emit(highestCol * colRenderOffset + (colRenderOffset/2))
+	
