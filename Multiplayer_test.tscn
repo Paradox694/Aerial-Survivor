@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctkdvsw52utxe"]
+[gd_scene load_steps=4 format=3 uid="uid://ctkdvsw52utxe"]
 
-[ext_resource type="PackedScene" uid="uid://drs6njogmm04s" path="res://Player/player_2.tscn" id="2_1xu3n"]
 [ext_resource type="PackedScene" uid="uid://b1g2bkbuln40b" path="res://Player/player.tscn" id="2_v7g37"]
 
 [sub_resource type="GDScript" id="GDScript_xbwqi"]
@@ -41,6 +40,8 @@ shape = SubResource("RectangleShape2D_wkpt3")
 
 [node name="Player" parent="." instance=ExtResource("2_v7g37")]
 position = Vector2(323, 943)
+player_id = 1
 
-[node name="Player2" parent="." instance=ExtResource("2_1xu3n")]
-position = Vector2(1447, 943)
+[node name="Player2" parent="." instance=ExtResource("2_v7g37")]
+position = Vector2(1300, 943)
+player_id = 2
