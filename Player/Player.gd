@@ -77,3 +77,9 @@ func _on_area_2d_area_entered(area):
 		area.get_parent().queue_free()
 		death.emit(area2D)
 	pass # Replace with function body.
+
+func _on_area_2d_2_area_entered(area):
+	if(area.name == "KillBox"):
+		area.get_parent().queue_free()
+		death.emit(area2D)
+	pass # Replace with function body.

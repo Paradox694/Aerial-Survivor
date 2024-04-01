@@ -28,6 +28,7 @@ texture = ExtResource("1_4bfp6")
 
 [node name="Player" parent="." instance=ExtResource("11_vwovf")]
 position = Vector2(396, 800)
+player_id = 1
 
 [node name="MainGrid" type="Node2D" parent="."]
 position = Vector2(240, 800)
