@@ -87,14 +87,15 @@ func _physics_process(_delta):
 		#Play fast drop sound 
 		if not sound_player.playing:
 			sound_player.play()
-			# Stop playing the sound when S key is released
-		else:
-			if sound_player.playing:
-				sound_player.stop()
+
 	
 	if(!FBGDropReset):
 		if(Input.is_action_pressed("DropBlock")):
 			FBGBlockFall()
+		# Stop playing the sound when S key is released
+		else:
+			if sound_player.playing:
+				sound_player.stop()
 
 
 
