@@ -15,7 +15,16 @@ const JUMP_VELOCITY = -300
 # Get default gravity from project settings
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+# Create an AudioStreamPlayer2D instance for death sound
+var death_sound_player = AudioStreamPlayer2D.new() 
+# Load death sound
+var death_sound = preload("res://CharacterDamaged.wav") 
+
+
 func _ready():
+	death_sound_player.bus = "Master"
+	death_sound_player.stream = death_sound
+	add_child(death_sound_player)
 	animated_sprite.play("idle_right")
 
 func _physics_process(delta):
@@ -72,14 +81,25 @@ func _physics_process(delta):
 func _on_animated_sprite_2d_animation_finished():
 	animated_sprite.play("idle_right")
 
+
 func _on_area_2d_area_entered(area):
 	if(area.name == "Damage_Area"):
 		area.get_parent().queue_free()
 		death.emit(area2D)
+		if not death_sound_player.playing:
+			death_sound_player.play() # Play the death sound
+		else:
+			if death_sound_player.playing:
+				death_sound_player.stop()
 	pass # Replace with function body.
 
 func _on_area_2d_2_area_entered(area):
 	if(area.name == "KillBox"):
 		area.get_parent().queue_free()
 		death.emit(area2D)
+		if not death_sound_player.playing:
+			death_sound_player.play() # Play the death sound
+		else:
+			if death_sound_player.playing:
+				death_sound_player.stop()
 	pass # Replace with function body.
