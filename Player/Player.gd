@@ -1,6 +1,10 @@
 extends CharacterBody2D
 
+signal death(area2D)
+
 @onready var animated_sprite = $Sprite2D/PlayerAnimation
+
+@onready var area2D = $Area2D
 
 #constants for movement 
 const SPEED = 300.0
@@ -97,3 +101,9 @@ func _physics_process(delta):
 	
 func _on_animated_sprite_2d_animation_finished():
 	animated_sprite.play("idle_right")
+
+func _on_area_2d_area_entered(area):
+	if(area.name == "Damage_Area"):
+		area.get_parent().queue_free()
+		death.emit(area2D)
+	pass # Replace with function body.

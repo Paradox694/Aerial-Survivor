@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 [gd_scene load_steps=16 format=3 uid="uid://d3hg7gd0gyx28"]
+=======
+[gd_scene load_steps=17 format=3 uid="uid://d3hg7gd0gyx28"]
+>>>>>>> cc4469d664c8a1e1c3d33babd284e03fc3512df2
 
+[ext_resource type="PackedScene" uid="uid://dxgs7a0ibnxlq" path="res://Timer/Water_timer.tscn" id="1_ci0ik"]
 [ext_resource type="Script" path="res://Grid/MainGridSystem.gd" id="1_xiyqx"]
+[ext_resource type="PackedScene" uid="uid://niru1fo8yq7v" path="res://Water Damage/Water_damage.tscn" id="2_pfob7"]
 [ext_resource type="Texture2D" uid="uid://baf1jpmcc5bu3" path="res://Sprites/BlueBlock.png" id="2_tx7uk"]
 [ext_resource type="Texture2D" uid="uid://5epn23y2qr0w" path="res://Sprites/Blocks/WaterBlockD.png" id="2_xuib7"]
 [ext_resource type="Texture2D" uid="uid://cauf2jssrnf2x" path="res://Sprites/DarkBlueBlock.png" id="3_7fy3b"]
@@ -13,15 +19,26 @@
 [ext_resource type="Script" path="res://Water/Water.gd" id="11_jj45e"]
 [ext_resource type="Texture2D" uid="uid://bhwigjm6u8rbt" path="res://Sprites/Other Sprites/CloudBoarder.png" id="11_ujmhn"]
 [ext_resource type="PackedScene" uid="uid://b1g2bkbuln40b" path="res://Player/player.tscn" id="11_vwovf"]
+<<<<<<< HEAD
 [ext_resource type="AudioStream" uid="uid://df87fd0s7nifn" path="res://Sounds/Backgroundsound.mp3" id="14_3rs22"]
+=======
+[ext_resource type="PackedScene" uid="uid://cgtmwfxq5uaop" path="res://Death/Death.tscn" id="15_58dso"]
+>>>>>>> cc4469d664c8a1e1c3d33babd284e03fc3512df2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfgmb"]
 
 [node name="Node2D" type="Node2D"]
 
+<<<<<<< HEAD
 [node name="Player" parent="." instance=ExtResource("11_vwovf")]
 position = Vector2(396, 931)
 scale = Vector2(2, 2)
+=======
+[node name="WaterTimer" parent="." instance=ExtResource("1_ci0ik")]
+
+[node name="Water_Damage" parent="." instance=ExtResource("2_pfob7")]
+position = Vector2(209, 983)
+>>>>>>> cc4469d664c8a1e1c3d33babd284e03fc3512df2
 
 [node name="MainGrid" type="Node2D" parent="."]
 position = Vector2(240, 955)
@@ -45,7 +62,12 @@ textureArray = Array[Texture2D]([ExtResource("2_tx7uk"), ExtResource("3_7fy3b"),
 position = Vector2(160, 48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainGrid/floor"]
+<<<<<<< HEAD
 scale = Vector2(20, 1)
+=======
+position = Vector2(0, -6)
+scale = Vector2(2, 1)
+>>>>>>> cc4469d664c8a1e1c3d33babd284e03fc3512df2
 shape = SubResource("RectangleShape2D_rfgmb")
 
 [node name="Sprite2D" type="Sprite2D" parent="MainGrid/floor"]
@@ -79,6 +101,10 @@ autostart = true
 stream = ExtResource("14_3rs22")
 autoplay = true
 
+[node name="Death" parent="." instance=ExtResource("15_58dso")]
+
+[connection signal="rise" from="WaterTimer" to="Water_Damage" method="_on_water_timer_rise"]
+[connection signal="stop" from="Water_Damage" to="WaterTimer" method="_on_water_stop"]
 [connection signal="FBGResetArray" from="MainGrid" to="MainGrid/block selection" method="NextShape"]
 [connection signal="SendWater" from="MainGrid" to="MainGrid/waterSystem" method="WaterRise"]
 [connection signal="timeout" from="MainGrid/GridBlockFallTimer" to="MainGrid" method="FBGBlockFall"]
@@ -86,3 +112,4 @@ autoplay = true
 [connection signal="fillRow" from="MainGrid/waterSystem" to="MainGrid" method="MainGridRowFill"]
 [connection signal="stop" from="MainGrid/waterSystem" to="MainGrid/waterSystem/Timer" method="stop"]
 [connection signal="timeout" from="MainGrid/waterSystem/Timer" to="MainGrid/waterSystem" method="WaterRise" binds= [1]]
+[connection signal="death" from="Player" to="Death" method="die"]
