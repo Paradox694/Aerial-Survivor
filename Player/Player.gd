@@ -14,7 +14,7 @@ var sound_player = AudioStreamPlayer.new()
 # Load the sound
 var character_moving_sound = preload("res://Sounds/CharacterMoving.wav")
 
-# Track if the character is moving
+# Track if the character is moving for sound to play
 var is_moving_left = false
 var is_moving_right = false
 
@@ -26,14 +26,6 @@ func _ready():
 	
 	animated_sprite.play("idle_right")
 
-#func play_moving_sound():
-	## Func to play the sound when player moves 
-	#var player_Move = preload("res://Sounds/CharacterMoving.wav") 
-	#var audio_player = AudioStreamPlayer2D.new()
-	#audio_player.bus = "SFX"  
-	#audio_player.stream = player_Move
-	#add_child(audio_player)
-	#audio_player.play() 
 
 
 func _physics_process(delta):
@@ -52,7 +44,7 @@ func _physics_process(delta):
 			animated_sprite.play("walk_left")
 		if not is_on_floor():
 			animated_sprite.play("jump_left")
-		# Set the flag to indicate character is moving left
+		# Set the movement flag to true to indicate left movement
 		is_moving_left = true
 	else:
 		if animated_sprite.assigned_animation == "walk_left":
@@ -61,6 +53,7 @@ func _physics_process(delta):
 		if animated_sprite.assigned_animation == "jump_left":
 			animated_sprite.stop()
 			animated_sprite.play("idle_left")
+		# Set the movement flag to false to indicate no movement
 		is_moving_left = false
 
 	#Handle Right animations
@@ -69,7 +62,7 @@ func _physics_process(delta):
 			animated_sprite.play("walk_right")
 		if not is_on_floor():
 			animated_sprite.play("jump_right")
-		# Set the flag to indicate character is moving right
+		# Set the movement flag to true to indicate right movement
 		is_moving_right = true
 	else:
 		if animated_sprite.assigned_animation == "walk_right":
@@ -78,12 +71,14 @@ func _physics_process(delta):
 		if animated_sprite.assigned_animation == "jump_right":
 			animated_sprite.stop()
 			animated_sprite.play("idle_right")
+		# Set the movement flag to false to indicate no movement
 		is_moving_right = false
 
-	# Play or stop the sound based on character movement
+	# Play the sound if character is moving left or right
 	if is_moving_left or is_moving_right:
 		if not sound_player.playing:
 			sound_player.play()
+	# Stop playing the sound when left or right keys are released
 	else:
 		if sound_player.playing:
 			sound_player.stop()

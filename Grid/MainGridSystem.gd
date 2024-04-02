@@ -35,6 +35,11 @@ var FBGDropReset : bool = false
 var collider = preload("res://Grid/block_collider.tscn")
 var collisionGrid : Array
 
+# Create an AudioStreamPlayer node
+var sound_player = AudioStreamPlayer.new()  
+# Load the sound
+var block_fast_drop_sound = preload("res://Sounds/BlockFalling.mp3")
+
 
 func _init():
 	#setting the main grid to correct size and filling it
@@ -49,10 +54,13 @@ func _init():
 	collisionGrid.resize(MainGrid.size())
 
 func _ready():
+	# Func to play the fast drop sound 
+	sound_player.bus = "SFX"  
+	sound_player.stream = block_fast_drop_sound
+	add_child(sound_player)
+	
 	#gets first block
 	FBGResetArray.emit()
-	
-
 
 func _input(event):
 	if event.is_action_pressed("RotateBlockRight"):
@@ -76,10 +84,19 @@ func _physics_process(_delta):
 	
 	if(Input.is_action_just_pressed("DropBlock")):
 		FBGDropReset = false
+		#Play fast drop sound 
+		if not sound_player.playing:
+			sound_player.play()
+			# Stop playing the sound when S key is released
+		else:
+			if sound_player.playing:
+				sound_player.stop()
 	
 	if(!FBGDropReset):
 		if(Input.is_action_pressed("DropBlock")):
 			FBGBlockFall()
+
+
 
 #draws all the clouds in the grid
 func _draw():
