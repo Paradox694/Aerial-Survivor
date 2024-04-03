@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bx6714qf5r53g"]
 
 [ext_resource type="Script" path="res://AI/AIPlayer.gd" id="1_yp7n6"]
-[ext_resource type="Texture2D" uid="uid://5kw853slwjt6" path="res://Sprites/SpriteSheets/Yuki_Sheet.png" id="2_hf5rw"]
+[ext_resource type="Texture2D" uid="uid://bvub6o6erjpo6" path="res://Sprites/SpriteSheets/YukiEvil_Sheet.png" id="2_7vtwm"]
 
 [sub_resource type="Animation" id="Animation_tl8fv"]
 resource_name = "idle_left"
@@ -144,11 +144,12 @@ script = ExtResource("1_yp7n6")
 texture_filter = 1
 position = Vector2(2.38419e-06, 5.24521e-06)
 scale = Vector2(0.394043, 0.394043)
-texture = ExtResource("2_hf5rw")
+texture = ExtResource("2_7vtwm")
 hframes = 14
 vframes = 2
+frame = 14
 
-[node name="PlayerAnimation" type="AnimationPlayer" parent="Sprite2D"]
+[node name="PlayerAnimation2" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
 "": SubResource("AnimationLibrary_42uay")
 }

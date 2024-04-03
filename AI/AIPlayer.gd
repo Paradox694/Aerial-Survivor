@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var animated_sprite = $Sprite2D/PlayerAnimation
+@onready var animated_sprite = $Sprite2D/PlayerAnimation2
 
 #signal highestPointOffset()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cgh8ur4a7roul"]
+[gd_scene load_steps=21 format=3 uid="uid://cgh8ur4a7roul"]
 
 [ext_resource type="Texture2D" uid="uid://dghuav4fngmq8" path="res://Sprites/Other Sprites/SkyBackgroundClear.png" id="1_wx4dr"]
 [ext_resource type="Script" path="res://AI/AIMainGridSystem.gd" id="2_8o6v6"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bhloxmnkbognx" path="res://Sprites/Blocks/YellowBlock.png" id="9_47864"]
 [ext_resource type="Texture2D" uid="uid://bhwigjm6u8rbt" path="res://Sprites/Other Sprites/CloudBoarder.png" id="10_jr1rv"]
 [ext_resource type="Script" path="res://Water/Water.gd" id="11_kvtad"]
+[ext_resource type="Texture2D" uid="uid://0r21hwdub2ov" path="res://Sprites/Other Sprites/CloudBoarderEvil.png" id="14_111m0"]
 [ext_resource type="PackedScene" uid="uid://b1g2bkbuln40b" path="res://Player/player.tscn" id="15_tp70g"]
 [ext_resource type="Script" path="res://Grid/MainGridSystem.gd" id="16_us5bc"]
 [ext_resource type="PackedScene" uid="uid://bx6714qf5r53g" path="res://AI/AIplayer.tscn" id="17_2h1ot"]
@@ -65,7 +66,7 @@ shape = SubResource("RectangleShape2D_svx37")
 
 [node name="Sprite2D" type="Sprite2D" parent="AIGrid/floor"]
 position = Vector2(0, -330)
-texture = ExtResource("10_jr1rv")
+texture = ExtResource("14_111m0")
 
 [node name="wall_Left" type="StaticBody2D" parent="AIGrid"]
 position = Vector2(-16, -320)
