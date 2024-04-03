@@ -25,7 +25,7 @@
 [node name="SinglePlayerLevel" type="Node2D"]
 
 [node name="SkyBackground" type="Sprite2D" parent="."]
-position = Vector2(962, 524)
+position = Vector2(962, 536)
 texture = ExtResource("1_oa83y")
 
 [node name="AIPlayer" parent="." instance=ExtResource("17_2h1ot")]
