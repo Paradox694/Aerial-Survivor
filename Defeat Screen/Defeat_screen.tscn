@@ -1,15 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://b08rcmj6ibtgm"]
+[gd_scene load_steps=6 format=3 uid="uid://b08rcmj6ibtgm"]
 
 [ext_resource type="Texture2D" uid="uid://crbskg6chk5ej" path="res://Sprites/Titles/Defeat.png" id="1_41c0t"]
 [ext_resource type="Script" path="res://Defeat Screen/Defeat_screen.gd" id="1_rju3d"]
 [ext_resource type="Texture2D" uid="uid://wkq148tsmxfl" path="res://Sprites/Titles/PlayButton.png" id="2_hu5us"]
+[ext_resource type="Texture2D" uid="uid://bottlo5883oum" path="res://Sprites/Other Sprites/SkyBackground.png" id="2_nkoru"]
 [ext_resource type="Texture2D" uid="uid://cpl7x1eo30jms" path="res://Sprites/Titles/QuitButton.png" id="3_axdky"]
 
 [node name="DefeatScreen" type="CanvasLayer"]
 script = ExtResource("1_rju3d")
 
+[node name="SkyBackground" type="Sprite2D" parent="."]
+position = Vector2(962, 524)
+texture = ExtResource("2_nkoru")
+
 [node name="Defeat" type="Sprite2D" parent="."]
-position = Vector2(915, 300)
+position = Vector2(933, 252)
 scale = Vector2(3, 3)
 texture = ExtResource("1_41c0t")
 
@@ -18,9 +23,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 710.0
-offset_top = 485.0
+offset_top = 573.0
 offset_right = -798.0
-offset_bottom = -505.0
+offset_bottom = -417.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -30,9 +35,9 @@ texture = ExtResource("2_hu5us")
 
 [node name="Quit" type="Button" parent="."]
 offset_left = 710.0
-offset_top = 662.0
+offset_top = 730.0
 offset_right = 1122.0
-offset_bottom = 752.0
+offset_bottom = 820.0
 
 [node name="QuitButton" type="Sprite2D" parent="Quit"]
 position = Vector2(208, 45)

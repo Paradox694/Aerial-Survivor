@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://d3hg7gd0gyx28"]
+[gd_scene load_steps=20 format=3 uid="uid://d3hg7gd0gyx28"]
 
+[ext_resource type="PackedScene" uid="uid://cgtmwfxq5uaop" path="res://Death/Death.tscn" id="1_0u7fe"]
 [ext_resource type="Texture2D" uid="uid://bottlo5883oum" path="res://Sprites/Other Sprites/SkyBackground.png" id="1_4bfp6"]
 [ext_resource type="Script" path="res://Grid/MainGridSystem.gd" id="1_xiyqx"]
 [ext_resource type="Texture2D" uid="uid://5epn23y2qr0w" path="res://Sprites/Blocks/WaterBlockD.png" id="2_xuib7"]
@@ -22,6 +23,8 @@
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Death" parent="." instance=ExtResource("1_0u7fe")]
+
 [node name="SkyBackground" type="Sprite2D" parent="."]
 position = Vector2(962, 524)
 texture = ExtResource("1_4bfp6")
@@ -33,6 +36,7 @@ player_id = 1
 [node name="MainGrid" type="Node2D" parent="."]
 position = Vector2(240, 800)
 script = ExtResource("1_xiyqx")
+player_id = 1
 cloudTextures = Array[Texture2D]([ExtResource("2_xuib7"), ExtResource("5_xm3p6"), ExtResource("6_8vtbl"), ExtResource("7_3wiwk"), ExtResource("8_5h5c2"), ExtResource("9_2ks5g"), ExtResource("10_1023s"), ExtResource("11_2iqq0"), ExtResource("12_d8gl4")])
 rowRenderOffset = 32.0
 colRenderOffset = 32.0
@@ -87,6 +91,7 @@ position = Vector2(187, 839)
 
 [node name="WaterTimer" parent="." instance=ExtResource("17_y08v3")]
 
+[connection signal="death" from="Player" to="Death" method="Die"]
 [connection signal="FBGResetArray" from="MainGrid" to="MainGrid/block selection" method="NextShape"]
 [connection signal="SendWater" from="MainGrid" to="MainGrid/waterSystem" method="WaterRise"]
 [connection signal="StopBlockFallTimer" from="MainGrid" to="MainGrid/GridBlockFallTimer" method="stop"]

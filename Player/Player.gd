@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal death(area2D)
+signal death(area2D, player_id)
 
 @onready var animated_sprite = $Sprite2D/PlayerAnimation
 
@@ -75,11 +75,11 @@ func _on_animated_sprite_2d_animation_finished():
 func _on_area_2d_area_entered(area):
 	if(area.name == "Damage_Area"):
 		area.get_parent().queue_free()
-		death.emit(area2D)
+		death.emit(area2D, player_id)
 	pass # Replace with function body.
 
 func _on_area_2d_2_area_entered(area):
 	if(area.name == "KillBox"):
 		area.get_parent().queue_free()
-		death.emit(area2D)
+		death.emit(area2D, player_id)
 	pass # Replace with function body.
