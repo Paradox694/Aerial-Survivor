@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dtpuae4q8vxt"]
 
 [ext_resource type="Script" path="res://PauseMenu/PauseMenu.gd" id="1_6h5ov"]
-[ext_resource type="Texture2D" uid="uid://koj1ywblod5h" path="res://UISprites/OptionButton.png" id="2_ak18r"]
-[ext_resource type="Texture2D" uid="uid://b7303qu7nwynw" path="res://UISprites/ResumeButton.png" id="2_p5igv"]
-[ext_resource type="Texture2D" uid="uid://d3smc6en85jkv" path="res://UISprites/QuitButton.png" id="4_3mtr1"]
+[ext_resource type="Texture2D" uid="uid://cwj0bda18hf06" path="res://Sprites/Titles/ResumeButton.png" id="2_2pq8p"]
+[ext_resource type="Texture2D" uid="uid://d2qomt3n6j3po" path="res://Sprites/Titles/OptionButton.png" id="3_67ory"]
+[ext_resource type="Texture2D" uid="uid://cpl7x1eo30jms" path="res://Sprites/Titles/QuitButton.png" id="4_ehy2q"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -20,21 +20,23 @@ offset_left = 793.0
 offset_top = 380.0
 offset_right = 993.0
 offset_bottom = 455.0
-texture_normal = ExtResource("2_p5igv")
+texture_normal = ExtResource("2_2pq8p")
 
 [node name="Options" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 789.0
 offset_top = 476.0
 offset_right = 989.0
 offset_bottom = 551.0
-texture_normal = ExtResource("2_ak18r")
+texture_normal = ExtResource("3_67ory")
 
 [node name="Quit" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 824.0
 offset_top = 598.0
 offset_right = 949.0
 offset_bottom = 673.0
-texture_normal = ExtResource("4_3mtr1")
+texture_normal = ExtResource("4_ehy2q")
 
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]

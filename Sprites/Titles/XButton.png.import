@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7303qu7nwynw"
-path="res://.godot/imported/ResumeButton.png-44c46c4d8a9cfdfc4edbf8d6147d8227.ctex"
+uid="uid://cu4jxww5dgonn"
+path="res://.godot/imported/XButton.png-6ba7f1c2b453fc5836553cfad7a9c1ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UISprites/ResumeButton.png"
-dest_files=["res://.godot/imported/ResumeButton.png-44c46c4d8a9cfdfc4edbf8d6147d8227.ctex"]
+source_file="res://Sprites/Titles/XButton.png"
+dest_files=["res://.godot/imported/XButton.png-6ba7f1c2b453fc5836553cfad7a9c1ed.ctex"]
 
 [params]
 

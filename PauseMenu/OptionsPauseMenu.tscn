@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0d0tw7rgko84"]
+[gd_scene load_steps=3 format=3 uid="uid://b0d0tw7rgko84"]
 
 [ext_resource type="Script" path="res://PauseMenu/OptionsPauseMenu.gd" id="1_dk3m3"]
+[ext_resource type="Texture2D" uid="uid://cu4jxww5dgonn" path="res://Sprites/Titles/XButton.png" id="2_pd7ry"]
 
 [node name="Options(for PauseMenu)" type="Control"]
 layout_mode = 3
@@ -11,10 +12,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dk3m3")
 
-[node name="Back" type="Button" parent="."]
-layout_mode = 2
-offset_right = 110.0
-offset_bottom = 42.0
-text = "Back"
+[node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1800.0
+offset_top = 35.0
+offset_right = 1880.0
+offset_bottom = 115.0
+texture_normal = ExtResource("2_pd7ry")
 
-[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
