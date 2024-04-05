@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_v1ypx"]
 [ext_resource type="PackedScene" uid="uid://cgtmwfxq5uaop" path="res://Death/Death.tscn" id="2_a78kv"]
-[ext_resource type="Texture2D" uid="uid://dt8c2l1x5sq05" path="res://SpriteSheets/YukiEvil_Sheet.png" id="2_gv1kf"]
+[ext_resource type="Texture2D" uid="uid://dt8c2l1x5sq05" path="res://Sprites/SpriteSheets/YukiEvil_Sheet.png" id="2_gv1kf"]
 
 [sub_resource type="Animation" id="Animation_tl8fv"]
 resource_name = "idle_left"

@@ -8,6 +8,7 @@ signal death(area2D, player_id)
 
 @export var player_id = 0
 
+
 #constants for movement 
 const SPEED = 300.0
 const JUMP_VELOCITY = -300

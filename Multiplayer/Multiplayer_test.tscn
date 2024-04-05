@@ -1,24 +1,25 @@
-[gd_scene load_steps=22 format=3 uid="uid://ctkdvsw52utxe"]
+[gd_scene load_steps=23 format=3 uid="uid://ctkdvsw52utxe"]
 
-[ext_resource type="Texture2D" uid="uid://3yadqa4f8vv5" path="res://Sprites/Other Sprites/SkyBackground.png" id="2_rj6cl"]
-[ext_resource type="PackedScene" uid="uid://b1g2bkbuln40b" path="res://Player/player.tscn" id="2_v7g37"]
-[ext_resource type="Script" path="res://Grid/MainGridSystem.gd" id="3_efv3w"]
-[ext_resource type="Texture2D" uid="uid://5epn23y2qr0w" path="res://Sprites/Blocks/WaterBlockD.png" id="4_dnja8"]
-[ext_resource type="Texture2D" uid="uid://dqae66sixp8so" path="res://Sprites/Blocks/WaterBlockS.png" id="5_liff4"]
-[ext_resource type="Texture2D" uid="uid://baf1jpmcc5bu3" path="res://Sprites/Blocks/BlueBlock.png" id="6_urc1m"]
-[ext_resource type="Texture2D" uid="uid://cauf2jssrnf2x" path="res://Sprites/Blocks/DarkBlueBlock.png" id="7_ahvgq"]
-[ext_resource type="Texture2D" uid="uid://demwwahqcclkh" path="res://Sprites/Blocks/GreenBlock.png" id="8_lsdpg"]
-[ext_resource type="Texture2D" uid="uid://44n8gjc4e6bt" path="res://Sprites/Blocks/OrangeBlock.png" id="9_abynr"]
-[ext_resource type="Texture2D" uid="uid://6vvb02ahvu3e" path="res://Sprites/Blocks/PinkBlock.png" id="10_8hxwq"]
-[ext_resource type="Texture2D" uid="uid://c1fp1lawjpjat" path="res://Sprites/Blocks/RedBlock.png" id="11_7wevf"]
-[ext_resource type="Texture2D" uid="uid://bhloxmnkbognx" path="res://Sprites/Blocks/YellowBlock.png" id="12_18rx0"]
-[ext_resource type="Script" path="res://scripts/DrawShape.gd" id="13_qdjrk"]
-[ext_resource type="Texture2D" uid="uid://bhwigjm6u8rbt" path="res://Sprites/Other Sprites/CloudBoarder.png" id="14_c5asa"]
-[ext_resource type="Script" path="res://Water/Water.gd" id="15_k3qmx"]
-[ext_resource type="PackedScene" uid="uid://niru1fo8yq7v" path="res://Water Damage/water_damage.tscn" id="16_gmw7n"]
-[ext_resource type="PackedScene" uid="uid://dxgs7a0ibnxlq" path="res://Timer/Water_timer.tscn" id="17_g5nws"]
-[ext_resource type="Texture2D" uid="uid://bkw4d24fln865" path="res://Sprites/Other Sprites/CloudBoarderEvil.png" id="17_v5624"]
-[ext_resource type="PackedScene" uid="uid://cgtmwfxq5uaop" path="res://Death/Death.tscn" id="18_s01b4"]
+[ext_resource type="PackedScene" uid="uid://b1g2bkbuln40b" path="res://Player/player.tscn" id="1_ie0jj"]
+[ext_resource type="PackedScene" uid="uid://cgtmwfxq5uaop" path="res://Death/Death.tscn" id="2_j0mdi"]
+[ext_resource type="Texture2D" uid="uid://3yadqa4f8vv5" path="res://Sprites/Other Sprites/SkyBackground.png" id="3_vacts"]
+[ext_resource type="PackedScene" uid="uid://drs6njogmm04s" path="res://Player/player_2.tscn" id="4_bc6fw"]
+[ext_resource type="Script" path="res://Grid/MainGridSystem.gd" id="5_owb2l"]
+[ext_resource type="Texture2D" uid="uid://5epn23y2qr0w" path="res://Sprites/Blocks/WaterBlockD.png" id="6_jaorp"]
+[ext_resource type="Texture2D" uid="uid://dqae66sixp8so" path="res://Sprites/Blocks/WaterBlockS.png" id="7_w1b48"]
+[ext_resource type="Texture2D" uid="uid://baf1jpmcc5bu3" path="res://Sprites/Blocks/BlueBlock.png" id="8_rmqbq"]
+[ext_resource type="Texture2D" uid="uid://cauf2jssrnf2x" path="res://Sprites/Blocks/DarkBlueBlock.png" id="9_gdvjf"]
+[ext_resource type="Texture2D" uid="uid://demwwahqcclkh" path="res://Sprites/Blocks/GreenBlock.png" id="10_vnbel"]
+[ext_resource type="Texture2D" uid="uid://44n8gjc4e6bt" path="res://Sprites/Blocks/OrangeBlock.png" id="11_ktmar"]
+[ext_resource type="Texture2D" uid="uid://6vvb02ahvu3e" path="res://Sprites/Blocks/PinkBlock.png" id="12_2ju53"]
+[ext_resource type="Texture2D" uid="uid://c1fp1lawjpjat" path="res://Sprites/Blocks/RedBlock.png" id="13_6atk8"]
+[ext_resource type="Texture2D" uid="uid://bhloxmnkbognx" path="res://Sprites/Blocks/YellowBlock.png" id="14_opavj"]
+[ext_resource type="Script" path="res://scripts/DrawShape.gd" id="15_l4s1b"]
+[ext_resource type="Texture2D" uid="uid://bhwigjm6u8rbt" path="res://Sprites/Other Sprites/CloudBoarder.png" id="16_2yx7x"]
+[ext_resource type="Script" path="res://Water/Water.gd" id="17_0cljd"]
+[ext_resource type="Texture2D" uid="uid://bkw4d24fln865" path="res://Sprites/Other Sprites/CloudBoarderEvil.png" id="18_bs1lc"]
+[ext_resource type="PackedScene" uid="uid://niru1fo8yq7v" path="res://Water Damage/water_damage.tscn" id="19_7ytil"]
+[ext_resource type="PackedScene" uid="uid://dxgs7a0ibnxlq" path="res://Timer/Water_timer.tscn" id="20_j6yh4"]
 
 [sub_resource type="GDScript" id="GDScript_xbwqi"]
 script/source = "extends Node2D
@@ -46,27 +47,27 @@ func _on_join_pressed():
 
 [node name="Multiplayer_Test" type="Node2D"]
 script = SubResource("GDScript_xbwqi")
-player_scene = ExtResource("2_v7g37")
+player_scene = ExtResource("1_ie0jj")
 
-[node name="Death" parent="." instance=ExtResource("18_s01b4")]
+[node name="Death" parent="." instance=ExtResource("2_j0mdi")]
 
 [node name="SkyBackground" type="Sprite2D" parent="."]
 position = Vector2(964, 535)
-texture = ExtResource("2_rj6cl")
+texture = ExtResource("3_vacts")
 
-[node name="Player" parent="." instance=ExtResource("2_v7g37")]
-position = Vector2(396, 800)
+[node name="Player" parent="." instance=ExtResource("1_ie0jj")]
+position = Vector2(400, 800)
 player_id = 1
 
-[node name="Player2" parent="." instance=ExtResource("2_v7g37")]
-position = Vector2(1300, 800)
+[node name="Player2" parent="." instance=ExtResource("4_bc6fw")]
+position = Vector2(1310, 800)
 player_id = 2
 
 [node name="MainGrid" type="Node2D" parent="."]
 position = Vector2(240, 800)
-script = ExtResource("3_efv3w")
+script = ExtResource("5_owb2l")
 player_id = 1
-cloudTextures = Array[Texture2D]([ExtResource("4_dnja8"), ExtResource("5_liff4"), ExtResource("6_urc1m"), ExtResource("7_ahvgq"), ExtResource("8_lsdpg"), ExtResource("9_abynr"), ExtResource("10_8hxwq"), ExtResource("11_7wevf"), ExtResource("12_18rx0")])
+cloudTextures = Array[Texture2D]([ExtResource("6_jaorp"), ExtResource("7_w1b48"), ExtResource("8_rmqbq"), ExtResource("9_gdvjf"), ExtResource("10_vnbel"), ExtResource("11_ktmar"), ExtResource("12_2ju53"), ExtResource("13_6atk8"), ExtResource("14_opavj")])
 rowRenderOffset = 32.0
 colRenderOffset = 32.0
 FBGResetPosition = Vector2i(3, 20)
@@ -78,8 +79,8 @@ autostart = true
 
 [node name="block selection" type="Node2D" parent="MainGrid"]
 position = Vector2(400, -600)
-script = ExtResource("13_qdjrk")
-textureArray = Array[Texture2D]([ExtResource("6_urc1m"), ExtResource("7_ahvgq"), ExtResource("8_lsdpg"), ExtResource("9_abynr"), ExtResource("10_8hxwq"), ExtResource("11_7wevf"), ExtResource("12_18rx0")])
+script = ExtResource("15_l4s1b")
+textureArray = Array[Texture2D]([ExtResource("8_rmqbq"), ExtResource("9_gdvjf"), ExtResource("10_vnbel"), ExtResource("11_ktmar"), ExtResource("12_2ju53"), ExtResource("13_6atk8"), ExtResource("14_opavj")])
 
 [node name="floor" type="StaticBody2D" parent="MainGrid"]
 position = Vector2(160, 48)
@@ -90,7 +91,7 @@ shape = SubResource("RectangleShape2D_fcsxc")
 
 [node name="Sprite2D" type="Sprite2D" parent="MainGrid/floor"]
 position = Vector2(0, -330)
-texture = ExtResource("14_c5asa")
+texture = ExtResource("16_2yx7x")
 
 [node name="wall_Left" type="StaticBody2D" parent="MainGrid"]
 position = Vector2(-16, -320)
@@ -109,7 +110,7 @@ scale = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_fcsxc")
 
 [node name="waterSystem" type="Node2D" parent="MainGrid"]
-script = ExtResource("15_k3qmx")
+script = ExtResource("17_0cljd")
 
 [node name="Timer" type="Timer" parent="MainGrid/waterSystem"]
 wait_time = 30.0
@@ -117,9 +118,9 @@ autostart = true
 
 [node name="MainGrid2" type="Node2D" parent="."]
 position = Vector2(1150, 800)
-script = ExtResource("3_efv3w")
+script = ExtResource("5_owb2l")
 player_id = 2
-cloudTextures = Array[Texture2D]([ExtResource("4_dnja8"), ExtResource("5_liff4"), ExtResource("6_urc1m"), ExtResource("7_ahvgq"), ExtResource("8_lsdpg"), ExtResource("9_abynr"), ExtResource("10_8hxwq"), ExtResource("11_7wevf"), ExtResource("12_18rx0")])
+cloudTextures = Array[Texture2D]([ExtResource("6_jaorp"), ExtResource("7_w1b48"), ExtResource("8_rmqbq"), ExtResource("9_gdvjf"), ExtResource("10_vnbel"), ExtResource("11_ktmar"), ExtResource("12_2ju53"), ExtResource("13_6atk8"), ExtResource("14_opavj")])
 rowRenderOffset = 32.0
 colRenderOffset = 32.0
 FBGResetPosition = Vector2i(3, 20)
@@ -131,8 +132,8 @@ autostart = true
 
 [node name="block selection" type="Node2D" parent="MainGrid2"]
 position = Vector2(400, -600)
-script = ExtResource("13_qdjrk")
-textureArray = Array[Texture2D]([ExtResource("6_urc1m"), ExtResource("7_ahvgq"), ExtResource("8_lsdpg"), ExtResource("9_abynr"), ExtResource("10_8hxwq"), ExtResource("11_7wevf"), ExtResource("12_18rx0")])
+script = ExtResource("15_l4s1b")
+textureArray = Array[Texture2D]([ExtResource("8_rmqbq"), ExtResource("9_gdvjf"), ExtResource("10_vnbel"), ExtResource("11_ktmar"), ExtResource("12_2ju53"), ExtResource("13_6atk8"), ExtResource("14_opavj")])
 
 [node name="floor" type="StaticBody2D" parent="MainGrid2"]
 position = Vector2(160, 48)
@@ -143,7 +144,7 @@ shape = SubResource("RectangleShape2D_fcsxc")
 
 [node name="Sprite2D" type="Sprite2D" parent="MainGrid2/floor"]
 position = Vector2(0, -330)
-texture = ExtResource("17_v5624")
+texture = ExtResource("18_bs1lc")
 
 [node name="wall_Left" type="StaticBody2D" parent="MainGrid2"]
 position = Vector2(-16, -320)
@@ -162,22 +163,21 @@ scale = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_fcsxc")
 
 [node name="waterSystem" type="Node2D" parent="MainGrid2"]
-script = ExtResource("15_k3qmx")
+script = ExtResource("17_0cljd")
 
 [node name="Timer" type="Timer" parent="MainGrid2/waterSystem"]
 wait_time = 30.0
 autostart = true
 
-[node name="Water_Damage" parent="." instance=ExtResource("16_gmw7n")]
+[node name="Water_Damage" parent="." instance=ExtResource("19_7ytil")]
 position = Vector2(187, 839)
 
-[node name="Water_Damage2" parent="." instance=ExtResource("16_gmw7n")]
+[node name="Water_Damage2" parent="." instance=ExtResource("19_7ytil")]
 position = Vector2(1100, 839)
 
-[node name="WaterTimer" parent="." instance=ExtResource("17_g5nws")]
+[node name="WaterTimer" parent="." instance=ExtResource("20_j6yh4")]
 
 [connection signal="death" from="Player" to="Death" method="MultiplayerDie"]
-[connection signal="death" from="Player2" to="Death" method="MultiplayerDie"]
 [connection signal="FBGResetArray" from="MainGrid" to="MainGrid/block selection" method="NextShape"]
 [connection signal="SendWater" from="MainGrid" to="MainGrid/waterSystem" method="WaterRise"]
 [connection signal="StopBlockFallTimer" from="MainGrid" to="MainGrid/GridBlockFallTimer" method="stop"]
