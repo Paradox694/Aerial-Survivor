@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b08rcmj6ibtgm"]
+[gd_scene load_steps=6 format=3 uid="uid://b08rcmj6ibtgm"]
 
 [ext_resource type="Texture2D" uid="uid://crbskg6chk5ej" path="res://Sprites/Titles/Defeat.png" id="1_41c0t"]
 [ext_resource type="Script" path="res://Defeat Screen/Defeat_screen.gd" id="1_rju3d"]
 [ext_resource type="Texture2D" uid="uid://wkq148tsmxfl" path="res://Sprites/Titles/PlayButton.png" id="2_hu5us"]
 [ext_resource type="Texture2D" uid="uid://cpl7x1eo30jms" path="res://Sprites/Titles/QuitButton.png" id="3_axdky"]
+[ext_resource type="AudioStream" uid="uid://c7uvqkn72sl26" path="res://GameOver.mp3" id="5_xl4al"]
 
 [node name="DefeatScreen" type="CanvasLayer"]
 script = ExtResource("1_rju3d")
@@ -37,6 +38,10 @@ offset_bottom = 752.0
 [node name="QuitButton" type="Sprite2D" parent="Quit"]
 position = Vector2(208, 45)
 texture = ExtResource("3_axdky")
+
+[node name="GameOver" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_xl4al")
+autoplay = true
 
 [connection signal="pressed" from="Play" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_button_pressed"]

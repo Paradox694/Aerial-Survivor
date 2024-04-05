@@ -22,9 +22,11 @@ var death_sound = preload("res://CharacterDamaged.wav")
 
 
 func _ready():
-	death_sound_player.bus = "Master"
+	#To play death sound
+	death_sound_player.bus = "SFX"
 	death_sound_player.stream = death_sound
 	add_child(death_sound_player)
+	
 	animated_sprite.play("idle_right")
 
 func _physics_process(delta):
