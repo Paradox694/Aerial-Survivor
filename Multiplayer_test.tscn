@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ctkdvsw52utxe"]
+[gd_scene load_steps=22 format=3 uid="uid://ctkdvsw52utxe"]
 
 [ext_resource type="Texture2D" uid="uid://bottlo5883oum" path="res://Sprites/Other Sprites/SkyBackground.png" id="2_rj6cl"]
 [ext_resource type="PackedScene" uid="uid://b1g2bkbuln40b" path="res://Player/player.tscn" id="2_v7g37"]
@@ -15,8 +15,9 @@
 [ext_resource type="Script" path="res://scripts/DrawShape.gd" id="13_qdjrk"]
 [ext_resource type="Texture2D" uid="uid://bhwigjm6u8rbt" path="res://Sprites/Other Sprites/CloudBoarder.png" id="14_c5asa"]
 [ext_resource type="Script" path="res://Water/Water.gd" id="15_k3qmx"]
-[ext_resource type="PackedScene" uid="uid://niru1fo8yq7v" path="res://Water Damage/Water_damage.tscn" id="16_gmw7n"]
+[ext_resource type="PackedScene" uid="uid://niru1fo8yq7v" path="res://Water Damage/water_damage.tscn" id="16_gmw7n"]
 [ext_resource type="PackedScene" uid="uid://dxgs7a0ibnxlq" path="res://Timer/Water_timer.tscn" id="17_g5nws"]
+[ext_resource type="Texture2D" uid="uid://bkw4d24fln865" path="res://Sprites/Other Sprites/CloudBoarderEvil.png" id="17_v5624"]
 [ext_resource type="PackedScene" uid="uid://cgtmwfxq5uaop" path="res://Death/Death.tscn" id="18_s01b4"]
 
 [sub_resource type="GDScript" id="GDScript_xbwqi"]
@@ -142,7 +143,7 @@ shape = SubResource("RectangleShape2D_fcsxc")
 
 [node name="Sprite2D" type="Sprite2D" parent="MainGrid2/floor"]
 position = Vector2(0, -330)
-texture = ExtResource("14_c5asa")
+texture = ExtResource("17_v5624")
 
 [node name="wall_Left" type="StaticBody2D" parent="MainGrid2"]
 position = Vector2(-16, -320)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://drs6njogmm04s"]
 
-[ext_resource type="Texture2D" uid="uid://5kw853slwjt6" path="res://SpriteSheets/Yuki_Sheet.png" id="1_s5lgt"]
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_v1ypx"]
 [ext_resource type="PackedScene" uid="uid://cgtmwfxq5uaop" path="res://Death/Death.tscn" id="2_a78kv"]
+[ext_resource type="Texture2D" uid="uid://dt8c2l1x5sq05" path="res://SpriteSheets/YukiEvil_Sheet.png" id="2_gv1kf"]
 
 [sub_resource type="Animation" id="Animation_tl8fv"]
 resource_name = "idle_left"
@@ -149,9 +149,10 @@ script = ExtResource("1_v1ypx")
 texture_filter = 1
 position = Vector2(2.38419e-06, 5.24521e-06)
 scale = Vector2(0.394043, 0.394043)
-texture = ExtResource("1_s5lgt")
+texture = ExtResource("2_gv1kf")
 hframes = 14
 vframes = 2
+frame = 14
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
