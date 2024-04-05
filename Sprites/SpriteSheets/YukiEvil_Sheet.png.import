@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dt8c2l1x5sq05"
-path="res://.godot/imported/YukiEvil_Sheet.png-b00cc85f7fa66b98c9d081f087e02c5b.ctex"
+path="res://.godot/imported/YukiEvil_Sheet.png-02961f96a4a0ca64ace4a06d7bd14636.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpriteSheets/YukiEvil_Sheet.png"
-dest_files=["res://.godot/imported/YukiEvil_Sheet.png-b00cc85f7fa66b98c9d081f087e02c5b.ctex"]
+source_file="res://Sprites/SpriteSheets/YukiEvil_Sheet.png"
+dest_files=["res://.godot/imported/YukiEvil_Sheet.png-02961f96a4a0ca64ace4a06d7bd14636.ctex"]
 
 [params]
 
