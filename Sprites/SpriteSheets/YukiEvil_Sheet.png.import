@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baf1jpmcc5bu3"
-path="res://.godot/imported/BlueBlock.png-95df01114397fe8055c237baf737ba4c.ctex"
+uid="uid://dt8c2l1x5sq05"
+path="res://.godot/imported/YukiEvil_Sheet.png-02961f96a4a0ca64ace4a06d7bd14636.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/BlueBlock.png"
-dest_files=["res://.godot/imported/BlueBlock.png-95df01114397fe8055c237baf737ba4c.ctex"]
+source_file="res://Sprites/SpriteSheets/YukiEvil_Sheet.png"
+dest_files=["res://.godot/imported/YukiEvil_Sheet.png-02961f96a4a0ca64ace4a06d7bd14636.ctex"]
 
 [params]
 

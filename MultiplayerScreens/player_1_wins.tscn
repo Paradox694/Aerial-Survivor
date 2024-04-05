@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://mg5gqlgt4vlw"]
+
+[ext_resource type="Script" path="res://MultiplayerScreens/player_wins.gd" id="1_1ue7w"]
+[ext_resource type="Texture2D" uid="uid://bottlo5883oum" path="res://Sprites/Other Sprites/SkyBackground.png" id="1_03pde"]
+[ext_resource type="Texture2D" uid="uid://wkq148tsmxfl" path="res://Sprites/Titles/PlayButton.png" id="2_4ho6n"]
+[ext_resource type="Texture2D" uid="uid://cpl7x1eo30jms" path="res://Sprites/Titles/QuitButton.png" id="3_6qmo5"]
+
+[node name="Player1Wins" type="CanvasLayer"]
+script = ExtResource("1_1ue7w")
+
+[node name="SkyBackground" type="Sprite2D" parent="."]
+position = Vector2(962, 524)
+texture = ExtResource("1_03pde")
+
+[node name="Play" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 710.0
+offset_top = 573.0
+offset_right = -798.0
+offset_bottom = -417.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="Sprite2D" parent="Play"]
+position = Vector2(209, 45)
+texture = ExtResource("2_4ho6n")
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 710.0
+offset_top = 730.0
+offset_right = 1122.0
+offset_bottom = 820.0
+
+[node name="QuitButton" type="Sprite2D" parent="Quit"]
+position = Vector2(208, 45)
+texture = ExtResource("3_6qmo5")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 175.0
+offset_top = 50.0
+offset_right = 675.0
+offset_bottom = 200.0
+scale = Vector2(3, 3)
+theme_override_font_sizes/font_size = 50
+text = "Player 1 Wins"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Play" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_button_pressed"]

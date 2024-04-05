@@ -1,6 +1,6 @@
 extends Node2D
 
-
+@export var player_id = 0
 
 #array of all the textures
 @export var cloudTextures : Array[Texture2D]
@@ -35,7 +35,9 @@ var FBGDropReset : bool = false
 var collider = preload("res://Grid/block_collider.tscn")
 var collisionGrid : Array
 
-
+#varibles to stop blocks afterhitting limit
+var RoofHit : bool = false;
+signal StopBlockFallTimer()
 
 func _init():
 	#setting the main grid to correct size and filling it
@@ -56,18 +58,18 @@ func _ready():
 
 
 func _input(event):
-	if event.is_action_pressed("RotateBlockRight"):
+	if event.is_action_pressed("RotateBlockRight_%s" % [player_id]):
 		FBGRotateRight()
 	
-	if event.is_action_pressed("RotateBlockLeft"):
+	if event.is_action_pressed("RotateBlockLeft_%s" % [player_id]):
 		FBGRotateLeft()
 	
-	if event.is_action_pressed("MoveBlockRight"):
+	if event.is_action_pressed("MoveBlockRight_%s" % [player_id]):
 		if checkForMoveCollison(1):
 			FBGReferenceLocation.x += 1
 			checkFBGridOutOfBounds()
 		
-	if event.is_action_pressed("MoveBlockLeft"):
+	if event.is_action_pressed("MoveBlockLeft_%s" % [player_id]):
 		if checkForMoveCollison(-1):
 			FBGReferenceLocation.x -= 1
 			checkFBGridOutOfBounds()
@@ -75,21 +77,25 @@ func _input(event):
 
 func _physics_process(_delta):
 	
-	if(Input.is_action_just_pressed("DropBlock")):
+	if(Input.is_action_just_pressed("DropBlock_%s" % [player_id])):
 		FBGDropReset = false
 	
 	if(!FBGDropReset):
-		if(Input.is_action_pressed("DropBlock")):
+		if(Input.is_action_pressed("DropBlock_%s" % [player_id]) && !RoofHit):
 			FBGBlockFall()
 
 	
 #draws all the clouds in the grid
 func _draw():
 	#draws the main grid
-	for r in range(MGRowSize):
+	for r in range(MGRowSize, -1, -1):
 		for c in range(MGColSize):
 			if(MainGridRead(c,r) > -1):
-				draw_texture(cloudTextures[MainGridRead(c,r)],Vector2(c * colRenderOffset, r * -rowRenderOffset))
+				if(MainGridRead(c,r) != 1):
+					draw_texture(cloudTextures[MainGridRead(c,r)],Vector2(c * colRenderOffset, r * -rowRenderOffset))
+				if(MainGridRead(c,r) == 1):
+					draw_texture(cloudTextures[MainGridRead(c,r)],Vector2(c * colRenderOffset, r * -rowRenderOffset - 4))
+					
 		
 	#draw falling block grid
 	for r in range(FBGRowSize):
@@ -113,6 +119,7 @@ func MainGridRowFill(fillType: int, row: int):
 	if row >= 0 and row < MGRowSize:
 		for c in range(MGColSize):
 			MainGrid[(row * MGColSize) + c] = fillType
+		
 
 
 #function to imulate setting a value in a 2D array
@@ -228,6 +235,10 @@ func FBGReset():
 	for r in range(FBGRowSize):
 		for c in range(FBGColSize):
 			if(FBGRead(c,r) > -1):
+				if (MainGridRead(c + FBGReferenceLocation.x, r + FBGReferenceLocation.y) > -1):
+					RoofHit = true
+					StopBlockFallTimer.emit()
+				
 				MainGridWrite(FBGRead(c,r), c + FBGReferenceLocation.x, r + FBGReferenceLocation.y)
 				var collid = collider.instantiate()
 				add_child(collid)
@@ -247,7 +258,7 @@ func CheckForLineClear():
 	
 	for r in range(FBGRowSize):
 		for c in range(MGColSize):
-			if(MainGridRead(c, r + FBGReferenceLocation.y) > 0):
+			if(MainGridRead(c, r + FBGReferenceLocation.y) > 1):
 				colmsFilled += 1
 		if(colmsFilled == MGColSize):
 			rowsFilled += 1
