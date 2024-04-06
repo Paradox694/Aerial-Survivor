@@ -1,6 +1,6 @@
 extends Node2D
 
-
+@export var player_id = 0
 
 #array of all the textures
 @export var cloudTextures : Array[Texture2D]
@@ -58,18 +58,18 @@ func _ready():
 
 
 func _input(event):
-	if event.is_action_pressed("RotateBlockRight"):
+	if event.is_action_pressed("RotateBlockRight_%s" % [player_id]):
 		FBGRotateRight()
 	
-	if event.is_action_pressed("RotateBlockLeft"):
+	if event.is_action_pressed("RotateBlockLeft_%s" % [player_id]):
 		FBGRotateLeft()
 	
-	if event.is_action_pressed("MoveBlockRight"):
+	if event.is_action_pressed("MoveBlockRight_%s" % [player_id]):
 		if checkForMoveCollison(1):
 			FBGReferenceLocation.x += 1
 			checkFBGridOutOfBounds()
 		
-	if event.is_action_pressed("MoveBlockLeft"):
+	if event.is_action_pressed("MoveBlockLeft_%s" % [player_id]):
 		if checkForMoveCollison(-1):
 			FBGReferenceLocation.x -= 1
 			checkFBGridOutOfBounds()
@@ -77,11 +77,11 @@ func _input(event):
 
 func _physics_process(_delta):
 	
-	if(Input.is_action_just_pressed("DropBlock")):
+	if(Input.is_action_just_pressed("DropBlock_%s" % [player_id])):
 		FBGDropReset = false
 	
 	if(!FBGDropReset):
-		if(Input.is_action_pressed("DropBlock") && !RoofHit):
+		if(Input.is_action_pressed("DropBlock_%s" % [player_id]) && !RoofHit):
 			FBGBlockFall()
 
 	

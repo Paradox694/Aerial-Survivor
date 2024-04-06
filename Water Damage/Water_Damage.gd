@@ -16,4 +16,4 @@ func _process(delta):
 
 func _on_water_timer_rise():
 	print(collision_shape_2d.position.y)
-	collision_shape_2d.position.y = collision_shape_2d.position.y - 0.55
+	collision_shape_2d.position.y = collision_shape_2d.position.y - 0.01

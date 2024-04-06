@@ -1,12 +1,13 @@
 extends CharacterBody2D
 
-signal death(area2D)
+signal death(area2D, player_id)
 
 @onready var animated_sprite = $Sprite2D/PlayerAnimation
 
 @onready var area2D = $Area2D
 
 @export var player_id = 0
+
 
 #constants for movement 
 const SPEED = 300.0
@@ -90,7 +91,7 @@ func _on_area_2d_area_entered(area):
 			death_sound_player.play() # Play the death sound
 		await get_tree().create_timer(0.4).timeout
 		area.get_parent().queue_free()
-		death.emit(area2D)
+		death.emit(area2D, player_id)
 	pass # Replace with function body.
 
 func _on_area_2d_2_area_entered(area):
@@ -99,5 +100,5 @@ func _on_area_2d_2_area_entered(area):
 			death_sound_player.play() # Play the death sound
 		await get_tree().create_timer(0.4).timeout
 		area.get_parent().queue_free()
-		death.emit(area2D)
+		death.emit(area2D, player_id)
 	pass # Replace with function body.
