@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Multiplayer/player_wins.gd" id="1_7u0u7"]
 [ext_resource type="Texture2D" uid="uid://3yadqa4f8vv5" path="res://Sprites/Other Sprites/SkyBackground.png" id="1_h0qux"]
-[ext_resource type="Texture2D" uid="uid://cpl7x1eo30jms" path="res://Sprites/Titles/QuitButton.png" id="3_ylyo0"]
-[ext_resource type="Texture2D" uid="uid://b5pe632dtunjc" path="res://Sprites/Titles/RestartButton.png" id="4_uijv7"]
+[ext_resource type="Texture2D" uid="uid://dmgqby2lah2qt" path="res://Sprites/Titles/MainMenuButton.png" id="3_ge7mx"]
+[ext_resource type="Texture2D" uid="uid://c6qg7d3g3j8ve" path="res://Sprites/Titles/RestartButton.png" id="4_uijv7"]
 
 [node name="Player1Wins" type="CanvasLayer"]
 script = ExtResource("1_7u0u7")
@@ -13,17 +13,32 @@ position = Vector2(962, 524)
 texture = ExtResource("1_h0qux")
 
 [node name="QuitButton" type="TextureButton" parent="."]
-offset_left = 800.0
-offset_top = 680.0
-offset_right = 1115.0
-offset_bottom = 845.0
-texture_normal = ExtResource("3_ylyo0")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.0
+offset_top = 134.0
+offset_right = 14.0
+offset_bottom = 299.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_ge7mx")
 
 [node name="RestartButton" type="TextureButton" parent="."]
-offset_left = 700.0
-offset_top = 470.0
-offset_right = 1225.0
-offset_bottom = 627.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -262.5
+offset_top = -78.5
+offset_right = 262.5
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("4_uijv7")
 
 [node name="Label" type="Label" parent="."]
