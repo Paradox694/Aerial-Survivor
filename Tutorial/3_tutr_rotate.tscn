@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cc3opym0phcub"]
+
+[ext_resource type="Texture2D" uid="uid://c2ow2ld1m6dph" path="res://assets/TitleBG.png" id="1_6q033"]
+[ext_resource type="Script" path="res://Tutorial/3_tutr_rotate.gd" id="2_0yetg"]
+[ext_resource type="Texture2D" uid="uid://dh4vau2wvm18d" path="res://assets/3_TUTR_Rotate.png" id="3_fp8wl"]
+[ext_resource type="Texture2D" uid="uid://du2bt4f8ain4w" path="res://assets/next_cloud.png" id="3_yudhx"]
+[ext_resource type="Texture2D" uid="uid://bru40aw804dtj" path="res://assets/previous_cloud.png" id="4_bn47o"]
+
+[node name="3-TutrRotate" type="Sprite2D"]
+texture = ExtResource("1_6q033")
+centered = false
+script = ExtResource("2_0yetg")
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(475, 0)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("3_fp8wl")
+centered = false
+
+[node name="Next" type="TextureButton" parent="."]
+offset_left = 675.0
+offset_top = 825.0
+offset_right = 725.0
+offset_bottom = 875.0
+scale = Vector2(1.4, 1.4)
+texture_normal = ExtResource("3_yudhx")
+
+[node name="Prev" type="TextureButton" parent="."]
+offset_left = 600.0
+offset_top = 825.0
+offset_right = 650.0
+offset_bottom = 875.0
+scale = Vector2(1.4, 1.4)
+texture_normal = ExtResource("4_bn47o")
+
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Prev" to="." method="_on_prev_pressed"]
