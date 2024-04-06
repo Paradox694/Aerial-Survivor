@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1g2bkbuln40b"]
+[gd_scene load_steps=14 format=3 uid="uid://drs6njogmm04s"]
 
-[ext_resource type="Script" path="res://Player/Player.gd" id="1_5u3h7"]
-[ext_resource type="Texture2D" uid="uid://5kw853slwjt6" path="res://Sprites/SpriteSheets/Yuki_Sheet.png" id="2_xquag"]
-[ext_resource type="PackedScene" uid="uid://cgtmwfxq5uaop" path="res://Death/Death.tscn" id="3_rascy"]
-
+[ext_resource type="Texture2D" uid="uid://5kw853slwjt6" path="res://SpriteSheets/Yuki_Sheet.png" id="1_s5lgt"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_v1ypx"]
+[ext_resource type="PackedScene" uid="uid://cgtmwfxq5uaop" path="res://Death/Death.tscn" id="2_a78kv"]
 
 [sub_resource type="Animation" id="Animation_tl8fv"]
 resource_name = "idle_left"
@@ -135,28 +134,24 @@ _data = {
 "walk_right": SubResource("Animation_pqgq3")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7r7e0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qaau"]
 size = Vector2(14, 17.3333)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aks00"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2b01"]
 size = Vector2(20, 26)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8b4u"]
-size = Vector2(6, 10.5)
-
-[node name="Player" type="CharacterBody2D"]
-position = Vector2(300, 850)
+[node name="Player2" type="CharacterBody2D"]
+position = Vector2(1300, 850)
 scale = Vector2(2, 2)
-script = ExtResource("1_5u3h7")
+script = ExtResource("1_v1ypx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(2.38419e-06, 5.24521e-06)
 scale = Vector2(0.394043, 0.394043)
-texture = ExtResource("2_xquag")
+texture = ExtResource("1_s5lgt")
 hframes = 14
 vframes = 2
-frame = 14
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
@@ -167,22 +162,14 @@ speed_scale = 0.75
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 scale = Vector2(1, 1.5)
-shape = SubResource("RectangleShape2D_7r7e0")
+shape = SubResource("RectangleShape2D_6qaau")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_aks00")
+shape = SubResource("RectangleShape2D_i2b01")
 
-[node name="Area2D2" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(-0.5, -4)
-shape = SubResource("RectangleShape2D_y8b4u")
-
-[node name="Death" parent="." instance=ExtResource("3_rascy")]
+[node name="Death" parent="." instance=ExtResource("2_a78kv")]
 
 [connection signal="death" from="." to="Death" method="die"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]

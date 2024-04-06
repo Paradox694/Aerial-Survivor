@@ -6,10 +6,13 @@
 script = ExtResource("1_emmx3")
 
 [node name="Label" type="Label" parent="."]
-offset_right = 141.0
-offset_bottom = 75.0
+offset_left = 30.0
+offset_top = 362.0
+offset_right = 171.0
+offset_bottom = 437.0
 theme_override_font_sizes/font_size = 50
 text = "00:00"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 9.0
+autostart = true
