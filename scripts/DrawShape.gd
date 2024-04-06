@@ -2,7 +2,7 @@ extends Node2D
 
 signal changeFBGArray(FBGArray: Array [int])
 
-@export var shapeArray: Array [int]
+var shapeArray : Array[int] = ([1, 2, 3, 4, 5, 6, 7, 2, 4, 6, 5, 3, 7, 6, 3, 2, 6, 1, 7, 5, 4, 7, 6, 3, 7, 4, 2, 5, 1, 2, 7, 6, 1, 4, 5, 3, 1, 6, 7, 5, 2, 4])
 var shapeArrayIndex: int = 0
 
 @export var textureArray: Array [Texture2D]
