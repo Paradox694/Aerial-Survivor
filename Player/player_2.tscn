@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://drs6njogmm04s"]
+[gd_scene load_steps=13 format=3 uid="uid://drs6njogmm04s"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_v1ypx"]
-[ext_resource type="PackedScene" uid="uid://cgtmwfxq5uaop" path="res://Death/Death.tscn" id="2_a78kv"]
 [ext_resource type="Texture2D" uid="uid://3wchkmj7pixd" path="res://Sprites/SpriteSheets/YukiEvil_Sheet.png" id="2_gv1kf"]
 
 [sub_resource type="Animation" id="Animation_tl8fv"]
@@ -171,6 +170,5 @@ shape = SubResource("RectangleShape2D_6qaau")
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_i2b01")
 
-[node name="Death" parent="." instance=ExtResource("2_a78kv")]
-
-[connection signal="death" from="." to="Death" method="die"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_2_area_entered"]

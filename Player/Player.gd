@@ -94,11 +94,14 @@ func _on_area_2d_area_entered(area):
 		death.emit(area2D, player_id)
 	pass # Replace with function body.
 
+var dead : bool = false
 func _on_area_2d_2_area_entered(area):
 	if(area.name == "KillBox"):
 		if not death_sound_player.playing:
 			death_sound_player.play() # Play the death sound
 		await get_tree().create_timer(0.4).timeout
 		area.get_parent().queue_free()
-		death.emit(area2D, player_id)
+		if !dead:
+			dead = true
+			death.emit(area2D, player_id)
 	pass # Replace with function body.
