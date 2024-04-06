@@ -1,0 +1,29 @@
+[gd_scene load_steps=11 format=3 uid="uid://cj3qgtbe47h0h"]
+
+[ext_resource type="Script" path="res://scripts/DrawShape.gd" id="1_gk8cw"]
+[ext_resource type="Texture2D" uid="uid://baf1jpmcc5bu3" path="res://Sprites/Blocks/BlueBlock.png" id="2_l5dr8"]
+[ext_resource type="Texture2D" uid="uid://cauf2jssrnf2x" path="res://Sprites/Blocks/DarkBlueBlock.png" id="3_5fwub"]
+[ext_resource type="Texture2D" uid="uid://demwwahqcclkh" path="res://Sprites/Blocks/GreenBlock.png" id="4_w7ftv"]
+[ext_resource type="Texture2D" uid="uid://44n8gjc4e6bt" path="res://Sprites/Blocks/OrangeBlock.png" id="5_nvc7e"]
+[ext_resource type="Texture2D" uid="uid://6vvb02ahvu3e" path="res://Sprites/Blocks/PinkBlock.png" id="6_g73yt"]
+[ext_resource type="Texture2D" uid="uid://c1fp1lawjpjat" path="res://Sprites/Blocks/RedBlock.png" id="7_1ovpf"]
+[ext_resource type="Texture2D" uid="uid://bhloxmnkbognx" path="res://Sprites/Blocks/YellowBlock.png" id="8_7t7hx"]
+[ext_resource type="Texture2D" uid="uid://bo3qa3t012de3" path="res://assets/back_of_bkg.png" id="9_bvdb3"]
+[ext_resource type="Texture2D" uid="uid://dtcgcy53p44od" path="res://assets/next.png" id="10_4at3f"]
+
+[node name="block selection" type="Node2D"]
+position = Vector2(-230, -610)
+script = ExtResource("1_gk8cw")
+shapeArray = Array[int]([1, 2, 3, 4, 5, 6, 7])
+textureArray = Array[Texture2D]([ExtResource("2_l5dr8"), ExtResource("3_5fwub"), ExtResource("4_w7ftv"), ExtResource("5_nvc7e"), ExtResource("6_g73yt"), ExtResource("7_1ovpf"), ExtResource("8_7t7hx")])
+
+[node name="BackOfBkg" type="Sprite2D" parent="."]
+position = Vector2(82, 99)
+scale = Vector2(0.891026, 1)
+texture = ExtResource("9_bvdb3")
+
+[node name="Next" type="Sprite2D" parent="BackOfBkg"]
+position = Vector2(-48.259, -60)
+scale = Vector2(1.1223, 1)
+texture = ExtResource("10_4at3f")
+centered = false

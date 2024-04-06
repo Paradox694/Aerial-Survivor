@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://6vvb02ahvu3e" path="res://Sprites/Blocks/PinkBlock.png" id="12_2ju53"]
 [ext_resource type="Texture2D" uid="uid://c1fp1lawjpjat" path="res://Sprites/Blocks/RedBlock.png" id="13_6atk8"]
 [ext_resource type="Texture2D" uid="uid://bhloxmnkbognx" path="res://Sprites/Blocks/YellowBlock.png" id="14_opavj"]
-[ext_resource type="Script" path="res://scripts/DrawShape.gd" id="15_l4s1b"]
+[ext_resource type="PackedScene" path="res://block_selection.tscn" id="15_gghk6"]
 [ext_resource type="Texture2D" uid="uid://bhwigjm6u8rbt" path="res://Sprites/Other Sprites/CloudBoarder.png" id="16_2yx7x"]
 [ext_resource type="Script" path="res://Water/Water.gd" id="17_0cljd"]
 [ext_resource type="Texture2D" uid="uid://bdqc6wuv7dowe" path="res://Sprites/Other Sprites/CloudBoarderEvil.png" id="18_bs1lc"]
@@ -54,6 +54,7 @@ player_scene = ExtResource("1_ie0jj")
 [node name="SkyBackground" type="Sprite2D" parent="."]
 position = Vector2(964, 535)
 texture = ExtResource("3_vacts")
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_ie0jj")]
 position = Vector2(400, 800)
@@ -77,10 +78,8 @@ process_callback = 0
 wait_time = 0.5
 autostart = true
 
-[node name="block selection" type="Node2D" parent="MainGrid"]
-position = Vector2(400, -600)
-script = ExtResource("15_l4s1b")
-textureArray = Array[Texture2D]([ExtResource("8_rmqbq"), ExtResource("9_gdvjf"), ExtResource("10_vnbel"), ExtResource("11_ktmar"), ExtResource("12_2ju53"), ExtResource("13_6atk8"), ExtResource("14_opavj")])
+[node name="block selection" parent="MainGrid" instance=ExtResource("15_gghk6")]
+position = Vector2(350, -610)
 
 [node name="floor" type="StaticBody2D" parent="MainGrid"]
 position = Vector2(160, 48)
@@ -133,10 +132,7 @@ process_callback = 0
 wait_time = 0.5
 autostart = true
 
-[node name="block selection" type="Node2D" parent="MainGrid2"]
-position = Vector2(400, -600)
-script = ExtResource("15_l4s1b")
-textureArray = Array[Texture2D]([ExtResource("8_rmqbq"), ExtResource("9_gdvjf"), ExtResource("10_vnbel"), ExtResource("11_ktmar"), ExtResource("12_2ju53"), ExtResource("13_6atk8"), ExtResource("14_opavj")])
+[node name="block selection" parent="MainGrid2" instance=ExtResource("15_gghk6")]
 
 [node name="floor" type="StaticBody2D" parent="MainGrid2"]
 position = Vector2(160, 48)
@@ -176,6 +172,7 @@ autostart = true
 position = Vector2(-75, 39)
 
 [node name="WaterTimer" parent="." instance=ExtResource("20_j6yh4")]
+position = Vector2(954, 632)
 
 [connection signal="death" from="Player" to="Death" method="MultiplayerDie"]
 [connection signal="death" from="Player2" to="Death" method="MultiplayerDie"]
@@ -197,5 +194,3 @@ position = Vector2(-75, 39)
 [connection signal="stop" from="MainGrid2/waterSystem" to="MainGrid2/waterSystem/Timer" method="stop"]
 [connection signal="updateTextures" from="MainGrid2/waterSystem" to="MainGrid2" method="updateTextures"]
 [connection signal="timeout" from="MainGrid2/waterSystem/Timer" to="MainGrid2/waterSystem" method="WaterRise" binds= [1]]
-[connection signal="rise" from="WaterTimer" to="MainGrid/Water_Damage" method="_on_water_timer_rise"]
-[connection signal="rise" from="WaterTimer" to="MainGrid2/Water_Damage2" method="_on_water_timer_rise"]
