@@ -9,3 +9,7 @@ func _on_back_button_pressed():
 
 func _on_single_p_button_pressed():
 	get_tree().change_scene_to_file("res://AI/single_player_level.tscn")
+
+
+func _on_multi_p_button_pressed():
+	get_tree().change_scene_to_file("res://Multiplayer_test.tscn")

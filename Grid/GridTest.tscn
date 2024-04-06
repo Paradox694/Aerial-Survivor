@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d3hg7gd0gyx28"]
+[gd_scene load_steps=18 format=3 uid="uid://d3hg7gd0gyx28"]
 
 [ext_resource type="Texture2D" uid="uid://dghuav4fngmq8" path="res://Sprites/Other Sprites/SkyBackgroundClear.png" id="1_43ajm"]
 [ext_resource type="Script" path="res://Grid/MainGridSystem.gd" id="1_xiyqx"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bhwigjm6u8rbt" path="res://Sprites/Other Sprites/CloudBoarder.png" id="11_ujmhn"]
 [ext_resource type="PackedScene" uid="uid://b1g2bkbuln40b" path="res://Player/player.tscn" id="11_vwovf"]
 [ext_resource type="Texture2D" uid="uid://bhloxmnkbognx" path="res://Sprites/Blocks/YellowBlock.png" id="12_d8gl4"]
+[ext_resource type="PackedScene" uid="uid://dxgs7a0ibnxlq" path="res://Timer/Water_timer.tscn" id="17_y08v3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfgmb"]
 
@@ -79,6 +80,8 @@ script = ExtResource("11_jj45e")
 [node name="Timer" type="Timer" parent="MainGrid/waterSystem"]
 wait_time = 30.0
 autostart = true
+
+[node name="WaterTimer" parent="MainGrid/waterSystem" instance=ExtResource("17_y08v3")]
 
 [connection signal="FBGResetArray" from="MainGrid" to="MainGrid/block selection" method="NextShape"]
 [connection signal="SendWater" from="MainGrid" to="MainGrid/waterSystem" method="WaterRise"]

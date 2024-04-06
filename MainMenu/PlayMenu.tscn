@@ -91,5 +91,6 @@ grow_horizontal = 0
 texture_normal = ExtResource("7_5k2hx")
 
 [connection signal="pressed" from="SinglePButton" to="." method="_on_single_p_button_pressed"]
+[connection signal="pressed" from="MultiPButton" to="." method="_on_multi_p_button_pressed"]
 [connection signal="pressed" from="PracticeButton" to="." method="_on_practice_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
