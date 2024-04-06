@@ -1,8 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://cgh8ur4a7roul"]
+[gd_scene load_steps=22 format=3 uid="uid://cgh8ur4a7roul"]
 
 [ext_resource type="Texture2D" uid="uid://dghuav4fngmq8" path="res://Sprites/Other Sprites/SkyBackgroundClear.png" id="1_wx4dr"]
 [ext_resource type="Script" path="res://AI/AIMainGridSystem.gd" id="2_8o6v6"]
-[ext_resource type="Script" path="res://scripts/DrawShape.gd" id="2_c4e3y"]
 [ext_resource type="Texture2D" uid="uid://5epn23y2qr0w" path="res://Sprites/Blocks/WaterBlockD.png" id="3_1oxm0"]
 [ext_resource type="Texture2D" uid="uid://baf1jpmcc5bu3" path="res://Sprites/Blocks/BlueBlock.png" id="3_oeuso"]
 [ext_resource type="Texture2D" uid="uid://dqae66sixp8so" path="res://Sprites/Blocks/WaterBlockS.png" id="4_5o543"]
@@ -14,10 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://bhloxmnkbognx" path="res://Sprites/Blocks/YellowBlock.png" id="9_47864"]
 [ext_resource type="Texture2D" uid="uid://bhwigjm6u8rbt" path="res://Sprites/Other Sprites/CloudBoarder.png" id="10_jr1rv"]
 [ext_resource type="Script" path="res://Water/Water.gd" id="11_kvtad"]
-[ext_resource type="Texture2D" uid="uid://0r21hwdub2ov" path="res://Sprites/Other Sprites/CloudBoarderEvil.png" id="14_111m0"]
+[ext_resource type="PackedScene" path="res://block_selection.tscn" id="13_0l3u7"]
+[ext_resource type="Texture2D" uid="uid://bdqc6wuv7dowe" path="res://Sprites/Other Sprites/CloudBoarderEvil.png" id="14_111m0"]
 [ext_resource type="PackedScene" uid="uid://b1g2bkbuln40b" path="res://Player/player.tscn" id="15_tp70g"]
 [ext_resource type="Script" path="res://Grid/MainGridSystem.gd" id="16_us5bc"]
 [ext_resource type="PackedScene" uid="uid://bx6714qf5r53g" path="res://AI/AIplayer.tscn" id="17_2h1ot"]
+[ext_resource type="PackedScene" uid="uid://dxgs7a0ibnxlq" path="res://Timer/Water_timer.tscn" id="19_h2tgq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svx37"]
 
@@ -28,6 +29,7 @@
 [node name="SkyBackground" type="Sprite2D" parent="."]
 position = Vector2(962, 536)
 texture = ExtResource("1_wx4dr")
+metadata/_edit_lock_ = true
 
 [node name="AIPlayer" parent="." instance=ExtResource("17_2h1ot")]
 position = Vector2(1463, 812)
@@ -52,10 +54,7 @@ process_callback = 0
 wait_time = 0.5
 autostart = true
 
-[node name="block selection" type="Node2D" parent="AIGrid"]
-position = Vector2(400, -600)
-script = ExtResource("2_c4e3y")
-textureArray = Array[Texture2D]([ExtResource("3_oeuso"), ExtResource("4_mjfpc"), ExtResource("5_j51kb"), ExtResource("6_dvody"), ExtResource("7_xs1ad"), ExtResource("8_ta6ma"), ExtResource("9_47864")])
+[node name="block selection" parent="AIGrid" instance=ExtResource("13_0l3u7")]
 
 [node name="floor" type="StaticBody2D" parent="AIGrid"]
 position = Vector2(160, 48)
@@ -93,11 +92,12 @@ autostart = true
 
 [node name="Player" parent="." instance=ExtResource("15_tp70g")]
 position = Vector2(396, 800)
-scale = Vector2(2, 2)
+player_id = 1
 
 [node name="MainGrid" type="Node2D" parent="."]
 position = Vector2(240, 800)
 script = ExtResource("16_us5bc")
+player_id = 1
 cloudTextures = Array[Texture2D]([ExtResource("3_1oxm0"), ExtResource("4_5o543"), ExtResource("3_oeuso"), ExtResource("4_mjfpc"), ExtResource("5_j51kb"), ExtResource("6_dvody"), ExtResource("7_xs1ad"), ExtResource("8_ta6ma"), ExtResource("9_47864")])
 rowRenderOffset = 32.0
 colRenderOffset = 32.0
@@ -108,10 +108,8 @@ process_callback = 0
 wait_time = 0.5
 autostart = true
 
-[node name="block selection" type="Node2D" parent="MainGrid"]
-position = Vector2(400, -600)
-script = ExtResource("2_c4e3y")
-textureArray = Array[Texture2D]([ExtResource("3_oeuso"), ExtResource("4_mjfpc"), ExtResource("5_j51kb"), ExtResource("6_dvody"), ExtResource("7_xs1ad"), ExtResource("8_ta6ma"), ExtResource("9_47864")])
+[node name="block selection" parent="MainGrid" instance=ExtResource("13_0l3u7")]
+position = Vector2(350, -610)
 
 [node name="floor" type="StaticBody2D" parent="MainGrid"]
 position = Vector2(160, 48)
@@ -146,6 +144,9 @@ script = ExtResource("11_kvtad")
 [node name="Timer" type="Timer" parent="MainGrid/waterSystem"]
 wait_time = 30.0
 autostart = true
+
+[node name="Water timer" parent="." instance=ExtResource("19_h2tgq")]
+position = Vector2(954, 604)
 
 [connection signal="FBGResetArray" from="AIGrid" to="AIGrid/block selection" method="NextShape"]
 [connection signal="SendWater" from="AIGrid" to="MainGrid/waterSystem" method="WaterRise"]

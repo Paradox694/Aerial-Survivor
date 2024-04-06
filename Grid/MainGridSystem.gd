@@ -39,6 +39,9 @@ var collisionGrid : Array
 var RoofHit : bool = false;
 signal StopBlockFallTimer()
 
+#keep track of lines filled
+var filledLines : Array[bool]
+
 func _init():
 	#setting the main grid to correct size and filling it
 	MainGrid.resize(MGColSize*MGRowSize+MGoverFlow)
@@ -50,6 +53,9 @@ func _init():
 	FBGReferenceLocation = Vector2i(3,20)
 
 	collisionGrid.resize(MainGrid.size())
+	
+	filledLines.resize(MGRowSize+4)
+	filledLines.fill(false)
 
 func _ready():
 	#gets first block
@@ -258,10 +264,11 @@ func CheckForLineClear():
 	
 	for r in range(FBGRowSize):
 		for c in range(MGColSize):
-			if(MainGridRead(c, r + FBGReferenceLocation.y) > 1):
+			if(MainGridRead(c, r + FBGReferenceLocation.y) > 1 && !filledLines[r+FBGReferenceLocation.y]):
 				colmsFilled += 1
 		if(colmsFilled == MGColSize):
 			rowsFilled += 1
+			filledLines[r+FBGReferenceLocation.y] = true
 		colmsFilled = 0
 	
 	match rowsFilled:
