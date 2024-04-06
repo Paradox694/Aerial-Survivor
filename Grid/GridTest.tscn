@@ -31,7 +31,7 @@ texture = ExtResource("1_4bfp6")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("11_vwovf")]
-position = Vector2(953, 788)
+position = Vector2(962, 793)
 player_id = 1
 
 [node name="MainGrid" type="Node2D" parent="."]
@@ -51,7 +51,7 @@ autostart = true
 [node name="block selection" parent="MainGrid" instance=ExtResource("13_dsfp6")]
 
 [node name="floor" type="StaticBody2D" parent="MainGrid"]
-position = Vector2(160, 48)
+position = Vector2(160, 42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainGrid/floor"]
 scale = Vector2(20, 1)
@@ -77,9 +77,6 @@ scale = Vector2(1, 22.5)
 scale = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_rfgmb")
 
-[node name="Water_Damage" parent="MainGrid" instance=ExtResource("16_jcr5q")]
-position = Vector2(-53, 39)
-
 [node name="waterSystem" type="Node2D" parent="MainGrid"]
 script = ExtResource("11_jj45e")
 
@@ -87,7 +84,11 @@ script = ExtResource("11_jj45e")
 wait_time = 30.0
 autostart = true
 
-[node name="WaterTimer" parent="MainGrid/waterSystem" instance=ExtResource("17_y08v3")]
+[node name="Water_Damage" parent="MainGrid" instance=ExtResource("16_jcr5q")]
+position = Vector2(-64, 35)
+moveoffset = 16
+
+[node name="WaterTimer" parent="MainGrid" instance=ExtResource("17_y08v3")]
 position = Vector2(-116, -343)
 
 [connection signal="death" from="Player" to="Death" method="Die"]
@@ -97,7 +98,7 @@ position = Vector2(-116, -343)
 [connection signal="timeout" from="MainGrid/GridBlockFallTimer" to="MainGrid" method="FBGBlockFall"]
 [connection signal="changeFBGArray" from="MainGrid/block selection" to="MainGrid" method="ChangeFBGArray"]
 [connection signal="fillRow" from="MainGrid/waterSystem" to="MainGrid" method="MainGridRowFill"]
+[connection signal="fillRow" from="MainGrid/waterSystem" to="MainGrid/Water_Damage" method="_on_water_timer_rise" unbinds=2]
 [connection signal="stop" from="MainGrid/waterSystem" to="MainGrid/waterSystem/Timer" method="stop"]
 [connection signal="updateTextures" from="MainGrid/waterSystem" to="MainGrid" method="updateTextures"]
 [connection signal="timeout" from="MainGrid/waterSystem/Timer" to="MainGrid/waterSystem" method="WaterRise" binds= [1]]
-[connection signal="rise" from="MainGrid/waterSystem/WaterTimer" to="MainGrid/Water_Damage" method="_on_water_timer_rise"]

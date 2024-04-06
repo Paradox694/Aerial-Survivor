@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bx6714qf5r53g"]
+[gd_scene load_steps=13 format=3 uid="uid://bx6714qf5r53g"]
 
 [ext_resource type="Script" path="res://AI/AIPlayer.gd" id="1_yp7n6"]
-[ext_resource type="Texture2D" uid="uid://bvub6o6erjpo6" path="res://Sprites/SpriteSheets/YukiEvil_Sheet.png" id="2_7vtwm"]
+[ext_resource type="Texture2D" uid="uid://3wchkmj7pixd" path="res://Sprites/SpriteSheets/YukiEvil_Sheet.png" id="2_7vtwm"]
 
 [sub_resource type="Animation" id="Animation_tl8fv"]
 resource_name = "idle_left"
@@ -136,8 +136,11 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7r7e0"]
 size = Vector2(14, 17.3333)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pj43p"]
+size = Vector2(13.5, 26)
+
 [node name="AIPlayer" type="CharacterBody2D"]
-position = Vector2(121, 584)
+position = Vector2(-2, 2)
 script = ExtResource("1_yp7n6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -159,3 +162,12 @@ speed_scale = 0.75
 position = Vector2(0, 1)
 scale = Vector2(1, 1.5)
 shape = SubResource("RectangleShape2D_7r7e0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_pj43p")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_2_area_entered"]

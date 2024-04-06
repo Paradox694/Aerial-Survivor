@@ -4,6 +4,8 @@ signal stop
 
 @onready var collision_shape_2d = $Damage_Area
 
+@export var moveoffset = 20
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print(collision_shape_2d.position.y)
@@ -16,4 +18,7 @@ func _process(delta):
 
 func _on_water_timer_rise():
 	print(collision_shape_2d.position.y)
-	collision_shape_2d.position.y = collision_shape_2d.position.y - 0.01
+	collision_shape_2d.position.y = collision_shape_2d.position.y - moveoffset
+
+
+

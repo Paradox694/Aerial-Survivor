@@ -1,5 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://cgh8ur4a7roul"]
+[gd_scene load_steps=24 format=3 uid="uid://cgh8ur4a7roul"]
 
+[ext_resource type="PackedScene" uid="uid://cgtmwfxq5uaop" path="res://Death/Death.tscn" id="1_a6c53"]
 [ext_resource type="Texture2D" uid="uid://dghuav4fngmq8" path="res://Sprites/Other Sprites/SkyBackgroundClear.png" id="1_wx4dr"]
 [ext_resource type="Script" path="res://AI/AIMainGridSystem.gd" id="2_8o6v6"]
 [ext_resource type="Texture2D" uid="uid://5epn23y2qr0w" path="res://Sprites/Blocks/WaterBlockD.png" id="3_1oxm0"]
@@ -16,6 +17,7 @@
 [ext_resource type="PackedScene" path="res://block_selection.tscn" id="13_0l3u7"]
 [ext_resource type="Texture2D" uid="uid://bdqc6wuv7dowe" path="res://Sprites/Other Sprites/CloudBoarderEvil.png" id="14_111m0"]
 [ext_resource type="PackedScene" uid="uid://b1g2bkbuln40b" path="res://Player/player.tscn" id="15_tp70g"]
+[ext_resource type="PackedScene" uid="uid://niru1fo8yq7v" path="res://Water Damage/water_damage.tscn" id="16_57fqy"]
 [ext_resource type="Script" path="res://Grid/MainGridSystem.gd" id="16_us5bc"]
 [ext_resource type="PackedScene" uid="uid://bx6714qf5r53g" path="res://AI/AIplayer.tscn" id="17_2h1ot"]
 [ext_resource type="PackedScene" uid="uid://dxgs7a0ibnxlq" path="res://Timer/Water_timer.tscn" id="19_h2tgq"]
@@ -26,6 +28,8 @@
 
 [node name="SinglePlayerLevel" type="Node2D"]
 
+[node name="Death" parent="." instance=ExtResource("1_a6c53")]
+
 [node name="SkyBackground" type="Sprite2D" parent="."]
 position = Vector2(962, 536)
 texture = ExtResource("1_wx4dr")
@@ -34,6 +38,7 @@ metadata/_edit_lock_ = true
 [node name="AIPlayer" parent="." instance=ExtResource("17_2h1ot")]
 position = Vector2(1463, 812)
 scale = Vector2(2, 2)
+player_id = 2
 AIGridOffset = 1300
 
 [node name="AIGrid" type="Node2D" parent="."]
@@ -57,7 +62,7 @@ autostart = true
 [node name="block selection" parent="AIGrid" instance=ExtResource("13_0l3u7")]
 
 [node name="floor" type="StaticBody2D" parent="AIGrid"]
-position = Vector2(160, 48)
+position = Vector2(160, 42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AIGrid/floor"]
 scale = Vector2(20, 1)
@@ -90,6 +95,10 @@ script = ExtResource("11_kvtad")
 wait_time = 30.0
 autostart = true
 
+[node name="Water_Damage" parent="AIGrid" instance=ExtResource("16_57fqy")]
+position = Vector2(-64, 35)
+moveoffset = 16
+
 [node name="Player" parent="." instance=ExtResource("15_tp70g")]
 position = Vector2(396, 800)
 player_id = 1
@@ -112,7 +121,7 @@ autostart = true
 position = Vector2(350, -610)
 
 [node name="floor" type="StaticBody2D" parent="MainGrid"]
-position = Vector2(160, 48)
+position = Vector2(160, 42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainGrid/floor"]
 scale = Vector2(20, 1)
@@ -145,9 +154,14 @@ script = ExtResource("11_kvtad")
 wait_time = 30.0
 autostart = true
 
+[node name="Water_Damage" parent="MainGrid" instance=ExtResource("16_57fqy")]
+position = Vector2(-64, 35)
+moveoffset = 16
+
 [node name="Water timer" parent="." instance=ExtResource("19_h2tgq")]
 position = Vector2(954, 604)
 
+[connection signal="death" from="AIPlayer" to="Death" method="MultiplayerDie"]
 [connection signal="FBGResetArray" from="AIGrid" to="AIGrid/block selection" method="NextShape"]
 [connection signal="SendWater" from="AIGrid" to="MainGrid/waterSystem" method="WaterRise"]
 [connection signal="StopBlockFallTimer" from="AIGrid" to="AIGrid/GridBlockFallTimer" method="stop"]
@@ -156,15 +170,18 @@ position = Vector2(954, 604)
 [connection signal="timeout" from="AIGrid/GridBlockFallTimer" to="AIGrid" method="FBGBlockFall"]
 [connection signal="changeFBGArray" from="AIGrid/block selection" to="AIGrid" method="ChangeFBGArray"]
 [connection signal="fillRow" from="AIGrid/waterSystem" to="AIGrid" method="MainGridRowFill"]
+[connection signal="fillRow" from="AIGrid/waterSystem" to="AIGrid/Water_Damage" method="_on_water_timer_rise" unbinds=2]
 [connection signal="stop" from="AIGrid/waterSystem" to="AIGrid/waterSystem/Timer" method="stop"]
 [connection signal="updateTextures" from="AIGrid/waterSystem" to="AIGrid" method="updateTextures"]
 [connection signal="timeout" from="AIGrid/waterSystem/Timer" to="AIGrid/waterSystem" method="WaterRise" binds= [1]]
+[connection signal="death" from="Player" to="Death" method="MultiplayerDie"]
 [connection signal="FBGResetArray" from="MainGrid" to="MainGrid/block selection" method="NextShape"]
 [connection signal="SendWater" from="MainGrid" to="AIGrid/waterSystem" method="WaterRise"]
 [connection signal="StopBlockFallTimer" from="MainGrid" to="MainGrid/GridBlockFallTimer" method="stop"]
 [connection signal="timeout" from="MainGrid/GridBlockFallTimer" to="MainGrid" method="FBGBlockFall"]
 [connection signal="changeFBGArray" from="MainGrid/block selection" to="MainGrid" method="ChangeFBGArray"]
 [connection signal="fillRow" from="MainGrid/waterSystem" to="MainGrid" method="MainGridRowFill"]
+[connection signal="fillRow" from="MainGrid/waterSystem" to="MainGrid/Water_Damage" method="_on_water_timer_rise" unbinds=2]
 [connection signal="stop" from="MainGrid/waterSystem" to="MainGrid/waterSystem/Timer" method="stop"]
 [connection signal="updateTextures" from="MainGrid/waterSystem" to="MainGrid" method="updateTextures"]
 [connection signal="timeout" from="MainGrid/waterSystem/Timer" to="MainGrid/waterSystem" method="WaterRise" binds= [1]]

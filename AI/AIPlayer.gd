@@ -1,6 +1,12 @@
 extends CharacterBody2D
 
+signal death(area2D, player_id)
+
+@export var player_id = 0
+
 @onready var animated_sprite = $Sprite2D/PlayerAnimation2
+
+@onready var area2D = $Area2D
 
 #signal highestPointOffset()
 
@@ -15,6 +21,11 @@ var jump : bool = false
 var moveDirection : int = 0
 
 var targetOffset = 20
+
+var death_sound_player = AudioStreamPlayer2D.new() 
+# Load death sound
+var death_sound = preload("res://CharacterDamaged.wav") 
+
 
 @export var AIGridOffset : int
 
@@ -99,3 +110,25 @@ func AIMoveCalculation():
 
 func setoffset(offset):
 	targetOffset = offset
+
+
+func _on_area_2d_area_entered(area):
+	if(area.name == "Damage_Area"):
+		if not death_sound_player.playing:
+			death_sound_player.play() # Play the death sound
+		await get_tree().create_timer(0.4).timeout
+		area.get_parent().queue_free()
+		death.emit(area2D, player_id)
+	pass # Replace with function body.
+
+var dead : bool = false
+func _on_area_2d_2_area_entered(area):
+	if(area.name == "KillBox"):
+		if not death_sound_player.playing:
+			death_sound_player.play() # Play the death sound
+		await get_tree().create_timer(0.4).timeout
+		area.get_parent().queue_free()
+		if !dead:
+			dead = true
+			death.emit(area2D, player_id)
+	pass # Replace with function body.
