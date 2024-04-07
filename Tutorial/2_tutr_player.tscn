@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://cv8gim4x1uogu"]
+
+[ext_resource type="Texture2D" uid="uid://c2ow2ld1m6dph" path="res://assets/TitleBG.png" id="1_rm6bp"]
+[ext_resource type="Script" path="res://Tutorial/2_tutr_player.gd" id="2_03nwf"]
+[ext_resource type="Texture2D" uid="uid://4xn23760ud2g" path="res://assets/2_TUTR_Player.png" id="3_0i15s"]
+[ext_resource type="Texture2D" uid="uid://du2bt4f8ain4w" path="res://assets/next_cloud.png" id="4_4rv8q"]
+[ext_resource type="Texture2D" uid="uid://bru40aw804dtj" path="res://assets/previous_cloud.png" id="5_18xap"]
+
+[node name="2-TutrPlayer" type="Sprite2D"]
+texture = ExtResource("1_rm6bp")
+centered = false
+script = ExtResource("2_03nwf")
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(475, 0)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("3_0i15s")
+centered = false
+
+[node name="Next" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = 285.0
+offset_right = -235.0
+offset_bottom = 335.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.4, 1.4)
+texture_normal = ExtResource("4_4rv8q")
+
+[node name="Prev" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = 285.0
+offset_right = -310.0
+offset_bottom = 335.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.4, 1.4)
+texture_normal = ExtResource("5_18xap")
+
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Prev" to="." method="_on_prev_pressed"]

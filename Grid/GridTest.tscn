@@ -49,6 +49,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="block selection" parent="MainGrid" instance=ExtResource("13_dsfp6")]
+shapeArray = Array[int]([1, 2, 3, 4, 5, 6, 7, 2, 4, 6, 5, 3, 7, 6, 3, 2, 6, 1, 7, 5, 4, 7, 6, 3, 7, 4, 2, 5, 1, 2, 7, 6, 1, 4, 5, 3, 1, 6, 7, 5, 2, 4])
 
 [node name="floor" type="StaticBody2D" parent="MainGrid"]
 position = Vector2(160, 42)

@@ -22,46 +22,46 @@ func _draw():
 	
 	match shapeToDraw:
 		1: # I-shape
-			draw_texture(textureArray[0], Vector2 (44, 128))
-			draw_texture(textureArray[0], Vector2 (76, 128))
-			draw_texture(textureArray[0], Vector2 (108, 128))
-			draw_texture(textureArray[0], Vector2 (140, 128))
+			draw_texture(textureArray[0], Vector2 (28, 128))
+			draw_texture(textureArray[0], Vector2 (60, 128))
+			draw_texture(textureArray[0], Vector2 (92, 128))
+			draw_texture(textureArray[0], Vector2 (124, 128))
 		
 		2: # L-shape
-			draw_texture(textureArray[1], Vector2 (60, 128))
-			draw_texture(textureArray[1], Vector2 (92, 128))
-			draw_texture(textureArray[1], Vector2 (124, 128))
-			draw_texture(textureArray[1], Vector2 (124, 96))
+			draw_texture(textureArray[1], Vector2 (34, 128))
+			draw_texture(textureArray[1], Vector2 (66, 128))
+			draw_texture(textureArray[1], Vector2 (98, 128))
+			draw_texture(textureArray[1], Vector2 (98, 96))
 		
 		3: # T-shape
-			draw_texture(textureArray[2], Vector2 (92, 96))
-			draw_texture(textureArray[2], Vector2 (92, 128))
-			draw_texture(textureArray[2], Vector2 (124, 128))
-			draw_texture(textureArray[2], Vector2 (60, 128))
+			draw_texture(textureArray[2], Vector2 (66, 96))
+			draw_texture(textureArray[2], Vector2 (66, 128))
+			draw_texture(textureArray[2], Vector2 (98, 128))
+			draw_texture(textureArray[2], Vector2 (34, 128))
 			
 		4: # J-shape
-			draw_texture(textureArray[3], Vector2 (60, 96))
-			draw_texture(textureArray[3], Vector2 (92, 128))
-			draw_texture(textureArray[3], Vector2 (124, 128))
-			draw_texture(textureArray[3], Vector2 (60, 128))
+			draw_texture(textureArray[3], Vector2 (34, 96))
+			draw_texture(textureArray[3], Vector2 (66, 128))
+			draw_texture(textureArray[3], Vector2 (98, 128))
+			draw_texture(textureArray[3], Vector2 (34, 128))
 			
 		5: # O-shape
-			draw_texture(textureArray[4], Vector2 (76, 96))
-			draw_texture(textureArray[4], Vector2 (108, 96))
-			draw_texture(textureArray[4], Vector2 (108, 128))
-			draw_texture(textureArray[4], Vector2 (76, 128))
+			draw_texture(textureArray[4], Vector2 (50, 96))
+			draw_texture(textureArray[4], Vector2 (82, 96))
+			draw_texture(textureArray[4], Vector2 (82, 128))
+			draw_texture(textureArray[4], Vector2 (50, 128))
 			
 		6: # Z-shape
-			draw_texture(textureArray[5], Vector2 (60, 96))
-			draw_texture(textureArray[5], Vector2 (92, 96))
-			draw_texture(textureArray[5], Vector2 (92, 128))
-			draw_texture(textureArray[5], Vector2 (124, 128))
+			draw_texture(textureArray[5], Vector2 (34, 96))
+			draw_texture(textureArray[5], Vector2 (66, 96))
+			draw_texture(textureArray[5], Vector2 (66, 128))
+			draw_texture(textureArray[5], Vector2 (98, 128))
 			
 		7: # S-Shape
-			draw_texture(textureArray[6], Vector2 (60, 128))
-			draw_texture(textureArray[6], Vector2 (92, 96))
-			draw_texture(textureArray[6], Vector2 (92, 128))
-			draw_texture(textureArray[6], Vector2 (124, 96))
+			draw_texture(textureArray[6], Vector2 (34, 128))
+			draw_texture(textureArray[6], Vector2 (66, 96))
+			draw_texture(textureArray[6], Vector2 (66, 128))
+			draw_texture(textureArray[6], Vector2 (98, 96))
 			
 			
 func NextShape():
