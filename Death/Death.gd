@@ -29,3 +29,9 @@ func MultiplayerDie(area, player_id):
 	else:
 		get_tree().change_scene_to_file("res://Multiplayer/player_1_wins.tscn")
 
+func SingleplayerDie(area, player_id):
+	if player_id == 1:
+		get_tree().change_scene_to_file("res://AI/player_2_wins_AI.tscn")
+	
+	else:
+		get_tree().change_scene_to_file("res://AI/player_1_wins_AI.tscn")

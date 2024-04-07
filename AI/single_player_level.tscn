@@ -161,7 +161,7 @@ moveoffset = 16
 [node name="Water timer" parent="." instance=ExtResource("19_h2tgq")]
 position = Vector2(954, 604)
 
-[connection signal="death" from="AIPlayer" to="Death" method="MultiplayerDie"]
+[connection signal="death" from="AIPlayer" to="Death" method="SingleplayerDie"]
 [connection signal="FBGResetArray" from="AIGrid" to="AIGrid/block selection" method="NextShape"]
 [connection signal="SendWater" from="AIGrid" to="MainGrid/waterSystem" method="WaterRise"]
 [connection signal="StopBlockFallTimer" from="AIGrid" to="AIGrid/GridBlockFallTimer" method="stop"]
@@ -174,7 +174,7 @@ position = Vector2(954, 604)
 [connection signal="stop" from="AIGrid/waterSystem" to="AIGrid/waterSystem/Timer" method="stop"]
 [connection signal="updateTextures" from="AIGrid/waterSystem" to="AIGrid" method="updateTextures"]
 [connection signal="timeout" from="AIGrid/waterSystem/Timer" to="AIGrid/waterSystem" method="WaterRise" binds= [1]]
-[connection signal="death" from="Player" to="Death" method="MultiplayerDie"]
+[connection signal="death" from="Player" to="Death" method="SingleplayerDie"]
 [connection signal="FBGResetArray" from="MainGrid" to="MainGrid/block selection" method="NextShape"]
 [connection signal="SendWater" from="MainGrid" to="AIGrid/waterSystem" method="WaterRise"]
 [connection signal="StopBlockFallTimer" from="MainGrid" to="MainGrid/GridBlockFallTimer" method="stop"]
