@@ -14,3 +14,7 @@ func _on_single_p_button_pressed():
 func _on_multi_p_button_pressed():
 	get_tree().change_scene_to_file("res://Multiplayer/Multiplayer_test.tscn")
 
+
+
+func _on_tutorial_button_pressed():
+	get_tree().change_scene_to_file("res://Tutorial/1_tutr_begin.tscn")

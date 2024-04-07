@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgt2omfbxenkp"]
+[gd_scene load_steps=7 format=3 uid="uid://bgt2omfbxenkp"]
 
 [ext_resource type="Texture2D" uid="uid://c2ow2ld1m6dph" path="res://assets/TitleBG.png" id="1_wdrnb"]
 [ext_resource type="Script" path="res://Tutorial/4_tutr_death.gd" id="2_wx5n3"]
 [ext_resource type="Texture2D" uid="uid://du2bt4f8ain4w" path="res://assets/next_cloud.png" id="3_8j18r"]
 [ext_resource type="Texture2D" uid="uid://dx3x6qua2jvwt" path="res://assets/4_TUTR_Death.png" id="3_n0onb"]
 [ext_resource type="Texture2D" uid="uid://bru40aw804dtj" path="res://assets/previous_cloud.png" id="4_nw6dd"]
+[ext_resource type="Texture2D" uid="uid://dma5un2btu38q" path="res://assets/XButton.png" id="6_l74ww"]
 
 [node name="4_TutrDeath" type="Sprite2D"]
 texture = ExtResource("1_wdrnb")
@@ -47,5 +48,11 @@ grow_vertical = 2
 scale = Vector2(1.4, 1.4)
 texture_normal = ExtResource("4_nw6dd")
 
+[node name="Quit" type="TextureButton" parent="."]
+offset_right = 80.0
+offset_bottom = 80.0
+texture_normal = ExtResource("6_l74ww")
+
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
