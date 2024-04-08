@@ -1,6 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://d3hg7gd0gyx28"]
+[gd_scene load_steps=20 format=3 uid="uid://3ppfoccc3to3"]
 
-[ext_resource type="PackedScene" uid="uid://cgtmwfxq5uaop" path="res://Death/Death.tscn" id="1_0u7fe"]
+[ext_resource type="PackedScene" path="res://Death/Death.tscn" id="1_0u7fe"]
 [ext_resource type="Texture2D" uid="uid://3yadqa4f8vv5" path="res://Sprites/Other Sprites/SkyBackground.png" id="1_4bfp6"]
 [ext_resource type="Script" path="res://Grid/MainGridSystem.gd" id="1_xiyqx"]
 [ext_resource type="Texture2D" uid="uid://5epn23y2qr0w" path="res://Sprites/Blocks/WaterBlockD.png" id="2_xuib7"]
@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bhwigjm6u8rbt" path="res://Sprites/Other Sprites/CloudBoarder.png" id="11_ujmhn"]
 [ext_resource type="PackedScene" uid="uid://b1g2bkbuln40b" path="res://Player/player.tscn" id="11_vwovf"]
 [ext_resource type="Texture2D" uid="uid://bhloxmnkbognx" path="res://Sprites/Blocks/YellowBlock.png" id="12_d8gl4"]
-[ext_resource type="PackedScene" path="res://block_selection.tscn" id="13_dsfp6"]
+[ext_resource type="PackedScene" uid="uid://cj3qgtbe47h0h" path="res://block_selection.tscn" id="13_dsfp6"]
 [ext_resource type="PackedScene" uid="uid://niru1fo8yq7v" path="res://Water Damage/water_damage.tscn" id="16_jcr5q"]
 [ext_resource type="PackedScene" uid="uid://dxgs7a0ibnxlq" path="res://Timer/Water_timer.tscn" id="17_y08v3"]
 
@@ -89,7 +89,7 @@ position = Vector2(-64, 35)
 moveoffset = 16
 
 [node name="WaterTimer" parent="MainGrid" instance=ExtResource("17_y08v3")]
-position = Vector2(-116, -343)
+position = Vector2(-139, -287)
 
 [connection signal="death" from="Player" to="Death" method="Die"]
 [connection signal="FBGResetArray" from="MainGrid" to="MainGrid/block selection" method="NextShape"]
