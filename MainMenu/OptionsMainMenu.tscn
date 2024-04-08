@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyw0iioc1kp7g"]
+[gd_scene load_steps=6 format=3 uid="uid://dyw0iioc1kp7g"]
 
 [ext_resource type="Script" path="res://MainMenu/OptionsMainMenu.gd" id="1_cfffd"]
 [ext_resource type="Texture2D" uid="uid://3yadqa4f8vv5" path="res://Sprites/Other Sprites/SkyBackground.png" id="2_b7o6a"]
 [ext_resource type="Script" path="res://MainMenu/VolumeSliderMM.gd" id="2_kt2w7"]
 [ext_resource type="Texture2D" uid="uid://cu4jxww5dgonn" path="res://Sprites/Titles/XButton.png" id="4_v80v5"]
+[ext_resource type="Texture2D" uid="uid://djwluvx4ft88x" path="res://Sprites/Other Sprites/Credits.png" id="5_a6bsk"]
 
 [node name="Options(for MainMenu)" type="Control"]
 layout_mode = 3
@@ -20,10 +21,10 @@ texture = ExtResource("2_b7o6a")
 
 [node name="VolumeSliderMM" type="HSlider" parent="."]
 layout_mode = 0
-offset_left = 676.0
-offset_top = 484.0
-offset_right = 1231.0
-offset_bottom = 523.0
+offset_left = 658.665
+offset_top = 300.0
+offset_right = 1213.67
+offset_bottom = 339.0
 max_value = 1.0
 step = 0.001
 script = ExtResource("2_kt2w7")
@@ -31,10 +32,10 @@ bus_name = "Master"
 
 [node name="TextEdit" type="TextEdit" parent="."]
 layout_mode = 0
-offset_left = 892.0
-offset_top = 451.0
-offset_right = 962.0
-offset_bottom = 486.0
+offset_left = 900.0
+offset_top = 250.0
+offset_right = 970.0
+offset_bottom = 285.0
 text = "Volume"
 
 [node name="BackButton" type="TextureButton" parent="."]
@@ -46,5 +47,13 @@ offset_left = -80.0
 offset_bottom = 80.0
 grow_horizontal = 0
 texture_normal = ExtResource("4_v80v5")
+
+[node name="Credits" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 450.0
+offset_right = 1810.0
+offset_bottom = 900.0
+texture_normal = ExtResource("5_a6bsk")
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
