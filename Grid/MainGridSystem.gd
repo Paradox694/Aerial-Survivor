@@ -1,6 +1,6 @@
 extends Node2D
 
-
+@export var player_id = 0
 
 #array of all the textures
 @export var cloudTextures : Array[Texture2D]
@@ -35,9 +35,19 @@ var FBGDropReset : bool = false
 var collider = preload("res://Grid/block_collider.tscn")
 var collisionGrid : Array
 
+
 #varibles to stop blocks afterhitting limit
 var RoofHit : bool = false;
 signal StopBlockFallTimer()
+
+# Create an AudioStreamPlayer node
+var sound_player = AudioStreamPlayer.new()  
+# Load the sound
+#var block_fast_drop_sound = preload("res://Sounds/BlockFalling.mp3")
+
+
+#keep track of lines filled
+var filledLines : Array[bool]
 
 func _init():
 	#setting the main grid to correct size and filling it
@@ -50,26 +60,32 @@ func _init():
 	FBGReferenceLocation = Vector2i(3,20)
 
 	collisionGrid.resize(MainGrid.size())
+	
+	filledLines.resize(MGRowSize+4)
+	filledLines.fill(false)
 
 func _ready():
+	# Func to play the fast drop sound 
+	sound_player.bus = "SFX"  
+	#sound_player.stream = block_fast_drop_sound
+	add_child(sound_player)
+	
 	#gets first block
 	FBGResetArray.emit()
-	
-
 
 func _input(event):
-	if event.is_action_pressed("RotateBlockRight"):
+	if event.is_action_pressed("RotateBlockRight_%s" % [player_id]):
 		FBGRotateRight()
 	
-	if event.is_action_pressed("RotateBlockLeft"):
+	if event.is_action_pressed("RotateBlockLeft_%s" % [player_id]):
 		FBGRotateLeft()
 	
-	if event.is_action_pressed("MoveBlockRight"):
+	if event.is_action_pressed("MoveBlockRight_%s" % [player_id]):
 		if checkForMoveCollison(1):
 			FBGReferenceLocation.x += 1
 			checkFBGridOutOfBounds()
 		
-	if event.is_action_pressed("MoveBlockLeft"):
+	if event.is_action_pressed("MoveBlockLeft_%s" % [player_id]):
 		if checkForMoveCollison(-1):
 			FBGReferenceLocation.x -= 1
 			checkFBGridOutOfBounds()
@@ -77,14 +93,23 @@ func _input(event):
 
 func _physics_process(_delta):
 	
-	if(Input.is_action_just_pressed("DropBlock")):
+	if(Input.is_action_just_pressed("DropBlock_%s" % [player_id])):
 		FBGDropReset = false
-	
-	if(!FBGDropReset):
-		if(Input.is_action_pressed("DropBlock") && !RoofHit):
-			FBGBlockFall()
+		#Play fast drop sound 
+		if not sound_player.playing:
+			sound_player.play()
 
 	
+	if(!FBGDropReset):
+		if(Input.is_action_pressed("DropBlock_%s" % [player_id]) && !RoofHit):
+			FBGBlockFall()
+		# Stop playing the sound when S key is released
+		else:
+			if sound_player.playing:
+				sound_player.stop()
+
+
+
 #draws all the clouds in the grid
 func _draw():
 	#draws the main grid
@@ -245,6 +270,22 @@ func FBGReset():
 				collid.position = Vector2((c + FBGReferenceLocation.x) * colRenderOffset, (r + FBGReferenceLocation.y) * -rowRenderOffset)
 				collisionGridWrite(collid,c + FBGReferenceLocation.x,r + FBGReferenceLocation.y)
 				
+	
+	 # Play the sound when blocks hit the ground
+	 # Load the sound
+	var block_drop_sound = preload("res://Sounds/BlockDrop.wav") 
+	# Create an AudioStreamPlayer node
+	var audio_player = AudioStreamPlayer2D.new()
+	# Set the bus to 'SFX'
+	audio_player.bus = "SFX"  
+	# Assign the sound to the player
+	audio_player.stream = block_drop_sound
+	# Add the player as a child node
+	add_child(audio_player)
+	# Play the sound
+	audio_player.play()  
+	
+	
 	CheckForLineClear()
 	FBGReferenceLocation = FBGResetPosition
 	FBGDropReset = true
@@ -258,10 +299,11 @@ func CheckForLineClear():
 	
 	for r in range(FBGRowSize):
 		for c in range(MGColSize):
-			if(MainGridRead(c, r + FBGReferenceLocation.y) > 1):
+			if(MainGridRead(c, r + FBGReferenceLocation.y) > 1 && !filledLines[r+FBGReferenceLocation.y]):
 				colmsFilled += 1
 		if(colmsFilled == MGColSize):
 			rowsFilled += 1
+			filledLines[r+FBGReferenceLocation.y] = true
 		colmsFilled = 0
 	
 	match rowsFilled:

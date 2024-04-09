@@ -2,93 +2,103 @@ extends Node2D
 
 signal changeFBGArray(FBGArray: Array [int])
 
+var shapeArray : Array[int] = ([1, 2, 3, 4, 5, 6, 7, 2, 4, 6, 5, 3, 7, 6, 3, 2, 6, 1, 7, 5, 4, 7, 6, 3, 7, 4, 2, 5, 1, 2, 7, 6, 1, 4, 5, 3, 1, 6, 7, 5, 2, 4])
+var shapeArrayIndex: int = 0
+
 @export var textureArray: Array [Texture2D]
 var shapeToDraw: int = 1
-var column: int
-var row: int
+
 
 var shape1 : Array [int] = [-1, -1, -1, -1, 2, 2, 2, 2, -1, -1, -1, -1, -1, -1, -1, -1]
 var shape2 : Array [int] = [-1, -1, -1, -1, 3, 3, 3, -1, -1, -1, 3, -1, -1, -1, -1, -1]
+var shape3 : Array [int] = [-1, -1, -1, -1, 4, 4, 4, -1, -1, 4, -1, -1, -1, -1, -1, -1]
 var shape4 : Array [int] = [-1, -1, -1, -1, -1, 5, 5, 5, -1, 5, -1, -1, -1, -1, -1, -1]
 var shape5 : Array [int] = [-1, -1, -1, -1, -1, 6, 6, -1, -1, 6, 6, -1, -1, -1, -1, -1]
-var shape3 : Array [int] = [-1, -1, -1, -1, 4, 4, 4, -1, -1, 4, -1, -1, -1, -1, -1, -1]
 var shape6 : Array [int] = [-1, -1, -1, -1, -1, 7, 7, -1, 7, 7, -1, -1, -1, -1, -1, -1]
 var shape7 : Array [int] = [-1, -1, -1, -1, -1, 8, 8, -1, -1, -1, 8, 8, -1, -1, -1, -1]
+
 
 func _draw():
 	
 	match shapeToDraw:
 		1: # I-shape
-			draw_texture(textureArray[0], Vector2 (40, 112))
-			draw_texture(textureArray[0], Vector2 (72, 112))
-			draw_texture(textureArray[0], Vector2 (104, 112))
-			draw_texture(textureArray[0], Vector2 (136, 112))
+			draw_texture(textureArray[0], Vector2 (28, 128))
+			draw_texture(textureArray[0], Vector2 (60, 128))
+			draw_texture(textureArray[0], Vector2 (92, 128))
+			draw_texture(textureArray[0], Vector2 (124, 128))
 		
 		2: # L-shape
-			draw_texture(textureArray[1], Vector2 (48, 112))
-			draw_texture(textureArray[1], Vector2 (80, 112))
-			draw_texture(textureArray[1], Vector2 (112, 112))
-			draw_texture(textureArray[1], Vector2 (112, 80))
+			draw_texture(textureArray[1], Vector2 (34, 128))
+			draw_texture(textureArray[1], Vector2 (66, 128))
+			draw_texture(textureArray[1], Vector2 (98, 128))
+			draw_texture(textureArray[1], Vector2 (98, 96))
 		
 		3: # T-shape
-			draw_texture(textureArray[2], Vector2 (80, 80))
-			draw_texture(textureArray[2], Vector2 (80, 112))
-			draw_texture(textureArray[2], Vector2 (112, 112))
-			draw_texture(textureArray[2], Vector2 (48, 112))
+			draw_texture(textureArray[2], Vector2 (66, 96))
+			draw_texture(textureArray[2], Vector2 (66, 128))
+			draw_texture(textureArray[2], Vector2 (98, 128))
+			draw_texture(textureArray[2], Vector2 (34, 128))
 			
 		4: # J-shape
-			draw_texture(textureArray[3], Vector2 (48, 80))
-			draw_texture(textureArray[3], Vector2 (80, 112))
-			draw_texture(textureArray[3], Vector2 (112, 112))
-			draw_texture(textureArray[3], Vector2 (48, 112))
+			draw_texture(textureArray[3], Vector2 (34, 96))
+			draw_texture(textureArray[3], Vector2 (66, 128))
+			draw_texture(textureArray[3], Vector2 (98, 128))
+			draw_texture(textureArray[3], Vector2 (34, 128))
 			
 		5: # O-shape
-			draw_texture(textureArray[4], Vector2 (64, 80))
-			draw_texture(textureArray[4], Vector2 (96, 80))
-			draw_texture(textureArray[4], Vector2 (96, 112))
-			draw_texture(textureArray[4], Vector2 (64, 112))
+			draw_texture(textureArray[4], Vector2 (50, 96))
+			draw_texture(textureArray[4], Vector2 (82, 96))
+			draw_texture(textureArray[4], Vector2 (82, 128))
+			draw_texture(textureArray[4], Vector2 (50, 128))
 			
 		6: # Z-shape
-			draw_texture(textureArray[5], Vector2 (48, 80))
-			draw_texture(textureArray[5], Vector2 (80, 80))
-			draw_texture(textureArray[5], Vector2 (80, 112))
-			draw_texture(textureArray[5], Vector2 (112, 112))
+			draw_texture(textureArray[5], Vector2 (34, 96))
+			draw_texture(textureArray[5], Vector2 (66, 96))
+			draw_texture(textureArray[5], Vector2 (66, 128))
+			draw_texture(textureArray[5], Vector2 (98, 128))
 			
 		7: # S-Shape
-			draw_texture(textureArray[6], Vector2 (48, 112))
-			draw_texture(textureArray[6], Vector2 (80, 80))
-			draw_texture(textureArray[6], Vector2 (80, 112))
-			draw_texture(textureArray[6], Vector2 (112, 80))
+			draw_texture(textureArray[6], Vector2 (34, 128))
+			draw_texture(textureArray[6], Vector2 (66, 96))
+			draw_texture(textureArray[6], Vector2 (66, 128))
+			draw_texture(textureArray[6], Vector2 (98, 96))
 			
 			
 func NextShape():
 	match shapeToDraw:
 		1: # I-shape
 			changeFBGArray.emit(shape1)
-			shapeToDraw = 2
+			
 		2: # L-shape
 			changeFBGArray.emit(shape2)
-			shapeToDraw = 3
+
 		3: # T-shape
 			changeFBGArray.emit(shape3)
-			shapeToDraw = 4
+
 		4: # J-shape
 			changeFBGArray.emit(shape4)
-			shapeToDraw = 5
+
 		5: # O-shape
 			changeFBGArray.emit(shape5)
-			shapeToDraw = 6
+
 		6: # Z-shape
 			changeFBGArray.emit(shape6)
-			shapeToDraw = 7
+
 		7: # S-shape
 			changeFBGArray.emit(shape7)
-			shapeToDraw = 1
+			
+	shapeArrayIndex += 1
+	if shapeArrayIndex >= shapeArray.size():
+		shapeArrayIndex = 0
+		
+	# shapeArrayIndex = randi_range(0, shapeArray.size() - 1)
+	shapeToDraw = shapeArray[shapeArrayIndex]
 	queue_redraw()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	shapeArrayIndex = randi_range(0, shapeArray.size() - 1)
+	shapeToDraw = shapeArray[shapeArrayIndex]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://b08rcmj6ibtgm"]
+
+[ext_resource type="Texture2D" uid="uid://crbskg6chk5ej" path="res://Sprites/Titles/Defeat.png" id="1_41c0t"]
+[ext_resource type="Script" path="res://Defeat Screen/Defeat_screen.gd" id="1_rju3d"]
+[ext_resource type="Texture2D" uid="uid://3yadqa4f8vv5" path="res://Sprites/Other Sprites/SkyBackground.png" id="2_nkoru"]
+[ext_resource type="Texture2D" uid="uid://c6qg7d3g3j8ve" path="res://Sprites/Titles/RestartButton.png" id="4_2li5x"]
+[ext_resource type="Texture2D" uid="uid://cpl7x1eo30jms" path="res://Sprites/Titles/QuitButton.png" id="5_pgtoy"]
+[ext_resource type="AudioStream" uid="uid://c7uvqkn72sl26" path="res://GameOver.mp3" id="5_xl4al"]
+
+[node name="DefeatScreen" type="CanvasLayer"]
+script = ExtResource("1_rju3d")
+
+[node name="SkyBackground" type="Sprite2D" parent="."]
+position = Vector2(962, 524)
+texture = ExtResource("2_nkoru")
+metadata/_edit_lock_ = true
+
+[node name="Defeat" type="Sprite2D" parent="."]
+position = Vector2(976, 285)
+scale = Vector2(2, 2)
+texture = ExtResource("1_41c0t")
+
+[node name="GameOver" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_xl4al")
+autoplay = true
+
+[node name="QuitButton" type="TextureButton" parent="."]
+offset_left = 800.0
+offset_top = 780.0
+offset_right = 1115.0
+offset_bottom = 945.0
+texture_normal = ExtResource("5_pgtoy")
+
+[node name="RestartButton" type="TextureButton" parent="."]
+offset_left = 700.0
+offset_top = 570.0
+offset_right = 1225.0
+offset_bottom = 727.0
+texture_normal = ExtResource("4_2li5x")
+
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://vo84phxvlva7"]
+
+[ext_resource type="Script" path="res://MainMenu/PlayMenu.gd" id="1_b1h7y"]
+[ext_resource type="Texture2D" uid="uid://3yadqa4f8vv5" path="res://Sprites/Other Sprites/SkyBackground.png" id="1_gnagm"]
+[ext_resource type="Texture2D" uid="uid://cfun23qgdm4q5" path="res://Sprites/Titles/SinglePlayerButton.png" id="2_de3le"]
+[ext_resource type="Texture2D" uid="uid://cu7xceiq7hq1" path="res://Sprites/Titles/MultiPlayerButton.png" id="3_3pom7"]
+[ext_resource type="Texture2D" uid="uid://d0sp51sabrp4k" path="res://Sprites/Titles/PracticeButton.png" id="4_s555c"]
+[ext_resource type="Texture2D" uid="uid://b6p2lvwsyuc4k" path="res://Sprites/Titles/TutorialButton.png" id="5_nkjy6"]
+[ext_resource type="Texture2D" uid="uid://cu4jxww5dgonn" path="res://Sprites/Titles/XButton.png" id="7_5k2hx"]
+
+[node name="PlayMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b1h7y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_gnagm")
+
+[node name="SinglePButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -340.0
+offset_right = 400.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_de3le")
+
+[node name="MultiPButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -160.0
+offset_right = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_3pom7")
+
+[node name="PracticeButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 20.0
+offset_right = 200.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_s555c")
+
+[node name="TutorialButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 200.0
+offset_right = 200.0
+offset_bottom = 332.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_nkjy6")
+
+[node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_bottom = 80.0
+grow_horizontal = 0
+texture_normal = ExtResource("7_5k2hx")
+
+[connection signal="pressed" from="SinglePButton" to="." method="_on_single_p_button_pressed"]
+[connection signal="pressed" from="MultiPButton" to="." method="_on_multi_p_button_pressed"]
+[connection signal="pressed" from="PracticeButton" to="." method="_on_practice_button_pressed"]
+[connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

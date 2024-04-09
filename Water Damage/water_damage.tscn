@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://niru1fo8yq7v"]
+
+[ext_resource type="Script" path="res://Water Damage/Water_Damage.gd" id="1_iwu05"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdpx3"]
+size = Vector2(448, 32)
+
+[node name="Water_Damage" type="Node2D"]
+script = ExtResource("1_iwu05")
+
+[node name="Damage_Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage_Area"]
+position = Vector2(224, 16)
+shape = SubResource("RectangleShape2D_jdpx3")
+debug_color = Color(0.843137, 0.34902, 0.415686, 0.419608)
