@@ -13,7 +13,6 @@
 [node name="block selection" type="Node2D"]
 position = Vector2(-230, -610)
 script = ExtResource("1_gk8cw")
-shapeArray = Array[int]([1, 2, 3, 4, 5, 6, 7])
 textureArray = Array[Texture2D]([ExtResource("2_l5dr8"), ExtResource("3_5fwub"), ExtResource("4_w7ftv"), ExtResource("5_nvc7e"), ExtResource("6_g73yt"), ExtResource("7_1ovpf"), ExtResource("8_7t7hx")])
 
 [node name="BackOfBkg" type="Sprite2D" parent="."]
