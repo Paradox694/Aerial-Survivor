@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://vo84phxvlva7"]
+[gd_scene load_steps=9 format=3 uid="uid://vo84phxvlva7"]
 
 [ext_resource type="Script" path="res://MainMenu/PlayMenu.gd" id="1_b1h7y"]
 [ext_resource type="Texture2D" uid="uid://3yadqa4f8vv5" path="res://Sprites/Other Sprites/SkyBackground.png" id="1_gnagm"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d0sp51sabrp4k" path="res://Sprites/Titles/PracticeButton.png" id="4_s555c"]
 [ext_resource type="Texture2D" uid="uid://b6p2lvwsyuc4k" path="res://Sprites/Titles/TutorialButton.png" id="5_nkjy6"]
 [ext_resource type="Texture2D" uid="uid://cu4jxww5dgonn" path="res://Sprites/Titles/XButton.png" id="7_5k2hx"]
+[ext_resource type="AudioStream" uid="uid://df87fd0s7nifn" path="res://Sounds/Backgroundsound.mp3" id="8_6jp63"]
 
 [node name="PlayMenu" type="Control"]
 layout_mode = 3
@@ -89,6 +90,10 @@ offset_left = -80.0
 offset_bottom = 80.0
 grow_horizontal = 0
 texture_normal = ExtResource("7_5k2hx")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_6jp63")
+autoplay = true
 
 [connection signal="pressed" from="SinglePButton" to="." method="_on_single_p_button_pressed"]
 [connection signal="pressed" from="MultiPButton" to="." method="_on_multi_p_button_pressed"]

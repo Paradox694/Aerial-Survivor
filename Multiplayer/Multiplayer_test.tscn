@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ctkdvsw52utxe"]
+[gd_scene load_steps=24 format=3 uid="uid://ctkdvsw52utxe"]
 
 [ext_resource type="PackedScene" uid="uid://b1g2bkbuln40b" path="res://Player/player.tscn" id="1_ie0jj"]
 [ext_resource type="PackedScene" uid="uid://cgtmwfxq5uaop" path="res://Death/Death.tscn" id="2_j0mdi"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bdqc6wuv7dowe" path="res://Sprites/Other Sprites/CloudBoarderEvil.png" id="18_bs1lc"]
 [ext_resource type="PackedScene" uid="uid://niru1fo8yq7v" path="res://Water Damage/water_damage.tscn" id="19_7ytil"]
 [ext_resource type="PackedScene" uid="uid://dxgs7a0ibnxlq" path="res://Timer/Water_timer.tscn" id="20_j6yh4"]
+[ext_resource type="AudioStream" uid="uid://df87fd0s7nifn" path="res://Sounds/Backgroundsound.mp3" id="21_irxt1"]
 
 [sub_resource type="GDScript" id="GDScript_xbwqi"]
 script/source = "extends Node2D
@@ -174,6 +175,10 @@ position = Vector2(-75, 39)
 
 [node name="WaterTimer" parent="." instance=ExtResource("20_j6yh4")]
 position = Vector2(954, 632)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_irxt1")
+autoplay = true
 
 [connection signal="death" from="Player" to="Death" method="MultiplayerDie"]
 [connection signal="death" from="Player2" to="Death" method="MultiplayerDie"]

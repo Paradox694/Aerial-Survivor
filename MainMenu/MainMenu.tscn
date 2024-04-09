@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://nhdd0ejmxc1g"]
+[gd_scene load_steps=7 format=3 uid="uid://nhdd0ejmxc1g"]
 
 [ext_resource type="Script" path="res://MainMenu/Main Menu.gd" id="1_q83xd"]
 [ext_resource type="Texture2D" uid="uid://csoif7jobwsn0" path="res://Sprites/Other Sprites/AerialSurvivorTT.png" id="2_ixo20"]
 [ext_resource type="Texture2D" uid="uid://wkq148tsmxfl" path="res://Sprites/Titles/PlayButton.png" id="3_qh42f"]
 [ext_resource type="Texture2D" uid="uid://d2qomt3n6j3po" path="res://Sprites/Titles/OptionButton.png" id="4_x26w0"]
 [ext_resource type="Texture2D" uid="uid://cpl7x1eo30jms" path="res://Sprites/Titles/QuitButton.png" id="5_27gpk"]
+[ext_resource type="AudioStream" uid="uid://df87fd0s7nifn" path="res://Sounds/Backgroundsound.mp3" id="6_te216"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -64,8 +65,12 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("5_27gpk")
 
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_te216")
+autoplay = true
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Play" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_2_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

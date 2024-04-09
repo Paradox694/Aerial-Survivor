@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cgh8ur4a7roul"]
+[gd_scene load_steps=25 format=3 uid="uid://cgh8ur4a7roul"]
 
 [ext_resource type="PackedScene" uid="uid://cgtmwfxq5uaop" path="res://Death/Death.tscn" id="1_a6c53"]
 [ext_resource type="Texture2D" uid="uid://dghuav4fngmq8" path="res://Sprites/Other Sprites/SkyBackgroundClear.png" id="1_wx4dr"]
@@ -14,13 +14,14 @@
 [ext_resource type="Texture2D" uid="uid://bhloxmnkbognx" path="res://Sprites/Blocks/YellowBlock.png" id="9_47864"]
 [ext_resource type="Texture2D" uid="uid://bhwigjm6u8rbt" path="res://Sprites/Other Sprites/CloudBoarder.png" id="10_jr1rv"]
 [ext_resource type="Script" path="res://Water/Water.gd" id="11_kvtad"]
-[ext_resource type="PackedScene" path="res://block_selection.tscn" id="13_0l3u7"]
+[ext_resource type="PackedScene" uid="uid://cj3qgtbe47h0h" path="res://block_selection.tscn" id="13_0l3u7"]
 [ext_resource type="Texture2D" uid="uid://bdqc6wuv7dowe" path="res://Sprites/Other Sprites/CloudBoarderEvil.png" id="14_111m0"]
 [ext_resource type="PackedScene" uid="uid://b1g2bkbuln40b" path="res://Player/player.tscn" id="15_tp70g"]
 [ext_resource type="PackedScene" uid="uid://niru1fo8yq7v" path="res://Water Damage/water_damage.tscn" id="16_57fqy"]
 [ext_resource type="Script" path="res://Grid/MainGridSystem.gd" id="16_us5bc"]
 [ext_resource type="PackedScene" uid="uid://bx6714qf5r53g" path="res://AI/AIplayer.tscn" id="17_2h1ot"]
 [ext_resource type="PackedScene" uid="uid://dxgs7a0ibnxlq" path="res://Timer/Water_timer.tscn" id="19_h2tgq"]
+[ext_resource type="AudioStream" uid="uid://df87fd0s7nifn" path="res://Sounds/Backgroundsound.mp3" id="22_xsaf8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svx37"]
 
@@ -160,6 +161,10 @@ moveoffset = 16
 
 [node name="Water timer" parent="." instance=ExtResource("19_h2tgq")]
 position = Vector2(954, 604)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_xsaf8")
+autoplay = true
 
 [connection signal="death" from="AIPlayer" to="Death" method="SingleplayerDie"]
 [connection signal="FBGResetArray" from="AIGrid" to="AIGrid/block selection" method="NextShape"]
