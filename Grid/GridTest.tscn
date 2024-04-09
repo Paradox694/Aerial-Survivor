@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://3ppfoccc3to3"]
+[gd_scene load_steps=21 format=3 uid="uid://3ppfoccc3to3"]
 
 [ext_resource type="PackedScene" uid="uid://cgtmwfxq5uaop" path="res://Death/Death.tscn" id="1_0u7fe"]
 [ext_resource type="Texture2D" uid="uid://3yadqa4f8vv5" path="res://Sprites/Other Sprites/SkyBackground.png" id="1_4bfp6"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cj3qgtbe47h0h" path="res://block_selection.tscn" id="13_dsfp6"]
 [ext_resource type="PackedScene" uid="uid://niru1fo8yq7v" path="res://Water Damage/water_damage.tscn" id="16_jcr5q"]
 [ext_resource type="PackedScene" uid="uid://dxgs7a0ibnxlq" path="res://Timer/Water_timer.tscn" id="17_y08v3"]
+[ext_resource type="AudioStream" uid="uid://df87fd0s7nifn" path="res://Sounds/Backgroundsound.mp3" id="19_dse6q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfgmb"]
 
@@ -90,6 +91,10 @@ moveoffset = 16
 
 [node name="WaterTimer" parent="MainGrid" instance=ExtResource("17_y08v3")]
 position = Vector2(-139, -287)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_dse6q")
+autoplay = true
 
 [connection signal="death" from="Player" to="Death" method="Die"]
 [connection signal="FBGResetArray" from="MainGrid" to="MainGrid/block selection" method="NextShape"]

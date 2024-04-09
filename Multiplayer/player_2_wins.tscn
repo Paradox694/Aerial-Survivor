@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://blqpdy0msdm7d"]
+[gd_scene load_steps=6 format=3 uid="uid://blqpdy0msdm7d"]
 
 [ext_resource type="Script" path="res://Multiplayer/player_wins.gd" id="1_7u0u7"]
 [ext_resource type="Texture2D" uid="uid://3yadqa4f8vv5" path="res://Sprites/Other Sprites/SkyBackground.png" id="1_h0qux"]
 [ext_resource type="Texture2D" uid="uid://dmgqby2lah2qt" path="res://Sprites/Titles/MainMenuButton.png" id="3_ge7mx"]
 [ext_resource type="Texture2D" uid="uid://c6qg7d3g3j8ve" path="res://Sprites/Titles/RestartButton.png" id="4_uijv7"]
+[ext_resource type="AudioStream" uid="uid://c7uvqkn72sl26" path="res://GameOver.mp3" id="5_dyqxf"]
 
 [node name="Player1Wins" type="CanvasLayer"]
 script = ExtResource("1_7u0u7")
@@ -51,6 +52,10 @@ theme_override_font_sizes/font_size = 50
 text = "Player 2 Wins"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="GameOver" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_dyqxf")
+autoplay = true
 
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
